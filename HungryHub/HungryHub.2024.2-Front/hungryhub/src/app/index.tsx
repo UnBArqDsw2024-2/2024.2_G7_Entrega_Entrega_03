@@ -10,7 +10,9 @@ export default function Index() {
     const [password, setPassword] = useState("")
 
     const handleLogin = async () => {
-        try {
+        
+        router.push("../(public)/login");
+        /* try {
             const body: UserBody = { email, password }
             const response = await loginUser(body);
             console.log(response)
@@ -21,26 +23,12 @@ export default function Index() {
         }
         catch (e) {
             console.error(e)
-        }
+        } */
     }
 
     return (
         <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-
-            <TextInput
-                value={email}
-                onChangeText={setEmail}
-                placeholder="Email"
-                style={{ borderWidth: 1, borderColor: "#000", margin: 10 }}
-            />
-            <TextInput
-                value={password}
-                onChangeText={setPassword}
-                placeholder="Password"
-                style={styles.textInput}
-            />
-
-            <Button title="Submit" onPress={handleLogin} />
+            <Button title="Login" onPress={handleLogin} />
         </View>
     );
 }
