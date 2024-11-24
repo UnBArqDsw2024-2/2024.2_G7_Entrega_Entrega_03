@@ -29,4 +29,14 @@ export const loginUser = async (credentials: UserBody) => {
     console.error("Erro ao logar usuário:", error);
     throw error;
   }
-}
+};
+
+export const logoutUser = async () => {
+  try {
+    await AsyncStorage.removeItem("access");
+    await AsyncStorage.removeItem("refresh");
+  } catch (error) {
+    console.error("Erro ao deslogar usuário:", error);
+    throw error;
+  }
+};
