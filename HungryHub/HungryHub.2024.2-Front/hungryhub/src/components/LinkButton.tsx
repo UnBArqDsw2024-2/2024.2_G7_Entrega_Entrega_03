@@ -9,6 +9,7 @@ export default function LinkButton({ title, onPress }: LinkButtonProps) {
     return (
         <Pressable
             style={styles.container}
+            onPress={onPress}
         >
             <View style={styles.buttonContainer}>
                 <Text
