@@ -3,15 +3,25 @@ import { View, Text, StyleSheet, Pressable, ActivityIndicator } from "react-nati
 import Input from "../../components/Input";
 import LinkButton from "../../components/LinkButton";
 import { router } from "expo-router";
-
+import { loginUser } from "../../api/services/user.service";
+import { UserBody } from "../../interfaces/user.interface";
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    
-    const handleLogin = () => {
-        // Login
+  const handleLogin = async () => {
+    try {
+      const body: UserBody = { email, password };
+      const response = await loginUser(body);
+      console.log(response);
+      router.push({
+        pathname: "../(auth)/",
+        params: { user: JSON.stringify(body) },
+      });
+    } catch (e) {
+      console.error(e);
+    }
     }
 
     const navigateRegister = () => {
