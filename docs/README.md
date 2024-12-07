@@ -4,7 +4,7 @@
 
 **Código da Disciplina**: FGA0208<br>
 **Número do Grupo**: 07<br>
-**Entrega**: 02<br>
+**Entrega**: 03<br>
 
 ## 👥 Alunos
 
@@ -27,22 +27,12 @@
 ## 💡 Sobre 
 O HungryHub é um aplicativo de entrega/delivery de comida, lanches e bebidas, que oferece acessibilidade e conveniência para clientes, entregadores e estabelecimentos por meio de uma plataforma simples e interativa com uma lógistica de entrega rápida e eficiente.
 
-Essa documentação visa armazenar e documentar todos os artefatos produzidos e resultados do desenvolvimento da primeira entrega do grupo 07 da disciplina de Arquitetura e Desenho de Software, ministrada pela professora Milene Serrano no segundo semestre letivo de 2024 na Universidade de Brasília (UnB). A segunda entrega se refere ao módulo **Modelagem** das diretrizes do projeto incluindo aos focos de **Modelagem Estática** & **Modelagem Dinâmica** & **Modelagem Organizacional/Casos de Uso**.
+Essa documentação visa armazenar e documentar todos os artefatos produzidos e resultados do desenvolvimento da terceira entrega do grupo 07 da disciplina de Arquitetura e Desenho de Software, ministrada pela professora Milene Serrano no segundo semestre letivo de 2024 na Universidade de Brasília (UnB). A terceira entrega se refere ao módulo **Padrões de Projeto** das diretrizes do projeto incluindo aos focos de **Padrões de Projeto GoFs Criacionais** & **Padrões de Projeto GoFs Estrutural** & **Padrões de Projeto GoFs Comportamental**.
 
 ## Screenshots da Primeira Entrega
 Adicione 2 ou mais screenshots em termos de artefatos realizados na entrega.
 
 <center>
-
-![diagrama-de-classes](assets/diagrama-de-classes.png)
-
-![diagrama-de-componentes](assets/profile-section.png)
-
-![diagrama-de-atividades](assets/image-1.png)
-
-![diagrama-de-estados](assets/Diagrama%20de%20Estados.jpg)
-
-![diagrama-de-casos-de-uso-geral](assets/casos-de-uso-geral.png)
 
 
 </center>
@@ -53,7 +43,7 @@ Adicione 2 ou mais screenshots em termos de artefatos realizados na entrega.
 
 ( ) NÃO
 
-O ambiente de desenvolvimento do projeto foi configurado e pode ser encontrado na branch [dev](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_02/tree/dev) do repositório. Na branch foi criado um documento para auxiliar a configurar o ambiente de desenvolvimento e executar o projeto.
+O ambiente de desenvolvimento do projeto foi configurado e pode ser encontrado na branch [dev](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/tree/dev) do repositório. Na branch foi criado um documento para auxiliar a configurar o ambiente de desenvolvimento e executar o projeto.
 
 ### Back
 
@@ -120,5 +110,4 @@ Após isso, basta escanear o QR Code com o aplicativo `Expo Go` no seu celular, 
 
 | Versão | Data da alteração | Comentário | Autor(es) | Revisor(es) | Data de revisão |
 | -- | -- | -- | -- | -- | -- |
-| 1.0 | 13/11/2024 | Criação do documento | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) | | |
-| 1.1 | 28/11/2024 | Adicionando elementos da entrega 2 | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) | | |
+| 1.0 | 07/12/2024 | Criação do documento | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) | | |
