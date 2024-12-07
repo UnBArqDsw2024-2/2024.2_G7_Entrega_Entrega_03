@@ -3,6 +3,7 @@
 - [Sobre o projeto](/)
 - [Código de Conduta](/CodigoConduta.md)
 - [Guia de Contribuição](/GuiaContribuicao.md)
+- [Template](/Template.md)
 - [Projetos](/Projetos/Projetos.md)
 
 - **Padrões de Projeto**
