@@ -1,23 +1,194 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, Text, StyleSheet, TextInput } from "react-native";
 import Input from "../../components/Input";
+import FormInput from "../../components/FormInput";
 import LinkButton from "../../components/LinkButton";
+import { RegisterUserBody } from "../../interfaces/registerUser.interface";
+import { createUser } from "../../api/services/user.service";
+import { router } from "expo-router";
+
+// Regex para validação de CPF, e-mail, telefone, senha e CEP
+const CPF_REGEX = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const PHONE_REGEX = /^\(\d{2}\) \d{5}-\d{4}$/;
+// Senha deve conter no mínimo 8 caracteres, sendo pelo menos uma letra e um número
+const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+const CEP_REGEX = /^\d{5}-\d{3}$/;
 
 export default function Register() {
+    const [formData, setFormData] = useState({
+        name: "",
+        cpf: "",
+        email: "",
+        phone: "",
+        password: "",
+        confirmPassword: "",
+        cep: "",
+    });
+    const [formErrors, setFormErrors] = useState({
+        cpf: "",
+        email: "",
+        phone: "",
+        password: "",
+        confirmPassword: "",
+        cep: "",
+    });
+    const [error, setError] = useState("");
+    const [formValid, setFormValid] = useState(false);
+
+    const handleChange = (field: string, value: string) => {
+        setFormData({ ...formData, [field]: value });
+    }
+
+    useEffect(() => {
+        if (formData.cpf && !CPF_REGEX.test(formData.cpf)) {
+            setFormErrors({ ...formErrors, cpf: "CPF inválido" });
+        } else {
+            setFormErrors({ ...formErrors, cpf: "" });
+        }
+    }, [formData.cpf]);
+
+    useEffect(() => {
+        if (formData.email && !EMAIL_REGEX.test(formData.email)) {
+            setFormErrors({ ...formErrors, email: "E-mail inválido" });
+        } else {
+            setFormErrors({ ...formErrors, email: "" });
+        }
+    }, [formData.email]);
+
+    useEffect(() => {
+        if (formData.phone && !PHONE_REGEX.test(formData.phone)) {
+            setFormErrors({ ...formErrors, phone: "Telefone inválido" });
+        } else {
+            setFormErrors({ ...formErrors, phone: "" });
+        }
+    }, [formData.phone]);
+
+    useEffect(() => {
+        if (formData.password && !PASSWORD_REGEX.test(formData.password)) {
+            setFormErrors({
+                ...formErrors,
+                password: "A senha deve conter no mínimo 8 caracteres, sendo pelo menos uma letra e um número"
+            });
+        } else {
+            setFormErrors({ ...formErrors, password: "" });
+        }
+    }, [formData.password]);
+
+    useEffect(() => {
+        if (formData.confirmPassword !== formData.password) {
+            setFormErrors({ ...formErrors, confirmPassword: "Senhas não conferem" });
+        } else {
+            setFormErrors({ ...formErrors, confirmPassword: "" });
+        }
+    }, [formData.confirmPassword]);
+
+    useEffect(() => {
+        if (formData.cep && !CEP_REGEX.test(formData.cep)) {
+            setFormErrors({ ...formErrors, cep: "CEP inválido" });
+        } else {
+            setFormErrors({ ...formErrors, cep: "" });
+        }
+    }, [formData.cep]);
+
+    // Verifica se todos os campos estão preenchidos e se não há erros
+    useEffect(() => {
+        const inputsEmpty = Object.values(formData).some((value) => value === "");
+        if (inputsEmpty) {
+            setFormValid(false);
+            return;
+        }
+        const valid = Object.values(formErrors).every((error) => error === "");
+        setFormValid(valid);
+    }, [formErrors]);
+
+    const handleRegister = async () => {
+        try {
+            const body: RegisterUserBody = {
+                name: formData.name,
+                cpf: formData.cpf,
+                email: formData.email,
+                phone: formData.phone,
+                password: formData.password,
+                cep: formData.cep,
+            };
+            // TODO: Implementar a chamada para a API
+            // const response = await createUser(body);
+            // console.log(response);
+            router.push({
+                pathname: "./login",
+            });
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Cadastro</Text>
+            <View style={styles.formContainer}>
+                <Text style={styles.title}>Cadastro</Text>
 
-            <Input placeholder="Nome do usuário" />
-            <Input placeholder="CPF" />
-            <Input placeholder="E-mail" />
-            <Input placeholder="Telefone" />
-            <Input placeholder="Senha" />
-            <Input placeholder="Confirmar senha" />
-            <Input placeholder="CEP" />
+                <FormInput
+                    label="Nome"
+                    placeholder="Nome do usuário"
+                    value={formData.name}
+                    onChangeText={(value) => handleChange("name", value)}
+                />
 
-            <LinkButton title="Criar Conta" />
+                <FormInput
+                    label="CPF"
+                    placeholder="CPF"
+                    value={formData.cpf}
+                    onChangeText={(value) => handleChange("cpf", value)}
+                    error={formErrors.cpf}
+                />
 
+                <FormInput
+                    label="E-mail"
+                    placeholder="E-mail"
+                    value={formData.email}
+                    onChangeText={(value) => handleChange("email", value)}
+                    error={formErrors.email}
+                />
+
+                <FormInput
+                    label="Telefone"
+                    placeholder="Telefone"
+                    value={formData.phone}
+                    onChangeText={(value) => handleChange("phone", value)}
+                    error={formErrors.phone}
+                />
+
+                <FormInput
+                    label="Senha"
+                    secureTextEntry={true}
+                    placeholder="Senha"
+                    style={styles.pwdInput}
+                    value={formData.password}
+                    onChangeText={(value) => handleChange("password", value)}
+                    error={formErrors.password}
+                />
+
+                <FormInput
+                    label="Confirme a senha"
+                    secureTextEntry={true}
+                    placeholder="Confirme a senha"
+                    style={styles.pwdInput}
+                    value={formData.confirmPassword}
+                    onChangeText={(value) => handleChange("confirmPassword", value)}
+                    error={formErrors.confirmPassword}
+                />
+
+                <FormInput
+                    label="CEP"
+                    placeholder="CEP"
+                    value={formData.cep}
+                    onChangeText={(value) => handleChange("cep", value)}
+                    error={formErrors.cep}
+                />
+
+                <LinkButton title="Criar Conta" onPress={handleRegister} disabled={!formValid} />
+            </View>
         </View>
     );
 }
@@ -27,6 +198,12 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        width: '100%',
+    },
+    formContainer: {
+        width: '70%',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     title: {
         fontSize: 40,
@@ -34,4 +211,17 @@ const styles = StyleSheet.create({
         color: '#EB001B',
         marginBottom: 20,
     },
+    error: {
+        width: '80%',
+        marginHorizontal: 10,
+        color: '#EB001B',
+    },
+    pwdInput: {
+        borderWidth: 1,
+        borderColor: "#161616",
+        padding: 10,
+        margin: 10,
+        width: "80%",
+        borderRadius: 10,
+    }
 });
