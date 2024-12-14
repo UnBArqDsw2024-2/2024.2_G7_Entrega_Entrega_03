@@ -42,7 +42,7 @@ export default function Register() {
 
     useEffect(() => {
         if (formData.cpf && !CPF_REGEX.test(formData.cpf)) {
-            setFormErrors({ ...formErrors, cpf: "CPF inválido" });
+            setFormErrors({ ...formErrors, cpf: "CPF inválido. Ex.: 533.121.453-33" });
         } else {
             setFormErrors({ ...formErrors, cpf: "" });
         }
@@ -58,7 +58,7 @@ export default function Register() {
 
     useEffect(() => {
         if (formData.phone && !PHONE_REGEX.test(formData.phone)) {
-            setFormErrors({ ...formErrors, phone: "Telefone inválido" });
+            setFormErrors({ ...formErrors, phone: "Telefone inválido. Ex.: (94) 97181-5631" });
         } else {
             setFormErrors({ ...formErrors, phone: "" });
         }
@@ -85,7 +85,7 @@ export default function Register() {
 
     useEffect(() => {
         if (formData.cep && !CEP_REGEX.test(formData.cep)) {
-            setFormErrors({ ...formErrors, cep: "CEP inválido" });
+            setFormErrors({ ...formErrors, cep: "CEP inválido. Ex.: 72896-378" });
         } else {
             setFormErrors({ ...formErrors, cep: "" });
         }
@@ -163,7 +163,6 @@ export default function Register() {
                     label="Senha"
                     secureTextEntry={true}
                     placeholder="Senha"
-                    style={styles.pwdInput}
                     value={formData.password}
                     onChangeText={(value) => handleChange("password", value)}
                     error={formErrors.password}
@@ -173,7 +172,6 @@ export default function Register() {
                     label="Confirme a senha"
                     secureTextEntry={true}
                     placeholder="Confirme a senha"
-                    style={styles.pwdInput}
                     value={formData.confirmPassword}
                     onChangeText={(value) => handleChange("confirmPassword", value)}
                     error={formErrors.confirmPassword}
@@ -188,6 +186,8 @@ export default function Register() {
                 />
 
                 <LinkButton title="Criar Conta" onPress={handleRegister} disabled={!formValid} />
+
+                <Text style={styles.error}>{error}</Text>
             </View>
         </View>
     );
@@ -212,16 +212,6 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     error: {
-        width: '80%',
-        marginHorizontal: 10,
         color: '#EB001B',
     },
-    pwdInput: {
-        borderWidth: 1,
-        borderColor: "#161616",
-        padding: 10,
-        margin: 10,
-        width: "80%",
-        borderRadius: 10,
-    }
 });
