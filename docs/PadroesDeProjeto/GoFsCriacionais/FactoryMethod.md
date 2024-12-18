@@ -24,10 +24,26 @@
 
 ### Componente de Input para Formulário
 
-Tecnologia: `React Native`
+**Tecnologia:** `React Native`
 
 Criação de um componente de input para formulário, que pode ser utilizado para criar inputs de diversos tipos, como text, password, email, etc. O componente é criado a partir de um factory method, que recebe um tipo de input a partir de props e retorna o componente correspondente.
 
+<details>
+<summary><b>Implementação em Código</b></summary>
+
+**Componente [InputFactory.tsx](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/blob/12-us01/src/HungryHub.2024.2-Front/hungryhub/src/components/InputFactory.tsx)**:
+
+![InputFactory](./assets/inputfactory.png)
+
+**Implementação do InputFactory no [FormInput.tsx](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/blob/12-us01/src/HungryHub.2024.2-Front/hungryhub/src/components/FormInput.tsx)**:
+
+![FormInput](./assets/form-input.png)
+
+**Utilização no [Register.tsx](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/blob/12-us01/src/HungryHub.2024.2-Front/hungryhub/src/app/(public)/register.tsx)**:
+
+![Formulário](./assets/implementacao-inputfactory.png)
+
+</details>
 
 <center>
 
@@ -56,4 +72,4 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo)
 | Versão | Data da alteração | Comentário | Autor(es) | Revisor(es) | Data de revisão |
 |--------|-----------|-----------|-----------|-------------|-------------|
 | 1.0 | 17/12/2024 | Criação do documento | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |  |  |
-| 1.1 | 17/12/2024 | Adição do exemplo de FormInput | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |  |  |
+| 1.1 | 17/12/2024 | Adição do exemplo de InputFactory | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |  |  |
