@@ -8,7 +8,7 @@ import { createUser } from "../../api/services/user.service";
 import { router } from "expo-router";
 
 // Regex para validação de CPF, e-mail, telefone, senha e CEP
-const CPF_REGEX = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+const CPF_REGEX = /^\d{3}\d{3}\d{3}\d{2}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const PHONE_REGEX = /^\(\d{2}\) \d{5}-\d{4}$/;
 // Senha deve conter no mínimo 8 caracteres, sendo pelo menos uma letra e um número
@@ -42,7 +42,7 @@ export default function Register() {
 
     useEffect(() => {
         if (formData.cpf && !CPF_REGEX.test(formData.cpf)) {
-            setFormErrors({ ...formErrors, cpf: "CPF inválido. Ex.: 533.121.453-33" });
+            setFormErrors({ ...formErrors, cpf: "CPF inválido. Ex.: 53312145333" });
         } else {
             setFormErrors({ ...formErrors, cpf: "" });
         }
@@ -130,6 +130,7 @@ export default function Register() {
 
                 <FormInput
                     label="Nome"
+                    type="text"
                     placeholder="Nome do usuário"
                     value={formData.name}
                     onChangeText={(value) => handleChange("name", value)}
@@ -137,6 +138,7 @@ export default function Register() {
 
                 <FormInput
                     label="CPF"
+                    type="numeric"
                     placeholder="CPF"
                     value={formData.cpf}
                     onChangeText={(value) => handleChange("cpf", value)}
@@ -145,6 +147,7 @@ export default function Register() {
 
                 <FormInput
                     label="E-mail"
+                    type="email"
                     placeholder="E-mail"
                     value={formData.email}
                     onChangeText={(value) => handleChange("email", value)}
@@ -153,6 +156,7 @@ export default function Register() {
 
                 <FormInput
                     label="Telefone"
+                    type="phone"
                     placeholder="Telefone"
                     value={formData.phone}
                     onChangeText={(value) => handleChange("phone", value)}
@@ -161,7 +165,7 @@ export default function Register() {
 
                 <FormInput
                     label="Senha"
-                    secureTextEntry={true}
+                    type="password"
                     placeholder="Senha"
                     value={formData.password}
                     onChangeText={(value) => handleChange("password", value)}
@@ -170,7 +174,7 @@ export default function Register() {
 
                 <FormInput
                     label="Confirme a senha"
-                    secureTextEntry={true}
+                    type="password"
                     placeholder="Confirme a senha"
                     value={formData.confirmPassword}
                     onChangeText={(value) => handleChange("confirmPassword", value)}

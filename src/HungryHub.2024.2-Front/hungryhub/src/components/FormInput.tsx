@@ -1,22 +1,17 @@
 import React from "react";
-import { TextInput, TextInputProps, StyleSheet, View, Text } from "react-native";
-import Input from "./Input";
+import { StyleSheet, View, Text } from "react-native";
+import InputFactory, { InputFactoryProps } from "./InputFactory";
 
-interface InputProps extends TextInputProps {
+interface FormInputProps extends InputFactoryProps {
     label: string;
     error?: string;
 }
 
-export default function FormInput({ label, secureTextEntry, value, onChangeText, placeholder, error }: InputProps) {
+export default function FormInput({ label, error, ...props }: FormInputProps) {
     return (
         <View style={styles.container}>
             <Text style={styles.labelText}>{label}</Text>
-            <Input
-                secureTextEntry={secureTextEntry}
-                placeholder={placeholder}
-                value={value}
-                onChangeText={onChangeText}
-            />
+            <InputFactory {...props} />
             <Text style={styles.errorText}>{error}</Text>
         </View>
     );
