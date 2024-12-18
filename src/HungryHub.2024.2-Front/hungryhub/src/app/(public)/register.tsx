@@ -177,14 +177,6 @@ export default function Register() {
                     error={formErrors.confirmPassword}
                 />
 
-                <FormInput
-                    label="CEP"
-                    placeholder="CEP"
-                    value={formData.cep}
-                    onChangeText={(value) => handleChange("cep", value)}
-                    error={formErrors.cep}
-                />
-
                 <LinkButton title="Criar Conta" onPress={handleRegister} disabled={!formValid} />
 
                 <Text style={styles.error}>{error}</Text>
