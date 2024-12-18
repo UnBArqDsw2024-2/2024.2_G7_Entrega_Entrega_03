@@ -16,17 +16,22 @@
 - **Ferramentas Utilizadas**: Ferramentas empregadas na criação deste artefato (ex.: LucidChart, GitHub).
 - **Justificativa**: Razões para as escolhas metodológicas e tecnológicas. -->
 
-## Exemplo de Implementação no Projeto
+## Implementações no Código Fonte
 
 <!-- Descreva como o padrão foi implementado no projeto, incluindo código e diagramas. -->
 
-## Implementações no Código Fonte
+
+
+### Componente de Input para Formulário
+
+Tecnologia: `React Native`
+
+Criação de um componente de input para formulário, que pode ser utilizado para criar inputs de diversos tipos, como text, password, email, etc. O componente é criado a partir de um factory method, que recebe um tipo de input a partir de props e retorna o componente correspondente.
+
 
 <center>
 
-| Padrão | Descrição | Documento(s) ou Commit(s) | Autor(es) |
-| -- | -- | -- | -- |
-| Factory Method | Descreva a implementação e o contexto do padrão no código | [Commit](link-commit), [Documento](link-documento) | [Pessoa 1](link-github), [Pessoa 2](link-github) |
+Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo)
 
 </center>
 
@@ -51,3 +56,4 @@
 | Versão | Data da alteração | Comentário | Autor(es) | Revisor(es) | Data de revisão |
 |--------|-----------|-----------|-----------|-------------|-------------|
 | 1.0 | 17/12/2024 | Criação do documento | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |  |  |
+| 1.1 | 17/12/2024 | Adição do exemplo de FormInput | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |  |  |
