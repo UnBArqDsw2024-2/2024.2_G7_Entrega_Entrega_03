@@ -14,12 +14,7 @@ export default function Login() {
     const handleLogin = async () => {
         try {
             const body: UserBody = { email, password };
-            const response = await loginUser(body);
-            console.log(response);
-            router.push({
-                pathname: "../(auth)/",
-                params: { user: JSON.stringify(body) },
-            });
+            await loginUser(body);
         } catch (e) {
             console.error(e);
         }
