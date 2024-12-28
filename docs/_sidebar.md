@@ -13,3 +13,4 @@
     - [3.3. Padrões de Projeto GoFs Comportamentais](/PadroesDeProjeto/GoFsComportamentais/3.3.GoFsComportamentais.md)
     - [3.4. Participações - Padrões de Projeto](/PadroesDeProjeto/3.4.ParticipacoesPadroes.md)
     - [3.5. Iniciativas Extras - Padrões de Projeto](/PadroesDeProjeto/Extra/3.5.IniciativasExtras.md)
+      - [Elos entre Desenvolvimento e Histórias de Usuário](/PadroesDeProjeto/Extra/ElosHistorias.md)
