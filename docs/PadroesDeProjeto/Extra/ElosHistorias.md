@@ -43,6 +43,48 @@ Além disso, iremos adicionar a rastreabilidade das branches e pull requests com
 
 Os responsáveis por preencher a tabela são os membros do time, que devem garantir que os elos entre as histórias de usuário e as tarefas de desenvolvimento sejam criados e mantidos atualizados. Esse processo será feito durante o desenvolvimento do projeto e as futuras entregas.
 
+## Elos entre Desenvolvimento e Histórias de Usuário
+
+| História de Usuário | Issue de Desenvolvimento | Branch | Pull Request |
+|----------------------|---------------------------|--------|--------------|
+| [US01](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us01) - CRUD da conta	 | [Issue #12](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/issues/12) - US01 - CRUD de Conta | [12-us01](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/tree/12-us01) | [PR #XX]() - |
+| [US02](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us02) - Login | [Issue #13](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/issues/13) - US02 - Login | []() | [PR #XX]() - |
+| [US03](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us03) - Sair da conta	 | [Issue #14](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/issues/14) - US03 - Sair da conta | []() | [PR #XX]() - |
+| [US04](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us04) - Recuperar senha | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US05](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us05) - Editar informações do perfil | [Issue #16](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/issues/16) - US05 - Editar informações do perfil | [16-US05](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/tree/16-US05) | [PR #XX]() - |
+| [US06](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us06) - Cadastrar endereço | [Issue #17](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/issues/17) - US06 - Cadastrar endereço | []() | [PR #XX]() - |
+| [US07](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us07) - Visualizar produtos | [Issue #18](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/issues/18) - US07 - Visualizar produtos (CRUD de Produto) | []() | [PR #XX]() - |
+| [US08](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us08) - Visualizar recomendações | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US09](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us09) - Buscar lojas e/ou produtos | [Issue #19](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/issues/19) - US09 - Buscar lojas/produtos (CRUD de lojas) | []() | [PR #XX]() - |
+| [US10](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us10) - Utilizar filtros de busca | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US11](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us11) - Visualizar e adicionar itens aos favoritos | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US12](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us12) - Adicionar e remover itens do carrinho | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US13](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us13) - Visualizar carrinho | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US14](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us14) - Personalizar itens do pedido | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US15](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us15) - Adicionar observações ao pedido | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US16](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us16) - Selecionar endereço de entrega | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US17](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us17) - Escolher forma de pagamento na confirmação | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US18](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us18) - Revisar e confirmar o pedido | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US19](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us19) - Visualizar histórico de pedidos | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US20](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us20) - Repetir um pedido anterior | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US21](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us21) - Acompanhar status do pedido | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US22](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us22) - Selecionar forma de pagamento | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US23](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us23) - Salvar dados de pagamento | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US24](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us24) - Segurança nos pagamentos | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US25](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us25) - Rastreio do pedido | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US26](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us26) - Retirada do pedido | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US27](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us27) - Confirmar entrega do pedido | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US28](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us28) - Escolher o tipo de entregador | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US29](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us29) - Avaliar entregador | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US30](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us30) - Avaliar pedido | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US31](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us31) - Avaliar entrega | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US32](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us32) - Personalizar cardápio | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US33](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us33) - Personalizar aparência | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US34](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us34) - Receber notificações de pedidos | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US35](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us35) - Aceitar entregas de pedidos | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US36](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us36) - Localizar lojas | [Issue #XX]() - | []() | [PR #XX]() - |
+| [US37](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us37) - Localizar Pedidos | [Issue #XX]() - | []() | [PR #XX]() - |
+
 ## Referências
 
 1. Sommerville, I. (2011). Software Engineering (9th Edition). Addison-Wesley.
