@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import Usuario
+from .models import Cliente, Usuario
 
 class UsuarioCreationForm(UserCreationForm):
   class Meta:
@@ -36,3 +36,4 @@ class UsuarioAdmin(BaseUserAdmin):
   filter_horizontal = ('groups', 'user_permissions')
 
 admin.site.register(Usuario, UsuarioAdmin)
+admin.site.register(Cliente)
