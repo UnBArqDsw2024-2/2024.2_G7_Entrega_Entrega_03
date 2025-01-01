@@ -110,7 +110,6 @@ export default function Register() {
                 email: formData.email,
                 phone: formData.phone,
                 password: formData.password,
-                cep: formData.cep,
             };
             // TODO: Implementar a chamada para a API
             // const response = await createUser(body);

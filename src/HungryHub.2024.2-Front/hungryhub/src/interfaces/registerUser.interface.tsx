@@ -4,5 +4,4 @@ export interface RegisterUserBody {
     email: string;
     phone: string;
     password: string;
-    cep: string;
 }
