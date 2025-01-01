@@ -5,7 +5,16 @@ export interface User {
     email: string;
     first_name: string;
 }
-export interface UserBody  {
+
+export interface UserBody {
+    first_name: string;
+    cpf: string;
     email: string;
-    password: string
+    phone: string;
+    password: string;
+}
+
+export interface UserLogin {
+    email: string;
+    password: string;
 }

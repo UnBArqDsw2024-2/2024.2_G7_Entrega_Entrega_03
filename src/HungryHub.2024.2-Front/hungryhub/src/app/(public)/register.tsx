@@ -3,16 +3,16 @@ import { View, Text, StyleSheet, TextInput } from "react-native";
 import Input from "../../components/Input";
 import FormInput from "../../components/FormInput";
 import LinkButton from "../../components/LinkButton";
-import { RegisterUserBody } from "../../interfaces/registerUser.interface";
 import { createUser } from "../../api/services/user.service";
 import { router } from "expo-router";
+import { UserBody } from "../../interfaces/user.interface";
 
 // Regex para validação de CPF, e-mail, telefone, senha e CEP
 const CPF_REGEX = /^\d{3}\d{3}\d{3}\d{2}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-const PHONE_REGEX = /^\(\d{2}\) \d{5}-\d{4}$/;
+const PHONE_REGEX = /^\d{11}$/;
 // Senha deve conter no mínimo 8 caracteres, sendo pelo menos uma letra e um número
-const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
 const CEP_REGEX = /^\d{5}-\d{3}$/;
 
 export default function Register() {
@@ -23,7 +23,6 @@ export default function Register() {
         phone: "",
         password: "",
         confirmPassword: "",
-        cep: "",
     });
     const [formErrors, setFormErrors] = useState({
         cpf: "",
@@ -58,7 +57,7 @@ export default function Register() {
 
     useEffect(() => {
         if (formData.phone && !PHONE_REGEX.test(formData.phone)) {
-            setFormErrors({ ...formErrors, phone: "Telefone inválido. Ex.: (94) 97181-5631" });
+            setFormErrors({ ...formErrors, phone: "Telefone inválido. Ex.: 94971815631" });
         } else {
             setFormErrors({ ...formErrors, phone: "" });
         }
@@ -81,15 +80,7 @@ export default function Register() {
         } else {
             setFormErrors({ ...formErrors, confirmPassword: "" });
         }
-    }, [formData.confirmPassword]);
-
-    useEffect(() => {
-        if (formData.cep && !CEP_REGEX.test(formData.cep)) {
-            setFormErrors({ ...formErrors, cep: "CEP inválido. Ex.: 72896-378" });
-        } else {
-            setFormErrors({ ...formErrors, cep: "" });
-        }
-    }, [formData.cep]);
+    }, [formData.confirmPassword, formData.password]);
 
     // Verifica se todos os campos estão preenchidos e se não há erros
     useEffect(() => {
@@ -104,21 +95,21 @@ export default function Register() {
 
     const handleRegister = async () => {
         try {
-            const body: RegisterUserBody = {
-                name: formData.name,
+            const body: UserBody = {
+                first_name: formData.name,
                 cpf: formData.cpf,
                 email: formData.email,
                 phone: formData.phone,
                 password: formData.password,
             };
-            // TODO: Implementar a chamada para a API
-            // const response = await createUser(body);
-            // console.log(response);
+            const response = await createUser(body);
+            console.log(response);
             router.push({
                 pathname: "./login",
             });
         } catch (e) {
             console.error(e);
+            // TODO: Tratar erro
         }
     }
 
