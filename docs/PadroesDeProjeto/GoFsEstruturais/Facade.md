@@ -22,6 +22,24 @@
 
 
 
+### Função `handleLogin` na tela de Login
+
+**Tecnologia:** `React Native`
+
+A função `handleLogin` atua como uma fachada para o processo de login. Ela encapsula a complexidade da lógica de autenticação, incluindo a construção do objeto UserBody, a chamada da função `loginUser`, o tratamento de erros e a navegação do usuário em uma única função. Os detalhes internos são escondidos do restante do componente.
+
+
+<details>
+<summary><b>Implementação em Código</b></summary>
+
+**Função** [handleLogin]()
+
+![handleLogin](assets/handleLogin.png)
+
+</details>
+
+Autores: [Guilherme Westphall](https://github.com/west7)
+
 ### Encapsulamento de chamadas de API do serviço de usuário
 
 **Tecnologia:** `React Native`
@@ -59,9 +77,9 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Lucas Mart
 
 <!-- Adicione uma seção para mapear decisões a requisitos ou justificativas técnicas.
 
-| Decisão Relacionada | Justificativa | Elo | Data |
-| -- | -- | -- | -- |
-| Escolha de arquitetura em camadas | Modularidade e separação de responsabilidades | [R01]() | 07/12/2024 | -->
+| Decisão Relacionada               | Justificativa                                 | Elo     | Data       |
+| --------------------------------- | --------------------------------------------- | ------- | ---------- |
+| Escolha de arquitetura em camadas | Modularidade e separação de responsabilidades | [R01]() | 07/12/2024 | --> 
 
 ## Referências
 
@@ -71,7 +89,8 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Lucas Mart
 
 ## Histórico de Versões
 
-| Versão | Data da alteração | Comentário | Autor(es) | Revisor(es) | Data de revisão |
-|--------|-----------|-----------|-----------|-------------|-------------|
-| 1.0 | 02/01/2025 | Criação do documento | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |  |  |
-| 1.1 | 02/01/2025 | Adição da implementação do serviço de usuário | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Lucas Martins Gabriel](https://github.com/martinsglucas), [Guilherme Westphall de Queiroz](https://github.com/west7) |  |  |
+| Versão | Data da alteração | Comentário                   | Autor(es)                                       | Revisor(es) | Data de revisão |
+| ------ | ----------------- | ---------------------------- | ----------------------------------------------- | ----------- | --------------- |
+| 1.0    | 27/12/2024        | Criação do documento         | [Guilherme Westphall](https://github.com/west7) |             |                 |
+| 1.1    | 27/12/2024        | Adição da função handleLogin | [Guilherme Westphall](https://github.com/west7) |             |                 |# Facade
+| 1.2 | 02/01/2025 | Adição da implementação do serviço de usuário | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Lucas Martins Gabriel](https://github.com/martinsglucas), [Guilherme Westphall de Queiroz](https://github.com/west7) |  |  |
