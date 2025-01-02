@@ -6,6 +6,7 @@ import LinkButton from "../../components/LinkButton";
 import { createUser } from "../../api/services/user.service";
 import { router } from "expo-router";
 import { UserBody } from "../../interfaces/user.interface";
+import Toast from "react-native-toast-message";
 
 // Regex para validação de CPF, e-mail, telefone, senha e CEP
 const CPF_REGEX = /^\d{3}\d{3}\d{3}\d{2}$/;
@@ -32,7 +33,6 @@ export default function Register() {
         confirmPassword: "",
         cep: "",
     });
-    const [error, setError] = useState("");
     const [formValid, setFormValid] = useState(false);
 
     const handleChange = (field: string, value: string) => {
@@ -108,8 +108,11 @@ export default function Register() {
                 pathname: "./login",
             });
         } catch (e) {
-            console.error(e);
-            // TODO: Tratar erro
+            Toast.show({
+                type: "error",
+                text1: "Erro ao criar usuário",
+                text2: "Verifique suas credenciais e tente novamente",
+            });
         }
     }
 
@@ -172,8 +175,6 @@ export default function Register() {
                 />
 
                 <LinkButton title="Criar Conta" onPress={handleRegister} disabled={!formValid} />
-
-                <Text style={styles.error}>{error}</Text>
             </View>
         </View>
     );

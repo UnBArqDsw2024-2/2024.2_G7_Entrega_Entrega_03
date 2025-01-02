@@ -6,6 +6,7 @@ import { loginUser } from "../../api/services/user.service";
 import { UserLogin } from "../../interfaces/user.interface";
 import FormInput from "../../components/FormInput";
 import { useAuth } from "../../context/AuthProvider";
+import Toast from "react-native-toast-message";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -30,6 +31,11 @@ export default function Login() {
             router.push("../(auth)/")
         } catch (e) {
             console.error(e);
+            Toast.show({
+                type: "error",
+                text1: "Erro ao fazer login",
+                text2: "Verifique suas credenciais e tente novamente",
+            });
         }
     }
 
