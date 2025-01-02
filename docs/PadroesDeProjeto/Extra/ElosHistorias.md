@@ -47,8 +47,8 @@ Os responsáveis por preencher a tabela são os membros do time, que devem garan
 
 | História de Usuário | Issue de Desenvolvimento | Branch | Pull Request |
 |----------------------|---------------------------|--------|--------------|
-| [US01](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us01) - CRUD da conta	 | [Issue #12](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/issues/12) - US01 - CRUD de Conta | [12-us01](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/tree/12-us01) | [PR #XX]() - |
-| [US02](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us02) - Login | [Issue #13](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/issues/13) - US02 - Login | []() | [PR #XX]() - |
+| [US01](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us01) - CRUD da conta	 | [Issue #12](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/issues/12) - US01 - CRUD de Conta | [12-us01](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/tree/12-us01) | [PR #28](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/pull/28) - US01 e US02 - CRUD da Conta e Login |
+| [US02](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us02) - Login | [Issue #13](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/issues/13) - US02 - Login | [12-us01](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/tree/12-us01) | [PR #28](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/pull/28) - US01 e US02 - CRUD da Conta e Login |
 | [US03](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us03) - Sair da conta	 | [Issue #14](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/issues/14) - US03 - Sair da conta | []() | [PR #XX]() - |
 | [US04](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us04) - Recuperar senha | [Issue #XX]() - | []() | [PR #XX]() - |
 | [US05](https://unbarqdsw2024-2.github.io/2024.2_G7_Entrega_Entrega_02/#/Modelagem/Extra/ModelagemAgil/Backlog#us05) - Editar informações do perfil | [Issue #16](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/issues/16) - US05 - Editar informações do perfil | [16-US05](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/tree/16-US05) | [PR #XX]() - |
@@ -97,3 +97,4 @@ Os responsáveis por preencher a tabela são os membros do time, que devem garan
 | 1.0 | 27/12/2024 | Criação do documento e introdução | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |  |  |
 | 1.1 | 27/12/2024 | Adicionando metodologia e template | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |  |  |
 | 1.2 | 27/12/2024 | Adicionando tabela | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |  |  |
+| 1.3 | 02/01/2024 | Adicionando pull request das US01 e US02 | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |  |  |
