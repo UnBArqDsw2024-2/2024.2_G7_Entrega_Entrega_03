@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import LinkButton from "../../components/LinkButton";
 import { router } from "expo-router";
-import { loginUser } from "../../api/services/user.service";
+import { userService } from "../../api/services/user.service";
 import { UserLogin } from "../../interfaces/user.interface";
 import FormInput from "../../components/FormInput";
 import { useAuth } from "../../context/AuthProvider";
@@ -25,7 +25,7 @@ export default function Login() {
     const handleLogin = async () => {
         try {
             const body: UserLogin = { email, password };
-            const response = await loginUser(body);
+            const response = await userService.loginUser(body);
             const user = { id: response.user_id };
             setUser(user);
             router.push("../(auth)/")
