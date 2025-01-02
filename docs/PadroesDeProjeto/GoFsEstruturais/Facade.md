@@ -26,7 +26,7 @@
 
 **Tecnologia:** `React Native`
 
-A função `handleLogin` atua como uma fachada para o processo de login. Ela encapsula a complexidade da lógica de autenticação, incluindo a construção do objeto UserBody, a chamada da função `loginUser`, o tratamento de erros e a navegação do usuário em uma única função. Os detalhes internos são escondidos do restante do componente.
+A função `handleLogin` atua como uma fachada para o processo de login. Ela encapsula a complexidade da lógica de autenticação, incluindo a construção do objeto UserLogin, a chamada da função `loginUser`, o tratamento de erros e a navegação do usuário em uma única função. Os detalhes internos são escondidos do restante do componente.
 
 
 <details>
@@ -34,13 +34,13 @@ A função `handleLogin` atua como uma fachada para o processo de login. Ela enc
 
 **Função** [handleLogin]()
 
-![handleLogin](assets/handleLogin.png)
+![handleLogin](./assets/userservice-login.png)
 
 </details>
 
 Autores: [Guilherme Westphall](https://github.com/west7)
 
-### Encapsulamento de chamadas de API do serviço de usuário
+### Encapsulamento de chamadas de API do `user.service`
 
 **Tecnologia:** `React Native`
 
