@@ -15,13 +15,13 @@ export const createUser = async (userData: UserBody) => {
 
 export const loginUser = async (credentials: UserLogin) => {
   try{
-    const response = await apiClient.post("token/", credentials);
+    const response = await publicApiClient.post("token/", credentials);
 
     const {access, refresh, user_id} = response.data;
 
     AsyncStorage.setItem('access', access);
-
     AsyncStorage.setItem('refresh', refresh);
+    AsyncStorage.setItem('user', user_id);
 
     return response.data;
     
@@ -35,6 +35,7 @@ export const logoutUser = async () => {
   try {
     await AsyncStorage.removeItem("access");
     await AsyncStorage.removeItem("refresh");
+    await AsyncStorage.removeItem("user");
   } catch (error) {
     console.error("Erro ao deslogar usuário:", error);
     throw error;

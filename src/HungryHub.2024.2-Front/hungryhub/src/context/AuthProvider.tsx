@@ -32,11 +32,16 @@ export default function AuthProvider({children}: AuthProviderProps) {
         //TODO: Consertar useEffect para recuperar corretamente o usuário logado
         setIsLoading(true);
         const user = localStorage.getItem("user");
+        console.log(user);
         if (user) {
             setUser(JSON.parse(user));
         }
         setIsLoading(false);
     }, []);
+
+    useEffect(() => {
+        console.log(user);
+    }, [user]);
 
     return (
         <AuthContext.Provider value={{user, setUser, isSignedIn: !!user, isLoading}}>

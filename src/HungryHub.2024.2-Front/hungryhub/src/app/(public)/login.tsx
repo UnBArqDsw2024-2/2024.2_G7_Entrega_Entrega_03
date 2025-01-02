@@ -1,20 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, Pressable, ActivityIndicator } from "react-native";
-import Input from "../../components/Input";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import LinkButton from "../../components/LinkButton";
 import { router } from "expo-router";
 import { loginUser } from "../../api/services/user.service";
-import { UserBody } from "../../interfaces/user.interface";
+import { UserLogin } from "../../interfaces/user.interface";
 import FormInput from "../../components/FormInput";
+import { useAuth } from "../../context/AuthProvider";
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [formValid, setFormValid] = useState(false);
+    const { setUser } = useAuth();
+
+    useEffect(() => {
+        if (email && password) {
+            setFormValid(true);
+        } else {
+            setFormValid(false);
+        }
+    }, [email, password]);
 
     const handleLogin = async () => {
         try {
-            const body: UserBody = { email, password };
-            await loginUser(body);
+            const body: UserLogin = { email, password };
+            const response = await loginUser(body);
+            const user = { id: response.user_id };
+            setUser(user);
+            router.push("../(auth)/")
         } catch (e) {
             console.error(e);
         }
@@ -24,9 +37,7 @@ export default function Login() {
         router.push("register");
     }
 
-    //TODO: Implementar validação de formulário
     //TODO: Implementar feedback de erro (Toast Message)
-    //TODO: AuthContext
 
     return (
         <View style={styles.container}>
@@ -35,23 +46,23 @@ export default function Login() {
 
             <View style={styles.loginContainer}>
 
-                <View style={styles.loginInput}>
-                    <Input
-                        placeholder="Email"
-                        value={email}
-                        onChangeText={setEmail}
-                    />
-                </View>
+                <FormInput 
+                    label=""
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChangeText={setEmail}
+                />
 
-                <View style={styles.loginInput}>
-                    <Input
-                        placeholder="Password"
-                        value={password}
-                        onChangeText={setPassword}
-                    />
-                </View>
+                <FormInput 
+                    label=""
+                    type="password"
+                    placeholder="Senha"
+                    value={password}
+                    onChangeText={setPassword}
+                />
 
-                <LinkButton title="Entrar" onPress={handleLogin} />
+                <LinkButton title="Entrar" onPress={handleLogin} disabled={!formValid} />
             </View>
 
             <Pressable onPress={navigateRegister}>

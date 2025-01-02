@@ -1,11 +1,24 @@
-import React from "react";
-import { Slot, Stack } from "expo-router";
-import AuthProvider from "../context/AuthProvider";
+import React, { useEffect, useState } from "react";
+import { router, Slot, Stack } from "expo-router";
+import AuthProvider, { useAuth } from "../context/AuthProvider";
 
 export default function RootLayout() {
 
     const Layout = () => {
-        //TODO: Fazer as verificações de autenticação e redirecionamento do usuário com router.replace
+        const { isSignedIn, isLoading } = useAuth();
+        const [ initialCheck, setInitialCheck ] = useState(false);
+
+        useEffect(() => {
+            if (!isLoading) {
+                if (isSignedIn) {
+                    router.replace("../(auth)/");
+                } else {
+                    router.replace("../(public)/login");
+                }
+            }
+            setInitialCheck(true);
+        }, [isSignedIn, isLoading]);
+
         return <Slot/>
     }
 
