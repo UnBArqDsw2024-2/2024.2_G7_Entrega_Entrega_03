@@ -69,6 +69,31 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Lucas Mart
 
 </center>
 
+### Encapsulamento de chamadas de API do `store.service`
+
+**Tecnologia:** `React Native`
+
+Encapsulamento de chamadas de API do serviço de loja em um único arquivo, facilitando a manutenção e a reutilização do código, por meio de um arquivo de fachada (**Facade**) que contém os métodos de chamada da API. O serviço de loja é responsável por fazer as chamadas de operações CRUD (Create, Read, Update, Delete) da loja para a API.
+
+<details>
+<summary><b>Implementação em Código</b></summary>
+
+**Serviço [store.service.tsx]()**:
+
+![store.service.tsx](assets/servico-store.png)
+
+**Utilização na tela de detalhes da loja [[storeId].tsx]()**:
+
+![[storeId].tsx]()
+
+</details>
+
+<center>
+
+Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo Sobrinho de Aguiar](https://github.com/Leonardo0o0), [Raquel Ferreira Andrade](https://github.com/raquel-andrade)
+
+</center>
+
 ### Justificativa Técnica
 
 <!-- - Justificativas das decisões tomadas, incluindo análise de prós e contras. -->
@@ -94,3 +119,4 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Lucas Mart
 | 1.0    | 27/12/2024        | Criação do documento         | [Guilherme Westphall](https://github.com/west7) |             |                 |
 | 1.1    | 27/12/2024        | Adição da função handleLogin | [Guilherme Westphall](https://github.com/west7) |             |                 |# Facade
 | 1.2 | 02/01/2025 | Adição da implementação do serviço de usuário | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Lucas Martins Gabriel](https://github.com/martinsglucas), [Guilherme Westphall de Queiroz](https://github.com/west7) |  |  |
+| 1.3 | 04/01/2025 | Adição da implementação do serviço de loja | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo Sobrinho de Aguiar](https://github.com/Leonardo0o0), [Raquel Ferreira Andrade](https://github.com/raquel-andrade) |  |  |
