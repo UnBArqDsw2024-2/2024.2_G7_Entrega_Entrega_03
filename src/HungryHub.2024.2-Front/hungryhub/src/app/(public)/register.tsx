@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TextInput } from "react-native";
 import Input from "../../components/Input";
 import FormInput from "../../components/FormInput";
 import LinkButton from "../../components/LinkButton";
-import { userService } from "../../api/services/user.service";
+import { CreateUserResponse, userService } from "../../api/services/user.service";
 import { router } from "expo-router";
 import { UserBody } from "../../interfaces/user.interface";
 import Toast from "react-native-toast-message";
@@ -102,7 +102,7 @@ export default function Register() {
                 phone: formData.phone,
                 password: formData.password,
             };
-            const response = await userService.createUser(body);
+            const response: CreateUserResponse = await userService.createUser(body);
             console.log(response);
             router.push({
                 pathname: "./login",

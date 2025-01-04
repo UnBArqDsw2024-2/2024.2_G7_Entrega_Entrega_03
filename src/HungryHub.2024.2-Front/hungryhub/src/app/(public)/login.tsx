@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import LinkButton from "../../components/LinkButton";
 import { router } from "expo-router";
-import { userService } from "../../api/services/user.service";
-import { UserLogin } from "../../interfaces/user.interface";
+import { LoginResponse, userService } from "../../api/services/user.service";
+import { User, UserLogin } from "../../interfaces/user.interface";
 import FormInput from "../../components/FormInput";
 import { useAuth } from "../../context/AuthProvider";
 import Toast from "react-native-toast-message";
@@ -12,7 +12,7 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [formValid, setFormValid] = useState(false);
-    const { setUser } = useAuth();
+    const { setUser, setIsLoading } = useAuth();
 
     useEffect(() => {
         if (email && password) {
@@ -24,11 +24,11 @@ export default function Login() {
 
     const handleLogin = async () => {
         try {
+            setIsLoading(true);
             const body: UserLogin = { email, password };
-            const response = await userService.loginUser(body);
-            const user = { id: response.user_id };
+            const response: LoginResponse = await userService.loginUser(body);
+            const user: User = response.user;
             setUser(user);
-            router.push("../(auth)/")
         } catch (e) {
             console.error(e);
             Toast.show({
@@ -36,14 +36,14 @@ export default function Login() {
                 text1: "Erro ao fazer login",
                 text2: "Verifique suas credenciais e tente novamente",
             });
+        } finally {
+            setIsLoading(false);
         }
     }
 
     const navigateRegister = () => {
         router.push("register");
     }
-
-    //TODO: Implementar feedback de erro (Toast Message)
 
     return (
         <View style={styles.container}>
