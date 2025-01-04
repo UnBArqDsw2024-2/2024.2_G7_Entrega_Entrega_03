@@ -1,4 +1,4 @@
-import { useLocalSearchParams } from "expo-router";
+import { Link, useLocalSearchParams } from "expo-router";
 import React from "react";
 import { View, Text } from "react-native";
 import { router } from "expo-router";
@@ -13,11 +13,18 @@ export default function Home() {
       });
     };
 
+    const goToProductDetails = async () => {
+      router.push({
+        pathname: "/product/1",
+      });
+    }
+
     return (
       <View>
         <Text>
         </Text>
         <LinkButton title="Logout" onPress={logout} />
+        <LinkButton title="Product Details" onPress={goToProductDetails} />
       </View>
     );
 }
