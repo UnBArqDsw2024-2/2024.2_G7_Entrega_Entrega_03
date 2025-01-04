@@ -84,7 +84,7 @@ Encapsulamento de chamadas de API do serviço de loja em um único arquivo, faci
 
 **Utilização na tela de detalhes da loja [[storeId].tsx]()**:
 
-![[storeId].tsx]()
+![[storeId].tsx](assets/servico-store-utilizacao.png)
 
 </details>
 
