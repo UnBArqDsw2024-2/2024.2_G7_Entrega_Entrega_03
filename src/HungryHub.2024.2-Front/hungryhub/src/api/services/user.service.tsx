@@ -2,7 +2,6 @@ import { UserBody } from '../../interfaces/user.interface';
 import apiClient from '../apiClient';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-
 export const createUser = async (userData: UserBody) => {
   try {
     const response = await apiClient.post("usuarios/", userData);
@@ -40,3 +39,13 @@ export const logoutUser = async () => {
     throw error;
   }
 };
+
+export const getUserDetails = async () => {
+  try {
+    const response = await apiClient.get("user/details/");
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar detalhes do usuário:", error);
+    throw error;
+  }
+}
