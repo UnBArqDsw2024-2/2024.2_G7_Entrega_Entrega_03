@@ -2,14 +2,14 @@ import { useLocalSearchParams } from "expo-router";
 import React from "react";
 import { View, Text } from "react-native";
 import LinkButton from "../../components/LinkButton";
-import { logoutUser } from "../../api/services/user.service";
+import { userService } from "../../api/services/user.service";
 import { router } from "expo-router";
 
 export default function Home() {
     const { user } = useLocalSearchParams();
 
     const logout = async () => {
-      await logoutUser();
+      await userService.logoutUser();
       router.push({
         pathname: "../(public)/login",
       });

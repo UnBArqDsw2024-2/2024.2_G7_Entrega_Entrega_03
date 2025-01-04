@@ -40,6 +40,14 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
         verbose_name = 'Usuário'
         verbose_name_plural = 'Usuários'
 
+class Cliente(Usuario):
+    cpf = models.CharField(max_length=11, unique=True)
+    phone = models.CharField(max_length=11)
+    
+    class Meta:
+        verbose_name = 'Cliente'
+        verbose_name_plural = 'Clientes'
+
 class CategoriaLoja(models.TextChoices):
     FAST_FOOD = 'FF', 'Fast Food',
     PIZZARIA = 'PZ', 'Pizzaria',
