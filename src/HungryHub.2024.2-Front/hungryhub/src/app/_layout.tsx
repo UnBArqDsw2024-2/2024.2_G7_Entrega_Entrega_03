@@ -14,7 +14,7 @@ export default function RootLayout() {
         useEffect(() => {
             if (!isLoading) {
                 if (isSignedIn) {
-                    router.replace("../(auth)/");
+                    router.replace("../(auth)/(tabs)");
                 } else {
                     router.replace("../(public)/login");
                 }

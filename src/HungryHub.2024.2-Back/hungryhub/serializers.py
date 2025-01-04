@@ -1,4 +1,5 @@
 from os import read
+from django.core.exceptions import ObjectDoesNotExist
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework.serializers import ModelSerializer, CharField, ValidationError
 from django.contrib.auth.models import User
@@ -44,8 +45,6 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def get_token(cls, user):
         token = super().get_token(user)
 
-        token['user_id'] = user.id
-
         return token
 
     def validate(self, attrs):
@@ -57,7 +56,19 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
             raise ValidationError('Invalid email or password')
         
         data = super().validate(attrs)
-        data['user_id'] = self.user.id
+
+        try:
+            cliente = Cliente.objects.get(id=self.user.id)
+        except ObjectDoesNotExist:
+            raise ValidationError('Cliente não encontrado')
+
+        data['user'] = {
+            'id': self.user.id,
+            'email': self.user.email,
+            'first_name': self.user.first_name,
+            'cpf': cliente.cpf,
+            'phone': cliente.phone
+        }
 
         return data
     

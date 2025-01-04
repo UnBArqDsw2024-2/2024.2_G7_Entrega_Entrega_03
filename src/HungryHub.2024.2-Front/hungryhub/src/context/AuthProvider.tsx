@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { User } from "../interfaces/user.interface";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 interface AuthProviderProps {
     children: React.ReactNode;
@@ -10,6 +11,7 @@ interface UserContextProps {
     setUser: (user: User) => void; 
     isSignedIn: boolean;
     isLoading: boolean;
+    setIsLoading: (isLoading: boolean) => void;
 }
 
 export const AuthContext = createContext<UserContextProps | undefined>(undefined);
@@ -27,24 +29,28 @@ export function useAuth() {
 export default function AuthProvider({children}: AuthProviderProps) {
     const [user, setUser] = useState<User>();
     const [isLoading, setIsLoading] = useState(false);
+    const isSignedIn = !!user;
 
     useEffect(() => {
-        //TODO: Consertar useEffect para recuperar corretamente o usuário logado
-        setIsLoading(true);
-        const user = localStorage.getItem("user");
-        console.log(user);
-        if (user) {
-            setUser(JSON.parse(user));
+        const fetchUser = async () => {
+            try {
+                setIsLoading(true);
+                const user = await AsyncStorage.getItem("user");
+                console.log(user);
+                if (user) {
+                    setUser(JSON.parse(user));
+                }
+            } catch (err) {
+                console.error(err);
+            } finally {
+                setIsLoading(false);
+            }
         }
-        setIsLoading(false);
+        fetchUser();
     }, []);
 
-    useEffect(() => {
-        console.log(user);
-    }, [user]);
-
     return (
-        <AuthContext.Provider value={{user, setUser, isSignedIn: !!user, isLoading}}>
+        <AuthContext.Provider value={{user, setUser, isSignedIn, isLoading, setIsLoading}}>
             {children}
         </AuthContext.Provider>
     );
