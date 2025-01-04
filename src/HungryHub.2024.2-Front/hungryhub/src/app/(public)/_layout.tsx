@@ -19,6 +19,9 @@ export default function PublicLayout() {
                     headerTransparent: true,
                 }}
             />
+            <Stack.Screen
+                name="storeDetails"
+            />
         </Stack>
     );
 }

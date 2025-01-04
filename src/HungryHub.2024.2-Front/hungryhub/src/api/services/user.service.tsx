@@ -1,5 +1,5 @@
 import { UserBody } from '../../interfaces/user.interface';
-import apiClient from '../apiClient';
+import { apiClient } from '../apiClient';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
