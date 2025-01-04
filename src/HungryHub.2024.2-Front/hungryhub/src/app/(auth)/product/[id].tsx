@@ -1,14 +1,13 @@
-// app/(auth)/product/[id].tsx
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import { AntDesign, Feather } from '@expo/vector-icons';
-import LinkButton from "../../components/LinkButton";
-import { useCart } from "../patterns/CartManager";
-import { useFavorites } from "../patterns/FavoriteObserver";
-import { Product } from "../../interfaces/product.interface";
+import LinkButton from "../../../components/LinkButton";
+import { useCart } from "../../patterns/CartManager";
+import { useFavorites } from "../../patterns/FavoriteObserver";
+import { Product } from "../../../interfaces/product.interface";
 
-export default function Product() {
+export default function ProductScreen() {
     const { id } = useLocalSearchParams();
     const [product, setProduct] = useState<Product | null>(null);
     const [quantity, setQuantity] = useState(1);

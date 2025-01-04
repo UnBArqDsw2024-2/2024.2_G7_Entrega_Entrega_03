@@ -1,9 +1,14 @@
 import React from "react";
 import { Slot, Stack } from "expo-router";
+import { CartProvider } from "./patterns/CartManager";
+import { FavoriteProvider } from "./patterns/FavoriteObserver";
 
 export default function RootLayout() {
-
     return (
-        <Slot/>
+        <CartProvider>
+            <FavoriteProvider>
+                <Slot />
+            </FavoriteProvider>
+        </CartProvider>
     );
 }
