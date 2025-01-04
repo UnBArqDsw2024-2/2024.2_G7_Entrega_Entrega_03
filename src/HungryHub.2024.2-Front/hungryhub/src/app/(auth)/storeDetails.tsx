@@ -14,8 +14,9 @@ export default function StoreDetails({ route } : StoreDetailsProps) {
   useEffect(() => {
     const getStore = async () => {
       try {
-        // const response = await storeService.getStores();
-        // setStore(response.data); 
+        const response = await storeService.getStores();
+        console.log(response);
+        setStore(response.data); 
       } catch (err) {
         console.error(err);
       }

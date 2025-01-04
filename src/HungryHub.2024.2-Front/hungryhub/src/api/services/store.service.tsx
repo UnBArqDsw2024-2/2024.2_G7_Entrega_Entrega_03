@@ -1,9 +1,9 @@
-import { publicApiClient } from "../apiClient";
+import { apiClient } from "../apiClient";
 
 export const storeService = {
   getStore: async (id: number) => {
     try {
-      const response = await publicApiClient.get(`lojas/${id}/`);
+      const response = await apiClient.get(`lojas/${id}/`);
       return response.data;
     } catch (error) {
       console.error("Erro ao buscar loja:", error);
@@ -12,7 +12,7 @@ export const storeService = {
   },
   getStores: async () => {
     try {
-      const response = await publicApiClient.get("lojas/");
+      const response = await apiClient.get("lojas/");
       return response.data;
     } catch (error) {
       console.error("Erro ao buscar lojas:", error);

@@ -23,6 +23,7 @@ export default function Home() {
           {user}
         </Text>
         <LinkButton title="Logout" onPress={logout} />
+        <LinkButton title="Store Details" onPress={() => router.push("../(auth)/storeDetails")} />
       </View>
     );
 }
