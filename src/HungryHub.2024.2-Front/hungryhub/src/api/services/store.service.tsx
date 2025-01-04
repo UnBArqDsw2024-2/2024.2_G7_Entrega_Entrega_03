@@ -1,7 +1,7 @@
 import { apiClient } from "../apiClient";
 
 export const storeService = {
-  getStore: async (id: number) => {
+  getStore: async (id: string) => {
     try {
       const response = await apiClient.get(`lojas/${id}/`);
       return response.data;

@@ -1,6 +1,6 @@
 export interface Store {
     id: number;
-    name: string;
+    first_name: string;
     email: string;
-    category: string;
+    categoria: string;
 }
