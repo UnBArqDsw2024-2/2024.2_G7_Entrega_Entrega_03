@@ -1,7 +1,7 @@
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework.serializers import ModelSerializer, CharField, ValidationError
 from django.contrib.auth.models import User
-from hungryhub.models import Usuario
+from hungryhub.models import Loja, Usuario
 from django.contrib.auth import authenticate
 
 
@@ -37,6 +37,7 @@ class UsuarioSerializer(ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+    
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
@@ -58,3 +59,39 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         data['user_id'] = self.user.id
 
         return data
+    
+class LojaSerializer(ModelSerializer):
+    password = CharField(write_only=True, required=True)
+    
+    class Meta:
+        model = Loja
+        fields = '__all__'
+        read_only_fields = ['is_active', 'is_staff', 'is_superuser']
+        extra_kwargs = {
+            'email': {'required': True},
+            'cnpj': {'required': True},
+        }
+        
+    def validate(self, data):
+        if self.instance is None:
+            if Loja.objects.filter(email=data['email']).exists():
+                raise ValidationError({'email': 'Já existe um usuário com este email.'})
+            if Loja.objects.filter(cnpj=data['cnpj']).exists():
+                raise ValidationError({'cnpj': 'Já existe uma loja com este CNPJ.'})
+        return data
+    
+    def create(self, validated_data):
+        password = validated_data.pop('password')
+        store = Loja(**validated_data)
+        store.set_password(password)
+        store.save()
+        return store
+    
+    def update(self, instance, validated_data):
+        password = validated_data.pop('password', None)
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+        if password:
+            instance.set_password(password)
+        instance.save()
+        return instance

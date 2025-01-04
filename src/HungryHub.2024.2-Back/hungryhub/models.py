@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.forms import CharField
 
 class UsuarioManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -38,3 +39,20 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = 'Usuário'
         verbose_name_plural = 'Usuários'
+
+class CategoriaLoja(models.TextChoices):
+    FAST_FOOD = 'FF', 'Fast Food',
+    PIZZARIA = 'PZ', 'Pizzaria',
+    RESTAURANTE = 'RT', 'Restaurante',
+    CAFETERIA = 'CF', 'Cafeteria',
+    PADARIA = 'PD', 'Padaria',
+  
+class Loja(Usuario):
+    cnpj = models.CharField(max_length=14, unique=True)
+    telefone = CharField(max_length=11)
+    categoria = models.CharField(
+        max_length=2, 
+        choices=CategoriaLoja.choices, 
+        default=CategoriaLoja.RESTAURANTE
+    )
+    
