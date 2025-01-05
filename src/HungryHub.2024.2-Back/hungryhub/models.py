@@ -87,3 +87,14 @@ class Cliente(Usuario):
     class Meta:
         verbose_name = 'Cliente'
         verbose_name_plural = 'Clientes'
+
+class Address(models.Model):
+    id = models.AutoField(primary_key=True)
+    cidade = models.TextField(max_length=50)
+    estado = models.TextField(max_length=50)
+    rua = models.TextField(max_length=100)
+    cep = models.TextField(max_length=8)
+    user = models.ForeignKey(Usuario, to_field="id", on_delete=models.CASCADE)
+    class Meta:
+        verbose_name = 'Address'
+        verbose_name_plural = 'Addresses'

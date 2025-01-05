@@ -3,7 +3,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework.serializers import ModelSerializer, CharField, ValidationError
 from django.contrib.auth.models import User
-from hungryhub.models import Cliente, Usuario
+from hungryhub.models import Cliente, Usuario, Address
 from django.contrib.auth import authenticate
 
 
@@ -107,4 +107,37 @@ class ClienteSerializer(ModelSerializer):
         if password:
             instance.set_password(password)
         instance.save()
+        return instance
+
+class AddressSerializer(ModelSerializer):
+    class Meta:
+        model = Address
+        fields = ['id', 'estado', 'cidade', 'cep', 'rua', 'user']  
+        read_only_fields = ['id', 'user']  
+        extra_kwargs = {
+            'cidade': {'required': True},
+            'estado': {'required': True},
+            'cep': {'required': True},
+            'rua': {'required': True},
+        }
+
+       
+    def create(self, validated_data):
+        # Obtém o usuário autenticado do contexto da requisição
+        user = self.context['request'].user
+
+        # Adiciona o usuário autenticado ao campo 'user' no validated_data
+        validated_data['user'] = user
+
+        # Cria e salva a instância do Address
+        return Address.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        # Atualiza os campos do objeto `instance` com os novos valores de `validated_data`
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+
+        # Salva o objeto atualizado no banco de dados
+        instance.save()
+
         return instance

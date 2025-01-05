@@ -3,11 +3,12 @@ from django.urls import path, include
 from rest_framework import routers
 from rest_framework_simplejwt.views import TokenRefreshView
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
-from hungryhub.views import CustomTokenObtainPairView, UsuarioViewSet, ClienteViewSet
+from hungryhub.views import CustomTokenObtainPairView, UsuarioViewSet, ClienteViewSet, AddressViewSet
 
 router = routers.DefaultRouter()
 router.register(r'usuarios', UsuarioViewSet)
 router.register(r'clientes', ClienteViewSet)
+router.register(r'address', AddressViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
