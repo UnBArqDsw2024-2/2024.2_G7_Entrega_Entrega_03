@@ -66,7 +66,7 @@ export default function ProductScreen() {
                 <Text style={styles.title}>{product.name}</Text>
 
                 <View style={styles.ratingContainer}>
-                    <Text style={styles.rating}>★ {product.rating} Avaliações</Text>
+                    <Text style={styles.rating}>★ {product.rating}</Text>
                     <Text>•</Text>
                     <Text>{product.sales}+ Vendas</Text>
                 </View>

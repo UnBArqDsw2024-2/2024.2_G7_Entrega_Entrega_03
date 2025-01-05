@@ -6,25 +6,26 @@ import { userService } from "../../../api/services/user.service";
 import LinkButton from "../../../components/LinkButton";
 
 export default function Home() {
-    const logout = async () => {
-      await userService.logoutUser();
-      router.push({
-        pathname: "../../(public)/login",
-      });
-    };
+  const logout = async () => {
+    await userService.logoutUser();
+    router.push({
+      pathname: "../../(public)/login",
+    });
+  };
 
-    const goToProductDetails = async () => {
-      router.push({
-        pathname: "/product/1",
-      });
-    }
+  const goToProductDetails = async () => {
+    router.push({
+      pathname: "/product/1",
+    });
+  }
 
-    return (
-      <View>
-        <Text>
-        </Text>
-        <LinkButton title="Logout" onPress={logout} />
-        <LinkButton title="Product Details" onPress={goToProductDetails} />
-      </View>
-    );
+  return (
+    <View>
+      <Text>
+      </Text>
+      <LinkButton title="Logout" onPress={logout} />
+      <LinkButton title="Product Details" onPress={goToProductDetails} />
+      <Link href="/playground">Ir para Playground</Link>
+    </View>
+  );
 }
