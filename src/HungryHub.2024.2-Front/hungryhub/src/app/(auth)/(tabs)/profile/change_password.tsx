@@ -6,8 +6,8 @@ import {
   Text,
   SafeAreaView,
 } from 'react-native';
-import Header from '../../components/Profile/Header';
-import FormInput from '../../components/Profile/ChangePassword';
+import Header from '../../../../components/Profile/Header';
+import FormInput from '../../../../components/Profile/ChangePassword';
 
 const ChangePassword = () => {
   const [formData, setFormData] = useState({

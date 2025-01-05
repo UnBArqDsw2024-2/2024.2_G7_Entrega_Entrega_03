@@ -4,8 +4,8 @@ import {
   StyleSheet, 
   SafeAreaView,
 } from 'react-native';
-import Header from '../../components/Profile/Header';
-import NotificationToggle from '../../components/Profile/NotificationToggle';
+import Header from '../../../../components/Profile/Header';
+import NotificationToggle from '../../../../components/Profile/NotificationToggle';
 
 const Notifications = () => {
   const [notifications, setNotifications] = useState({

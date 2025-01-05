@@ -1,7 +1,14 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import Usuario
+from .models import Cliente, Usuario
+from django.contrib.auth.models import Group, Permission
+
+group, created = Group.objects.get_or_create(name='Clientes')
+permissions = Permission.objects.filter(codename__in=[
+    'add_nomeModel', 'change_nomeModel', 'delete_nomeModel', 'view_nomeModel',
+    ])
+group.permissions.set(permissions)
 
 class UsuarioCreationForm(UserCreationForm):
   class Meta:
@@ -36,3 +43,4 @@ class UsuarioAdmin(BaseUserAdmin):
   filter_horizontal = ('groups', 'user_permissions')
 
 admin.site.register(Usuario, UsuarioAdmin)
+admin.site.register(Cliente)

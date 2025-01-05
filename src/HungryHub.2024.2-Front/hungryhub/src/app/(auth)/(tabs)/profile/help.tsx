@@ -4,8 +4,8 @@ import {
   StyleSheet, 
   SafeAreaView,
 } from 'react-native';
-import Header from '../../components/Profile/Header';
-import ProfileButton from '../../components/Profile/ProfileButton';
+import Header from '../../../../components/Profile/Header';
+import ProfileButton from '../../../../components/Profile/ProfileButton';
 
 const Help = () => {
   const handleNavigation = (route: string) => {

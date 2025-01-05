@@ -1,11 +1,15 @@
 import React from 'react';
 import { ScrollView, StyleSheet, SafeAreaView } from 'react-native';
-import ProfileButton from '../../components/Profile/ProfileButton';
-import ProfileHeader from '../../components/Profile/ProfileHeader';
+import ProfileButton from '../../../../components/Profile/ProfileButton';
+import ProfileHeader from '../../../../components/Profile/ProfileHeader';
+import { router } from 'expo-router';
 
 const Profile = () => {
   const handleNavigation = (route: string) => {
     console.log(`Navigate to ${route}`);
+    router.push({
+      pathname: `/(auth)/(tabs)/profile/${route}`,
+    });
   };
 
   return (
@@ -16,27 +20,27 @@ const Profile = () => {
         <ProfileButton
           label="Dados da conta"
           icon="user"
-          onPress={() => handleNavigation('dados-da-conta')}
+          onPress={() => handleNavigation('/profile_data')}
         />
         <ProfileButton
           label="Endereços"
           icon="map-marker"
-          onPress={() => handleNavigation('enderecos')}
+          onPress={() => handleNavigation('/addresses')}
         />
         <ProfileButton
           label="Pagamento"
           icon="credit-card"
-          onPress={() => handleNavigation('pagamento')}
+          onPress={() => handleNavigation('/payment')}
         />
         <ProfileButton
           label="Configurações"
           icon="cog"
-          onPress={() => handleNavigation('configuracoes')}
+          onPress={() => handleNavigation('/settings')}
         />
         <ProfileButton
           label="Ajuda"
           icon="question-circle"
-          onPress={() => handleNavigation('ajuda')}
+          onPress={() => handleNavigation('/help')}
         />
         <ProfileButton
           label="Sair da conta"

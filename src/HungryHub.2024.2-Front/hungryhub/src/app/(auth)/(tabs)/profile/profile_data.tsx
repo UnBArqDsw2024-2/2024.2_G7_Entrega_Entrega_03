@@ -6,9 +6,9 @@ import {
   Text,
   SafeAreaView,
 } from 'react-native';
-import Header from '../../components/Profile/Header';
-import FormInput from '../../components/Profile/FormInput';
-import ProfileButton from '../../components/Profile/ProfileButton';
+import Header from '../../../../components/Profile/Header';
+import FormInput from '../../../../components/Profile/FormInput';
+import ProfileButton from '../../../../components/Profile/ProfileButton';
 
 const AccountDetails = () => {
   const [formData, setFormData] = useState({

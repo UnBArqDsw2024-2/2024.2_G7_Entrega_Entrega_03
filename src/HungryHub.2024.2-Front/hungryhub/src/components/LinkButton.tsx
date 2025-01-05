@@ -5,10 +5,11 @@ interface LinkButtonProps extends ButtonProps {
     loading?: boolean;
 }
 
-export default function LinkButton({ title, onPress }: LinkButtonProps) {
+export default function LinkButton({ title, onPress, disabled }: LinkButtonProps) {
     return (
         <Pressable
-            style={styles.container}
+            disabled={disabled}
+            style={[styles.container, disabled && styles.disabledContainer]}
             onPress={onPress}
         >
             <View style={styles.buttonContainer}>
@@ -24,13 +25,16 @@ export default function LinkButton({ title, onPress }: LinkButtonProps) {
 
 const styles = StyleSheet.create({
     container: {
-        width: "80%",
-        margin: 10,
+        width: "100%",
+        margin: 30,
         backgroundColor: "#EB001B",
         alignItems: 'center',
         justifyContent: 'center',
         padding: 10,
         borderRadius: 10,
+    },
+    disabledContainer: {
+        backgroundColor: "#B0B0B0",
     },
     buttonContainer: {
         borderRadius: 10,
