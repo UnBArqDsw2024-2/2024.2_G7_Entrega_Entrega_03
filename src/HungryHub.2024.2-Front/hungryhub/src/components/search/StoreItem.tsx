@@ -1,5 +1,5 @@
 import { Button, Image, Pressable, StyleSheet, Text, View } from "react-native";
-import { Store } from "../interfaces/store.interface";
+import { Store } from "../../interfaces/store.interface";
 import { Link, router } from "expo-router";
 
 interface StoreItemProps {
@@ -42,8 +42,6 @@ const styles = StyleSheet.create({
         borderColor: "#ddd",
         borderRadius: 8,
         padding: 10,
-        marginVertical: 8,
-        marginHorizontal: 16,
         shadowColor: "#000",
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,

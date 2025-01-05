@@ -1,11 +1,130 @@
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+
 import { useEffect, useState } from "react";
-import { Button, FlatList, Image, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { Button, FlatList, Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { storeService } from "../../../api/services/store.service";
 import { Store } from "../../../interfaces/store.interface";
 import Caroussel from "../../../components/Caroussel";
-import StoreItem from "../../../components/StoreItem";
-import SearchBar from '../../../components/SearchBar';
+import StoreItem from "../../../components/search/StoreItem";
+import SearchBar from '../../../components/search/SearchBar';
+import ProductItem from '../../../components/search/ProductItem';
+import SearchSwitch from "../../../components/search/SearchSwitch";
+
+// Mock de produtos
+export interface Product {
+    name: string;
+    price: number;
+    image: string;
+    description: string;
+    category: string;
+}
+
+const products: Product[] = [
+    {
+        name: "Hamburguer",
+        price: 10,
+        image: "",
+        description: "Hamburguer de carne bovina",
+        category: "Lanche",
+    },
+    {
+        name: "Coca-cola",
+        price: 5,
+        image: "",
+        description: "Lata de coca-cola",
+        category: "Bebida",
+    },
+    {
+        name: "Batata frita",
+        price: 8,
+        image: "",
+        description: "Porção de batata frita",
+        category: "Acompanhamento",
+    },
+    {
+        name: "Hamburguer",
+        price: 10,
+        image: "",
+        description: "Hamburguer de carne bovina",
+        category: "Lanche",
+    },
+    {
+        name: "Coca-cola",
+        price: 5,
+        image: "",
+        description: "Lata de coca-cola",
+        category: "Bebida",
+    },
+    {
+        name: "Batata frita",
+        price: 8,
+        image: "",
+        description: "Porção de batata frita",
+        category: "Acompanhamento",
+    },
+    {
+        name: "Hamburguer",
+        price: 10,
+        image: "",
+        description: "Hamburguer de carne bovina",
+        category: "Lanche",
+    },
+    {
+        name: "Coca-cola",
+        price: 5,
+        image: "",
+        description: "Lata de coca-cola",
+        category: "Bebida",
+    },
+    {
+        name: "Batata frita",
+        price: 8,
+        image: "",
+        description: "Porção de batata frita",
+        category: "Acompanhamento",
+    },
+    {
+        name: "Hamburguer",
+        price: 10,
+        image: "",
+        description: "Hamburguer de carne bovina",
+        category: "Lanche",
+    },
+    {
+        name: "Coca-cola",
+        price: 5,
+        image: "",
+        description: "Lata de coca-cola",
+        category: "Bebida",
+    },
+    {
+        name: "Batata frita",
+        price: 8,
+        image: "",
+        description: "Porção de batata frita",
+        category: "Acompanhamento",
+    },
+    {
+        name: "Hamburguer",
+        price: 10,
+        image: "",
+        description: "Hamburguer de carne bovina",
+        category: "Lanche",
+    },
+    {
+        name: "Coca-cola",
+        price: 5,
+        image: "",
+        description: "Lata de coca-cola",
+        category: "Bebida",
+    },
+    {
+        name: "Batata frita",
+        price: 8,
+        image: "",
+        description: "Porção de batata frita",
+        category: "Acompanhamento",
+    },
+]
 
 export default function Search() {
     const [mode, setMode] = useState<"store" | "snack">("store");
@@ -42,21 +161,13 @@ export default function Search() {
                     clearSearch={clearSearch} 
                     placeholder={mode === "store" ? "Buscar lojas" : "Buscar lanches"}
                 />
-                <Pressable
-                    style={styles.modeSwitch}
-                    onPress={switchMode}
-                >   
-                    <View style={mode === "store" ? styles.activeMode : styles.disabledMode}>
-                        <FontAwesome6 name="store" size={24} color="black" />
-                    </View>
-                    <View style={mode === "snack" ? styles.activeMode : styles.disabledMode}>
-                        <FontAwesome6 name="burger" size={24} color="black" />
-                    </View>
-                </Pressable>
+                <SearchSwitch mode={mode} switchMode={switchMode} />
             </View>
+            
             <View style={styles.searchContent}>
                 {search === "" &&
                     <View style={styles.carrouselContainer}>
+                        <Caroussel />
                         <Caroussel />
                         <Caroussel />
                         <Caroussel />
@@ -70,14 +181,21 @@ export default function Search() {
                         renderItem={({ item }) => (
                             <StoreItem store={item} />
                         )}
-                        contentContainerStyle={styles.storesList}
+                        contentContainerStyle={styles.searchList}
                         ListEmptyComponent={<Text style={styles.noResults}>Nenhum resultado encontrado.</Text>}
                     />
                 }
 
-                {search !== "" && mode === "snack" && 
-                    <Text>Buscando lanches...</Text>
-                    // backend de produtos ainda nao implementado
+                {search !== "" && mode === "snack" &&
+                    <FlatList
+                        data={products.filter(product => product.name.toLowerCase().includes(search.toLowerCase()))}
+                        keyExtractor={(item) => item.name}
+                        renderItem={({ item }) => (
+                            <ProductItem product={item} />
+                        )}
+                        contentContainerStyle={styles.searchList}
+                        ListEmptyComponent={<Text style={styles.noResults}>Nenhum resultado encontrado.</Text>}
+                    />
                 }
                 
                 
@@ -99,31 +217,17 @@ const styles = StyleSheet.create({
         width: "100%",
         padding: 20,
     },
-    modeSwitch: {
-        flexDirection: "row",
-        backgroundColor: "#D4D4D4",
-        padding: 5,
-        borderRadius: 50,
-    },
-    activeMode: {
-        backgroundColor: "#f79e1b",
-        padding: 5,
-        borderRadius: 20,
-    },
-    disabledMode: {
-        padding: 5,
-        borderRadius: 20,
-    },
     searchContent: {
+        flex: 1,
         width: "100%",
         padding: 20,
+    },
+    searchList: {
+        rowGap: 10,
     },
     carrouselContainer: {
         width: "100%",
         height: "100%",
-    },
-    storesList: {
-        paddingVertical: 10,
     },
     noResults: {
         textAlign: "center",
@@ -131,4 +235,5 @@ const styles = StyleSheet.create({
         fontSize: 16,
         marginTop: 20,
     },
+
 })

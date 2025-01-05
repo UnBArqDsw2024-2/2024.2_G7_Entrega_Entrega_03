@@ -17,6 +17,7 @@ export default function SearchBar({ search, setSearch, placeholder, clearSearch 
                 placeholder={placeholder}
                 value={search}
                 onChangeText={setSearch}
+                placeholderTextColor={"#161616"}
             />
             <Pressable onPress={clearSearch}>
                 <FontAwesome6 name="xmark" size={24} color="black" />
@@ -33,10 +34,13 @@ const styles = StyleSheet.create({
         backgroundColor: "#D4D4D4",
         paddingHorizontal: 15,
         borderRadius: 50,
-        padding: 5,
+        padding: 10,
+        gap: 10,
     },
     searchInput: {
         width: "100%",
         borderWidth: 0,
+        outlineStyle: 'none', // Não é um erro, é uma propriedade válida
+        fontSize: 16,
     },
 });
