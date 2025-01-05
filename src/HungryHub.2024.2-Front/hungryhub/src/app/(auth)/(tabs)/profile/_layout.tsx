@@ -10,6 +10,7 @@ export default function ProfileLayout() {
             <Stack.Screen name="change_password" options={{ headerShown: false }} />
             <Stack.Screen name="help" options={{ headerShown: false }} />
             <Stack.Screen name="profile_data" options={{ headerShown: false }} />
+            <Stack.Screen name="addresses" options={{ headerShown: false }} />
         </Stack>
     )
 }

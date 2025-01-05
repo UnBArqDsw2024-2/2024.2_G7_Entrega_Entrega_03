@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { AddressInterface } from "../../interfaces/address.interface";
+import { AddressInterface } from "../../../../interfaces/address.interface";
 import {View, StyleSheet,Text, TextInput } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import AddressInput from "../../components/addressInput";
-import LinkButton from "../../components/LinkButton";
+import AddressInput from "../../../../components/addressInput";
+import LinkButton from "../../../../components/LinkButton";
+import { router } from "expo-router";
+import Header from "../../../../components/Profile/Header";
 interface AddressProps extends AddressInterface{
 
 }
@@ -12,17 +14,19 @@ export default function EditAddress()
 {
     const address = useLocalSearchParams() as unknown as AddressProps ;
 
-    const [cep, setCep] = useState<string |undefined| null> (address.cep);
+    const [cep, setCep] = useState<string | undefined | null> (address.cep);
     const [rua, setRua] = useState<string |undefined| null> (address.rua);
     const [cidade, setCidade] = useState<string |undefined| null> (address.cidade);
     const [estado, setEstado] = useState<string |undefined| null> (address.estado);
 
-  
+    const back = () => {
+        router.back();
+    }
     
     return(
         <View>
         
-            <Text style = {styles.titulo}>Editar Endereço</Text>
+            <Header title= "Editar Endereço" onBack={back}/>
             
             <View style = {styles.view}>
 
