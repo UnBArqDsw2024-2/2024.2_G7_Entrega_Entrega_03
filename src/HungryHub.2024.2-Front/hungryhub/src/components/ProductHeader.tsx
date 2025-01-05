@@ -34,6 +34,6 @@ const styles = StyleSheet.create({
     iconButton: {
         padding: 8,
         borderRadius: 20,
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#ffffff',
     },
 });

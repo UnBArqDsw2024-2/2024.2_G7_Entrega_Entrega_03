@@ -3,37 +3,54 @@ import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import { AntDesign, Feather } from '@expo/vector-icons';
 import LinkButton from "../../../components/LinkButton";
-import { useCart } from "../../patterns/CartManager";
 import { useFavorites } from "../../patterns/FavoriteObserver";
 import { Product } from "../../../interfaces/product.interface";
 
+
+const mockProduct: Product = {
+    id: '1',
+    name: 'Pizza',
+    description: 'Pizza com refrigerante',
+    price: 40.90,
+    rating: 4.7,
+    isFavorite: false,
+    image: 'https://images.pexels.com/photos/1653877/pexels-photo-1653877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    sales: 1600
+};
+
 export default function ProductScreen() {
-    const { id } = useLocalSearchParams();
-    const [product, setProduct] = useState<Product | null>(null);
+    const params = useLocalSearchParams();
+    //const { id } = useLocalSearchParams();
+    //const [product, setProduct] = useState<Product | null>(null);
+    const [product, setProduct] = useState<Product>(mockProduct);
     const [quantity, setQuantity] = useState(1);
-    const { addToCart } = useCart();
+    //const { addToCart } = useCart();
     const { toggleFavorite, isFavorite } = useFavorites();
 
-    useEffect(() => {
-        //chamada
-        const fetchProduct = async () => {
-            try {
-                const response = await fetch(`/api/products/${id}`);
-                const data = await response.json();
-                setProduct(data);
-            } catch (error) {
-                console.error('Erro ao buscar o produto', error);
-            }
-        };
 
-        fetchProduct();
-    }, [id]);
+    /*useEffect(() => {
+    //mock da chamada api
+    const fetchProduct = async () => {
+        try {
+            const response = await fetch(`/api/products/${id}`);
+            const data = await response.json();
+            setProduct(data);
+        } catch (error) {
+            console.error('Erro ao buscar o produto', error);
+        } 
+    };
+
+    fetchProduct();
+}, [id]); 
 
     const handleAddToCart = () => {
         if (product) {
             addToCart(product.id, quantity);
+            //router.back();
         }
     };
+
+    */
 
     if (!product) return null;
 
@@ -93,11 +110,6 @@ export default function ProductScreen() {
                         R$ {(product.price * quantity).toFixed(2)}
                     </Text>
                 </View>
-
-                <LinkButton
-                    title="Adicionar ao carrinho"
-                    onPress={handleAddToCart}
-                />
             </View>
         </View>
     );
