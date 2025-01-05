@@ -21,7 +21,6 @@
 <!-- Descreva como o padrão foi implementado no projeto, incluindo código e diagramas. -->
 
 
-
 ### Componente de Input para Formulário
 
 **Tecnologia:** `React Native`
@@ -51,6 +50,27 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo)
 
 </center>
 
+### Componentes para Lista de Pesquisa
+
+**Tecnologia:** `React Native`
+
+O componente de FlatList é utilizado para exibir uma lista de itens na tela de pesquisa. Para cada item da lista, é utilizado um factory method para criar o componente correspondente, de acordo com o tipo de item. O componente não simula exatamente o padrão Factory Method, mas é uma adaptação do conceito para a criação de componentes.
+
+<details>
+<summary><b>Implementação em Código</b></summary>
+
+**[FlatList na Tela de Pesquisa](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/blob/19-us09/src/HungryHub.2024.2-Front/hungryhub/src/app/(auth)/(tabs)/search.tsx)**:
+
+![factory-searchitem](./assets/factory-searchitem.png)
+
+</details>
+
+<center>
+
+Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Bruno Cunha Vasconcelos de Araújo](https://github.com/brunocva), [Leonardo Sobrinho de Aguiar](https://github.com/Leonardo0o0), [Raquel Ferreira Andrade](https://github.com/raquel-andrade), [Wolfgang Friedrich Stein](https://github.com/Wolffstein)
+
+</center>
+
 ### Justificativa Técnica
 
 <!-- - Justificativas das decisões tomadas, incluindo análise de prós e contras. -->
@@ -77,3 +97,4 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo)
 | 1.0 | 17/12/2024 | Criação do documento | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |  |  |
 | 1.1 | 17/12/2024 | Adição do exemplo de InputFactory | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |  |  |
 | 1.2 | 02/01/2025 | Adicionando referências | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |  |  |
+| 1.2 | 05/01/2025 | Adição do exemplo da lista de pesquisa | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Raquel Ferreira Andrade](https://github.com/raquel-andrade) |  |  |
