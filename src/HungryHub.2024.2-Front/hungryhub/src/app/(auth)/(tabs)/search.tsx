@@ -8,9 +8,11 @@ import StoreItem from "../../../components/search/StoreItem";
 import SearchBar from '../../../components/search/SearchBar';
 import ProductItem from '../../../components/search/ProductItem';
 import SearchSwitch from "../../../components/search/SearchSwitch";
+import { SearchStrategy, SnackSearchStrategy, StoreSearchStrategy } from "../../../interfaces/searchStrategies";
 
 // Mock de produtos
 export interface Product {
+    id: number;
     name: string;
     price: number;
     image: string;
@@ -18,8 +20,9 @@ export interface Product {
     category: string;
 }
 
-const products: Product[] = [
+const productsMock: Product[] = [
     {
+        id: 1,
         name: "Hamburguer",
         price: 10,
         image: "",
@@ -27,111 +30,83 @@ const products: Product[] = [
         category: "Lanche",
     },
     {
+        id: 2,
         name: "Coca-cola",
         price: 5,
         image: "",
-        description: "Lata de coca-cola",
+        description: "Refrigerante de cola",
         category: "Bebida",
     },
     {
+        id: 3,
         name: "Batata frita",
         price: 8,
         image: "",
-        description: "Porção de batata frita",
+        description: "Batata frita crocante",
         category: "Acompanhamento",
     },
     {
-        name: "Hamburguer",
-        price: 10,
+        id: 4,
+        name: "Pizza",
+        price: 30,
         image: "",
-        description: "Hamburguer de carne bovina",
+        description: "Pizza de calabresa",
         category: "Lanche",
     },
     {
-        name: "Coca-cola",
-        price: 5,
+        id: 5,
+        name: "Cerveja",
+        price: 7,
         image: "",
-        description: "Lata de coca-cola",
+        description: "Cerveja gelada",
         category: "Bebida",
     },
     {
-        name: "Batata frita",
-        price: 8,
+        id: 6,
+        name: "Salada",
+        price: 15,
         image: "",
-        description: "Porção de batata frita",
+        description: "Salada de alface, tomate e cenoura",
         category: "Acompanhamento",
     },
     {
-        name: "Hamburguer",
-        price: 10,
+        id: 7,
+        name: "Hot dog",
+        price: 12,
         image: "",
-        description: "Hamburguer de carne bovina",
+        description: "Pão com salsicha e molho",
         category: "Lanche",
     },
     {
-        name: "Coca-cola",
-        price: 5,
+        id: 8,
+        name: "Suco",
+        price: 6,
         image: "",
-        description: "Lata de coca-cola",
+        description: "Suco de laranja",
         category: "Bebida",
     },
     {
-        name: "Batata frita",
-        price: 8,
-        image: "",
-        description: "Porção de batata frita",
-        category: "Acompanhamento",
-    },
-    {
-        name: "Hamburguer",
+        id: 9,
+        name: "Onion rings",
         price: 10,
         image: "",
-        description: "Hamburguer de carne bovina",
-        category: "Lanche",
-    },
-    {
-        name: "Coca-cola",
-        price: 5,
-        image: "",
-        description: "Lata de coca-cola",
-        category: "Bebida",
-    },
-    {
-        name: "Batata frita",
-        price: 8,
-        image: "",
-        description: "Porção de batata frita",
-        category: "Acompanhamento",
-    },
-    {
-        name: "Hamburguer",
-        price: 10,
-        image: "",
-        description: "Hamburguer de carne bovina",
-        category: "Lanche",
-    },
-    {
-        name: "Coca-cola",
-        price: 5,
-        image: "",
-        description: "Lata de coca-cola",
-        category: "Bebida",
-    },
-    {
-        name: "Batata frita",
-        price: 8,
-        image: "",
-        description: "Porção de batata frita",
+        description: "Anéis de cebola empanados",
         category: "Acompanhamento",
     },
 ]
 
 export default function Search() {
+    // Estado para controlar o modo de busca (lojas ou lanches)
     const [mode, setMode] = useState<"store" | "snack">("store");
     const [search, setSearch] = useState<string>("");
 
     const [stores, setStores] = useState<Store[]>([]);
+    const [products, setProducts] = useState<Product[]>(productsMock);
 
+    // Guarda o estado da estratégia de busca atual
+    const [searchStrategy, setSearchStrategy] = useState<SearchStrategy<Store | Product>>(new StoreSearchStrategy());
+
+    // Busca as lojas ao iniciar o componente
     useEffect(() => {
         const getStores = async () => {
             try {
@@ -144,10 +119,14 @@ export default function Search() {
         getStores();
     }, []);
 
+    // Função para alternar entre os modos de busca
     const switchMode = () => {
-        setMode(mode === "store" ? "snack" : "store");
+        const newMode = mode === "store" ? "snack" : "store";
+        setMode(newMode);
+        setSearchStrategy(newMode === "store" ? new StoreSearchStrategy() : new SnackSearchStrategy());
     }
 
+    // Função para limpar a busca
     const clearSearch = () => {
         setSearch("");
     }
@@ -174,30 +153,22 @@ export default function Search() {
                     </View>
                 }
 
-                {search !== "" && mode === "store" && 
+                {/* Lista de resultados da busca, utilizando a estratégia de busca atual */}
+                {search !== "" && 
                     <FlatList
-                        data={stores.filter(store => store.first_name.toLowerCase().includes(search.toLowerCase()))}
+                        data={searchStrategy.filter(
+                            mode === "store" ? stores : products,
+                            search
+                        )}
                         keyExtractor={(item) => item.id.toString()}
                         renderItem={({ item }) => (
-                            <StoreItem store={item} />
+                            // Está função atua como um factory method, retornando o componente correto de acordo com o modo de busca
+                            mode === "store" ? <StoreItem store={item as Store} /> : <ProductItem product={item as Product} />
                         )}
                         contentContainerStyle={styles.searchList}
                         ListEmptyComponent={<Text style={styles.noResults}>Nenhum resultado encontrado.</Text>}
                     />
                 }
-
-                {search !== "" && mode === "snack" &&
-                    <FlatList
-                        data={products.filter(product => product.name.toLowerCase().includes(search.toLowerCase()))}
-                        keyExtractor={(item) => item.name}
-                        renderItem={({ item }) => (
-                            <ProductItem product={item} />
-                        )}
-                        contentContainerStyle={styles.searchList}
-                        ListEmptyComponent={<Text style={styles.noResults}>Nenhum resultado encontrado.</Text>}
-                    />
-                }
-                
                 
             </View>
         </View>
@@ -235,5 +206,4 @@ const styles = StyleSheet.create({
         fontSize: 16,
         marginTop: 20,
     },
-
 })
