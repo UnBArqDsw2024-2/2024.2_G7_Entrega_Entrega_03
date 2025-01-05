@@ -8,7 +8,7 @@ const Profile = () => {
   const handleNavigation = (route: string) => {
     console.log(`Navigate to ${route}`);
     router.push({
-      pathname: `/(auth)/(tabs)/profile/${route}`,
+      pathname: `/(auth)/(tabs)/profile${route}`,
     });
   };
 

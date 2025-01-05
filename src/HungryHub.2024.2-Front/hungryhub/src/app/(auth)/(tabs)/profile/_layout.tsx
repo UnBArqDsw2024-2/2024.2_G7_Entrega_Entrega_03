@@ -11,6 +11,7 @@ export default function ProfileLayout() {
             <Stack.Screen name="help" options={{ headerShown: false }} />
             <Stack.Screen name="profile_data" options={{ headerShown: false }} />
             <Stack.Screen name="addresses" options={{ headerShown: false }} />
+            <Stack.Screen name="editAddress" options={{ headerShown: false }} />
         </Stack>
     )
 }
