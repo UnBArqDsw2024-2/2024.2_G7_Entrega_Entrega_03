@@ -55,5 +55,14 @@ export const userService = {
             console.error("Erro ao deslogar usuário:", error);
             throw error;
         }
+    },
+    getUserDetails: async () => {
+      try {
+        const response = await apiClient.get("user/details/");
+        return response.data;
+      } catch (error) {
+        console.error("Erro ao buscar detalhes do usuário:", error);
+        throw error;
+      }
     }
 }
