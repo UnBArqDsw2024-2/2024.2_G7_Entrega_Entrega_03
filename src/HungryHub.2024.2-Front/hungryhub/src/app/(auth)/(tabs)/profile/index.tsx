@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet, SafeAreaView } from 'react-native';
 import ProfileButton from '../../../../components/Profile/ProfileButton';
 import ProfileHeader from '../../../../components/Profile/ProfileHeader';
 import { router } from 'expo-router';
+import { userService } from '../../../../api/services/user.service';
 
 const Profile = () => {
   const handleNavigation = (route: string) => {
@@ -11,6 +12,17 @@ const Profile = () => {
       pathname: `/(auth)/(tabs)/profile/${route}`,
     });
   };
+
+  const logout = async () => {
+    try {
+      await userService.logoutUser();
+      router.push({
+        pathname: "/login",
+      })        
+    } catch (err) {
+      console.error("Erro ao deslogar usuário:", err);
+    }
+  }
 
   return (
     <SafeAreaView style={styles.safe}>
@@ -45,7 +57,7 @@ const Profile = () => {
         <ProfileButton
           label="Sair da conta"
           icon="sign-out"
-          onPress={() => console.log('Logout')}
+          onPress={logout}
           isLogout
         />
       </ScrollView>
