@@ -4,6 +4,7 @@ import ProfileButton from '../../../../components/Profile/ProfileButton';
 import ProfileHeader from '../../../../components/Profile/ProfileHeader';
 import { router } from 'expo-router';
 import { userService } from '../../../../api/services/user.service';
+import Toast from 'react-native-toast-message';
 
 const Profile = () => {
   const handleNavigation = (route: string) => {
@@ -21,6 +22,11 @@ const Profile = () => {
       })        
     } catch (err) {
       console.error("Erro ao deslogar usuário:", err);
+      Toast.show({
+        type: 'error',
+        text1: 'Erro ao deslogar',
+        text2: 'Tente novamente',
+      })
     }
   }
 
