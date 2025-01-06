@@ -1,23 +1,17 @@
 import { Button, Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { Store } from "../../interfaces/store.interface";
 import { Link, router } from "expo-router";
+import PressableItem from "./PressableItem";
 
 interface StoreItemProps {
     store: Store;
+    handleNavigation: (storeId: number) => void;
 }
 
-export default function StoreItem({ store }: StoreItemProps) {
-    const handleNavigation = () => {
-        router.push({
-            pathname: `/storeDetails/${store.id}`,
-        })
-    }
+export default function StoreItem({ store, handleNavigation }: StoreItemProps) {
 
     return (
-        <Pressable 
-            style={styles.storeItem}
-            onPress={handleNavigation}
-        >
+        <PressableItem item={store} handleNavigation={handleNavigation}>
             <View style={styles.storeInfo}>
                 <Text style={styles.storeName}>{store.first_name}</Text>
                 <View style={styles.storeDetails}>
@@ -29,25 +23,11 @@ export default function StoreItem({ store }: StoreItemProps) {
                 source={{ uri: "https://via.placeholder.com/50" }} // Imagem mock
                 style={styles.storeImage}
             />
-        </Pressable>
+        </PressableItem>
     )
 }
 
 const styles = StyleSheet.create({
-    storeItem: {
-        flexDirection: "row",
-        alignItems: "center",
-        backgroundColor: "#fff",
-        borderWidth: 1,
-        borderColor: "#ddd",
-        borderRadius: 8,
-        padding: 10,
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
-        elevation: 2,
-    },
     storeImage: {
         width: 50,
         height: 50,

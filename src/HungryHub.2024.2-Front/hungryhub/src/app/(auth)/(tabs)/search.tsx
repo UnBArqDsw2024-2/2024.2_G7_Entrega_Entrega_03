@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Button, FlatList, Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { storeService } from "../../../api/services/store.service";
@@ -9,91 +8,9 @@ import SearchBar from '../../../components/search/SearchBar';
 import ProductItem from '../../../components/search/ProductItem';
 import SearchSwitch from "../../../components/search/SearchSwitch";
 import { SearchStrategy, SnackSearchStrategy, StoreSearchStrategy } from "../../../interfaces/searchStrategies";
-
-// Mock de produtos
-export interface Product {
-    id: number;
-    name: string;
-    price: number;
-    image: string;
-    description: string;
-    category: string;
-}
-
-const productsMock: Product[] = [
-    {
-        id: 1,
-        name: "Hamburguer",
-        price: 10,
-        image: "",
-        description: "Hamburguer de carne bovina",
-        category: "Lanche",
-    },
-    {
-        id: 2,
-        name: "Coca-cola",
-        price: 5,
-        image: "",
-        description: "Refrigerante de cola",
-        category: "Bebida",
-    },
-    {
-        id: 3,
-        name: "Batata frita",
-        price: 8,
-        image: "",
-        description: "Batata frita crocante",
-        category: "Acompanhamento",
-    },
-    {
-        id: 4,
-        name: "Pizza",
-        price: 30,
-        image: "",
-        description: "Pizza de calabresa",
-        category: "Lanche",
-    },
-    {
-        id: 5,
-        name: "Cerveja",
-        price: 7,
-        image: "",
-        description: "Cerveja gelada",
-        category: "Bebida",
-    },
-    {
-        id: 6,
-        name: "Salada",
-        price: 15,
-        image: "",
-        description: "Salada de alface, tomate e cenoura",
-        category: "Acompanhamento",
-    },
-    {
-        id: 7,
-        name: "Hot dog",
-        price: 12,
-        image: "",
-        description: "Pão com salsicha e molho",
-        category: "Lanche",
-    },
-    {
-        id: 8,
-        name: "Suco",
-        price: 6,
-        image: "",
-        description: "Suco de laranja",
-        category: "Bebida",
-    },
-    {
-        id: 9,
-        name: "Onion rings",
-        price: 10,
-        image: "",
-        description: "Anéis de cebola empanados",
-        category: "Acompanhamento",
-    },
-]
+import { productService } from "../../../api/services/product.service";
+import { Product } from "../../../interfaces/product.interface";
+import { router } from "expo-router";
 
 export default function Search() {
     // Estado para controlar o modo de busca (lojas ou lanches)
@@ -101,7 +18,7 @@ export default function Search() {
     const [search, setSearch] = useState<string>("");
 
     const [stores, setStores] = useState<Store[]>([]);
-    const [products, setProducts] = useState<Product[]>(productsMock);
+    const [products, setProducts] = useState<Product[]>([]);
 
     // Guarda o estado da estratégia de busca atual
     const [searchStrategy, setSearchStrategy] = useState<SearchStrategy<Store | Product>>(new StoreSearchStrategy());
@@ -116,7 +33,16 @@ export default function Search() {
                 console.error(err);
             }
         }
+        const getProducts = async () => {
+            try {
+                const response = await productService.getProducts();
+                setProducts(response);
+            } catch (err) {
+                console.error(err);
+            }
+        }
         getStores();
+        getProducts();
     }, []);
 
     // Função para alternar entre os modos de busca
@@ -129,6 +55,18 @@ export default function Search() {
     // Função para limpar a busca
     const clearSearch = () => {
         setSearch("");
+    }
+
+    const navigateToProductDetails = (productId : number) => {
+        router.push({
+            pathname: `/product/${productId}`,
+        })
+    }
+
+    const navigateToStoreDetails = (storeId : number) => {
+        router.push({
+            pathname: `/storeDetails/${storeId}`,
+        })
     }
 
     return (
@@ -146,10 +84,10 @@ export default function Search() {
             <View style={styles.searchContent}>
                 {search === "" &&
                     <View style={styles.carrouselContainer}>
-                        <Caroussel />
-                        <Caroussel />
-                        <Caroussel />
-                        <Caroussel />
+                        <Caroussel title="Com melhores avaliações" items={products} />
+                        <Caroussel title="Perto de você" items={products} />
+                        <Caroussel title="Visto com frequência" items={products} />
+                        <Caroussel title="Pratos principais" items={products} />
                     </View>
                 }
 
@@ -163,7 +101,9 @@ export default function Search() {
                         keyExtractor={(item) => item.id.toString()}
                         renderItem={({ item }) => (
                             // Está função atua como um factory method, retornando o componente correto de acordo com o modo de busca
-                            mode === "store" ? <StoreItem store={item as Store} /> : <ProductItem product={item as Product} />
+                            mode === "store" ? 
+                                <StoreItem store={item as Store} handleNavigation={navigateToStoreDetails} />
+                                : <ProductItem product={item as Product} handleNavigation={navigateToProductDetails} />
                         )}
                         contentContainerStyle={styles.searchList}
                         ListEmptyComponent={<Text style={styles.noResults}>Nenhum resultado encontrado.</Text>}

@@ -1,16 +1,15 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
-import { Product } from "../../app/(auth)/(tabs)/search";
+import { Product } from "../../interfaces/product.interface";
+import PressableItem from "./PressableItem";
 
 interface ProductItemProps {
     product: Product;
+    handleNavigation: (productId: number) => void;
 }
 
-export default function ProductItem({ product }: ProductItemProps) {
+export default function ProductItem({ product, handleNavigation }: ProductItemProps) {
     return (
-        <Pressable
-            style={styles.productItem}
-            onPress={() => {}} // TODO: Implementar navegação
-        >
+        <PressableItem item={product} handleNavigation={handleNavigation}>
             <Image
                 source={{ uri: "https://via.placeholder.com/50" }} // Imagem mock
                 style={styles.productImage}
@@ -25,25 +24,11 @@ export default function ProductItem({ product }: ProductItemProps) {
                     <Text style={styles.productDistance}>1.2 km</Text> {/* Mock */}
                 </View>
             </View>
-        </Pressable>
+        </PressableItem>
     )
 }
 
 const styles = StyleSheet.create({
-    productItem: {
-        flexDirection: "row",
-        alignItems: "center",
-        backgroundColor: "#fff",
-        borderWidth: 1,
-        borderColor: "#ddd",
-        borderRadius: 8,
-        padding: 10,
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
-        elevation: 2,
-    },
     productImage: {
         width: 50,
         height: 50,
