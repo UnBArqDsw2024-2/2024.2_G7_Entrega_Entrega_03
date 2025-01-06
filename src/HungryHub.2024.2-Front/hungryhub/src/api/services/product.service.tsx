@@ -53,10 +53,19 @@ export const productService = {
     },
     getProductById: async (productId: string): Promise<Product> => {
         try {
-            const response = await apiClient.get<any>(`produtos/${productId}/`);
+            const response = await apiClient.get<any>(`produtos/${productId}`);
             return response.data;
         } catch (error) {
             console.error("Erro ao buscar produto:", error);
+            throw error;
+        }
+    },
+    getProductsByStore: async (storeId: string): Promise<Product[]> => {
+        try {
+            const response = await apiClient.get<any>(`produtos/?store=${storeId}`);
+            return response.data;
+        } catch (error) {
+            console.error("Erro ao buscar produtos da loja:", error);
             throw error;
         }
     }

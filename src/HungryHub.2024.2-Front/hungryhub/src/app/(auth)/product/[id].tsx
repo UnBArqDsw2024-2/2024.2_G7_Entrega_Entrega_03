@@ -51,7 +51,7 @@ export default function ProductScreen() {
         </View>
     );
 
-    const productIsFavorite = isFavorite(product.id);
+    const productIsFavorite = isFavorite(product.id.toString());
 
     return (
         <View style={styles.container}>
@@ -60,7 +60,7 @@ export default function ProductScreen() {
                     <Feather name="arrow-left" size={24} color="#161616" />
                 </Pressable>
                 <Pressable
-                    onPress={() => toggleFavorite(product.id)}
+                    onPress={() => toggleFavorite(product.id.toString())}
                     style={styles.iconButton}
                 >
                     <AntDesign

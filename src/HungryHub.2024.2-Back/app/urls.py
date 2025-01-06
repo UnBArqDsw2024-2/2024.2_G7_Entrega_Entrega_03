@@ -6,10 +6,11 @@ from django.views import static
 from rest_framework import routers
 from rest_framework_simplejwt.views import TokenRefreshView
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
-from hungryhub.views import CustomTokenObtainPairView, UsuarioViewSet, ClienteViewSet, ProdutoViewSet
+from hungryhub.views import CustomTokenObtainPairView, UsuarioViewSet, ClienteViewSet, ProdutoViewSet, LojaViewSet
 
 router = routers.DefaultRouter()
 router.register(r'usuarios', UsuarioViewSet)
+router.register(r'lojas', LojaViewSet)
 router.register(r'clientes', ClienteViewSet)
 router.register(r'produtos', ProdutoViewSet)
 

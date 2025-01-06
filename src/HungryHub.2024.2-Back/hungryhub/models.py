@@ -1,6 +1,7 @@
 from unicodedata import category
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.forms import CharField
 
 class UsuarioManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -56,12 +57,28 @@ class ProductCategory(models.TextChoices):
     LANCHE = 'LC', 'Lanche'
     SOBREMESA = 'SB', 'Sobremesa'
     BEBIDAS = 'BD', 'Bebidas'
-        
+
+class CategoriaLoja(models.TextChoices):
+    FAST_FOOD = 'FF', 'Fast Food',
+    PIZZARIA = 'PZ', 'Pizzaria',
+    RESTAURANTE = 'RT', 'Restaurante',
+    CAFETERIA = 'CF', 'Cafeteria',
+    PADARIA = 'PD', 'Padaria',
+  
+class Loja(Usuario):
+    cnpj = models.CharField(max_length=14, unique=True)
+    telefone = CharField(max_length=11)
+    categoria = models.CharField(
+        max_length=2, 
+        choices=CategoriaLoja.choices, 
+        default=CategoriaLoja.RESTAURANTE
+    )
+  
 class Produto(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    # store = models.ForeignKey(Loja, on_delete=models.CASCADE)
+    store = models.ForeignKey(Loja, on_delete=models.CASCADE)
     # image = models.ImageField(upload_to='products/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -74,3 +91,4 @@ class Produto(models.Model):
     class Meta:
         verbose_name = 'Produto'
         verbose_name_plural = 'Produtos'
+    
