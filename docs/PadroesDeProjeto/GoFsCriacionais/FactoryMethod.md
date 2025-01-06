@@ -71,6 +71,31 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Bruno Cunh
 
 </center>
 
+### Componentes para Seções de Produtos
+
+**Tecnologia:** `React Native`
+
+Nesse componente, houve a implementação do padrão factory method para a criação de diferentes seções na tela inicial do aplicativo. Cada factory é responsável por criar uma seção com características únicas, podendo ser recomendações com priorização de avaliação alta, por exemplo. O uso desse padrão facilita a adição de novos tipos de seção no futuro.
+
+<details>
+<summary><b>Implementação em Código</b></summary>
+
+**Componente [ProductSectionFactory.tsx](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/blob/2e14635d78cec6fe56c077d691d46e6996ae38e9/src/HungryHub.2024.2-Front/hungryhub/src/components/ProductSectionFactory.tsx)**:
+
+![factory-section](./assets/factory-section.png)
+
+**Utilização no [index.tsx](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/blob/2e14635d78cec6fe56c077d691d46e6996ae38e9/src/HungryHub.2024.2-Front/hungryhub/src/app/(auth)/(tabs)/index.tsx)**:
+
+![factory-productsectionfactory](./assets/implementacao-productsectionfactory.png)
+
+</details>
+
+<center>
+
+Autores: [Kallyne Macedo Passos](https://github.com/kalipassos)
+
+</center>
+
 ### Justificativa Técnica
 
 <!-- - Justificativas das decisões tomadas, incluindo análise de prós e contras. -->
