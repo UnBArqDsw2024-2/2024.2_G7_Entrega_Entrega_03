@@ -35,9 +35,29 @@ A função `handleNavigation` encapsula a navegação como um comando, aceitando
 
 </center>
 
+### Função validate
+
+**Tecnologia:** `Django`
+
+A função `validate` verifica se o email, fist_name ou password estão de acordo com os padrões esperados pelo site.
+
+<details>
+<summary><b>Implementação no Código</b></summary>
+
+![Command - validate](assets/validate.png)
+
+</details>
+
+<center>
+
+**Autor: [Davi Pierre](https://github.com/DaviPierre)**
+
+</center>
+
 ### Justificativa Técnica
 
 - **Prós**:
+
   - **Reutilização**: A lógica de navegação pode ser reutilizada em várias partes do projeto.
   - **Modularidade**: A lógica está encapsulada, facilitando a manutenção e a extensão.
   - **Flexibilidade**: Comandos podem ser parametrizados, tornando a navegação dinâmica.
@@ -48,12 +68,13 @@ A função `handleNavigation` encapsula a navegação como um comando, aceitando
 
 ## Referências
 
-1. Gamma, Erich, et al. *Design Patterns: Elements of Reusable Object-Oriented Software*. Addison-Wesley, 1994.
+1. Gamma, Erich, et al. _Design Patterns: Elements of Reusable Object-Oriented Software_. Addison-Wesley, 1994.
 2. React Router Documentation. Navigation. Disponível em: [https://reactrouter.com/en/main/hooks/use-navigate](https://reactrouter.com/en/main/hooks/use-navigate). Acesso em: 06 jan. 2025.
 3. Expo Router Documentation. Navigation API. Disponível em: [https://expo.dev/router](https://expo.dev/router). Acesso em: 06 jan. 2025.
 
 ## Histórico de Versões
 
-| Versão | Data da alteração | Comentário                     | Autor(es)                                    | Revisor(es) | Data de revisão |
-|--------|-------------------|-------------------------------|---------------------------------------------|-------------|-----------------|
-| 1.0    | 06/01/2025        | Criação do documento          | [Kauan Eiras](https://github.com/kauaneiras) |   [Bruno Araújo](https://github.com/cva)           |     06/01/2025            |
+| Versão | Data da alteração | Comentário                | Autor(es)                                    | Revisor(es)                            | Data de revisão |
+| ------ | ----------------- | ------------------------- | -------------------------------------------- | -------------------------------------- | --------------- |
+| 1.0    | 06/01/2025        | Criação do documento      | [Kauan Eiras](https://github.com/kauaneiras) | [Bruno Araújo](https://github.com/cva) | 06/01/2025      |
+| 1.1    | 06/01/2025        | Adição da Função validate | [Davi Pierre](https://github.com/DaviPierre) |                                        |                 |
