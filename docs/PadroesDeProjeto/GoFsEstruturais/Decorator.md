@@ -13,10 +13,6 @@ O padrão Decorator é um padrão estrutural que permite adicionar novos comport
 
 ## Exemplo de Implementação no Projeto
 
-<!-- Descreva como o padrão foi implementado no projeto, incluindo código e diagramas. -->
-
-## Implementações no Código Fonte
-
 ### Decorator em ProductCard React Native
 
 **Tecnologia:** `React Native`
@@ -33,8 +29,30 @@ Decorator implementado para adicionar funcionalidades visuais dinâmicas aos car
 
 </details>
 
+<center>
+
 Autor: [Kallyne Macedo Passos](https://github.com/kalipassos)
 
+</center>
+
+### Decorator em ProfileButton React Native
+
+**Tecnologia:** `React Native`
+
+O padrão **Decorator** é observado no componente `ProfileButton`, onde diferentes comportamentos e estilos são adicionados dinamicamente ao botão, dependendo da propriedade `isLogout`. Esse comportamento permite adicionar funcionalidades ou modificações visuais sem alterar a estrutura base do componente.
+
+<details>
+<summary><b>Implementação no Código</b></summary>
+
+![Decorator - ProfileButton](assets/Decorator%20-%20ProfileButton.png)
+
+</details>
+
+<center>
+
+Autor: [Kauan Eiras](https://github.com/kauaneiras)
+
+</center>
 
 ## Referências
 
@@ -46,4 +64,5 @@ Autor: [Kallyne Macedo Passos](https://github.com/kalipassos)
 
 | Versão | Data da alteração | Comentário | Autor(es) | Revisor(es) | Data de revisão |
 |--------|-----------|-----------|-----------|-------------|-------------|
-| 1.0 | 05/01/2025 | Criação do documento |  [Kallyne Macedo Passos](https://github.com/kalipassos) |  |  |
+| 1.0 | 05/01/2025 | Criação do documento |  [Kallyne Macedo Passos](https://github.com/kalipassos) | [Kauan Eiras](https://github.com/kauaneiras) | 06/01/2025 |
+| 1.1 | 06/01/2025 | Adição de exemplo de implementação no projeto | [Kauan Eiras](https://github.com/kauaneiras) |
