@@ -1,28 +1,31 @@
 import { useState, useEffect } from "react";
-import { AddressInterface } from "../../../../../interfaces/address.interface";
-import {View, StyleSheet,Text, TextInput, Pressable } from "react-native";
+import { AddressInterface, AddressBody } from "../../../../../interfaces/address.interface";
+import { View, StyleSheet, Text, TextInput, Pressable } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import FormInput from "../../../../../components/FormInput";
 import LinkButton from "../../../../../components/LinkButton";
 import { router } from "expo-router";
 import Header from "../../../../../components/Profile/Header";
 import { addressService } from "../../../../../api/services/address.service";
+import { Icon } from "react-native-elements";
+import Toast from "react-native-toast-message";
 
-export default function EditAddress()
-{   
+export default function EditAddress() {
 
     const { address } = useLocalSearchParams();
-    
-    const [cep, setCep] = useState<string | undefined> (undefined);
-    const [rua, setRua] = useState<string | undefined> (undefined);
-    const [cidade, setCidade] = useState<string | undefined> (undefined);
-    const [estado, setEstado] = useState<string | undefined> (undefined);
-    
+
+    const [id, setId] = useState<number | undefined>(0)
+    const [cep, setCep] = useState<string>("");
+    const [rua, setRua] = useState<string>("");
+    const [cidade, setCidade] = useState<string>("");
+    const [estado, setEstado] = useState<string>("");
+
     useEffect(() => {
         if (address) {
             const addressString = Array.isArray(address) ? address[0] : address;
             const parsedAddress = JSON.parse(addressString) as AddressInterface;
             
+            setId(parsedAddress.id);
             setCep(parsedAddress.cep);
             setRua(parsedAddress.rua);
             setCidade(parsedAddress.cidade);
@@ -31,61 +34,92 @@ export default function EditAddress()
     }, [address])
 
     const back = () => {
-        router.back();
+        router.replace({pathname: "/(tabs)/profile/addresses"});
+    }
+
+    const deleteAddress = async () => {
+
+        if (id !== undefined) {
+            try {
+                await addressService.deleteAddress(id);
+                router.replace({
+                    pathname: "/(tabs)/profile/addresses",
+                });
+            } catch (e) {
+                console.log("Delete");
+                console.error(e);
+            }
+        } else {
+            console.error("Address ID is undefined");
+        }
     }
     
-    // cosnt handleUpdateAddress = async () => { 
-    //     const addressData = {
-    //         cep,
-    //         rua,
-    //         cidade,
-    //         estado
-    //     }
-    //     try {
-    //         await addressService.updateAddress(addressData, addressId);
-    //         router.back();
-        // } catch (e) {
-        //     console.error(e);
-        // }
-        
-    return(
+    const updateAddress = async () => { 
+        if (id !== undefined) {
+            const addressData : AddressBody = {
+                cep,
+                rua,
+                cidade,
+                estado
+            }
+            try {
+                await addressService.updateAddress(addressData, id);
+                router.replace({
+                    pathname: "/(tabs)/profile/addresses",
+                });
+            } catch (e) {
+                console.error(e);
+                Toast.show({
+                    type: "error",
+                    text1: "Erro ao criar o endereços",
+                    text2: "Verifique os campos e tente novamente"
+                })
+            }
+        } else {
+            console.error("ID is undefined");
+        }
+    }
+
+    return (
         <View style={styles.safe}>
-            <Header title= "Editar Endereço" onBack={back}/>
+            <Header title="Editar Endereço" onBack={back} />
             <View style={styles.container}>
-                <View style = {styles.view}>
+                <View style={styles.view}>
                     <FormInput
                         label={"CEP"}
                         onChangeText={setCep}
                         placeholder="CEP"
-                        value = {cep}
+                        value={cep}
                     />
-                
+
                     <FormInput
                         label={"Cidade"}
                         onChangeText={setCidade}
                         placeholder="Cidade"
-                        value = {cidade}
+                        value={cidade}
                     />
-                
+
                     <FormInput
                         label={"Estado"}
                         onChangeText={setEstado}
                         placeholder="Estado"
-                        value = {estado}
+                        value={estado}
 
                     />
-        
+
                     <FormInput
                         label={"Rua"}
                         onChangeText={setRua}
                         placeholder="Rua"
-                        value = {rua}
+                        value={rua}
 
                     />
 
-                    <LinkButton title="Salvar" onPress={() => {
-                        console.log("Salvar")   
-                    }}/>
+                    <LinkButton title="Salvar" onPress={updateAddress} />
+
+                    <Pressable onPress={deleteAddress}>
+                        <Icon name="trash" type="font-awesome" size={30} color="red" />
+                    </Pressable>
                 </View>
             </View>
         </View>
@@ -103,10 +137,10 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
-    view:{
+    view: {
         flexDirection: "column",
         justifyContent: "center",
-        alignItems : "center",
+        alignItems: "center",
         width: "70%",
         flex: 1,
     },

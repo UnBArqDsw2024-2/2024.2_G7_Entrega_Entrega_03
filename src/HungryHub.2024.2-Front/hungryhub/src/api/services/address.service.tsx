@@ -1,5 +1,5 @@
-import { AddressBody } from "../../interfaces/address.interface";
-import { apiClient, publicApiClient } from '../apiClient';
+import { AddressInterface, AddressBody } from "../../interfaces/address.interface";
+import { apiClient } from '../apiClient';
 
 export interface CreateAddressResponse { 
     id: number;
@@ -17,14 +17,10 @@ export interface UpdateAddressResponse {
     estado: string;
 }
 
-export interface GetUserAddressesResponse {
-    addresses: AddressBody[];
-}
-
 export const addressService = {
     createAddress: async (addressData: AddressBody): Promise<CreateAddressResponse> => {
         try {
-            const response = await apiClient.post<CreateAddressResponse>("addresses/", addressData);
+            const response = await apiClient.post<CreateAddressResponse>("address/", addressData);
             return response.data;
         } catch (error) {
             console.error("Erro ao criar endereço:", error);
@@ -32,9 +28,9 @@ export const addressService = {
         }
     },
 
-    updateAddress: async (addressData: AddressBody, addressId: number): Promise<UpdateAddressResponse> => {
+    updateAddress: async (addressData: AddressBody, id: number): Promise<UpdateAddressResponse> => {
         try {
-            const response = await apiClient.put<UpdateAddressResponse>(`addresses/${addressId}/`, addressData);
+            const response = await apiClient.put<UpdateAddressResponse>(`address/${id}/`, addressData);
             return response.data;
         } catch (error) {
             console.error("Erro ao atualizar endereço:", error);
@@ -44,14 +40,14 @@ export const addressService = {
 
     deleteAddress: async (addressId: number): Promise<void> => {
         try {
-            await apiClient.delete(`addresses/${addressId}/`);
+            await apiClient.delete(`address/${addressId}/`);
         } catch (error) {
             console.error("Erro ao deletar endereço:", error);
             throw error;
         }
     },
 
-    getUserAddresses: async (userId : String): Promise<GetUserAddressesResponse> => {
+    getUserAddresses: async (userId : String): Promise<AddressInterface[]> => {
         try {
             const response = await apiClient.get(`address/?user=${userId}`);
             return response.data;

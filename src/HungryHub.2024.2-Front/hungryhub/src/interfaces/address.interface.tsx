@@ -1,4 +1,5 @@
 export interface AddressInterface{
+    id: number
     cep: string,
     rua: string,
     cidade: string,

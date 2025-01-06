@@ -20,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({ title, onBack }) => {
         <Icon
           name="shopping-cart"
           type="font-awesome"
-          size={20}
+          size={23}
           color="#000"
           containerStyle={styles.icon}
         />
