@@ -49,5 +49,5 @@ O componente `Header` utiliza uma composição de múltiplos elementos para cria
 
 | Versão | Data da alteração | Comentário | Autor(es) | Revisor(es) | Data de revisão |
 |--------|-----------|-----------|-----------|-------------|-------------|
-| 1.0 | 17/12/2024 | Criação do documento | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |  |  |
-| 1.1 | 06/01/2025 | Adicionado exemplo no código  | [Kauan Eiras](https://github.com/kauaneiras) |  |  |
+| 1.0 | 17/12/2024 | Criação do documento | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) | [Gabryel Nicolas S de Sousa](https://github.com/gabryelns) | 06/01/2025 |
+| 1.1 | 06/01/2025 | Adicionado exemplo no código  | [Kauan Eiras](https://github.com/kauaneiras) | [Gabryel Nicolas S de Sousa](https://github.com/gabryelns) | 06/01/2025 |
