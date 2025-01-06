@@ -1,7 +1,15 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
-const apiClient = axios.create({
+export const publicApiClient = axios.create({
+  baseURL: "http://127.0.0.1:8000/api/",
+  timeout: 5000,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+export const apiClient = axios.create({
   baseURL: "http://127.0.0.1:8000/api/",
   timeout: 5000,
   headers: {
@@ -30,5 +38,3 @@ apiClient.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
-export default apiClient;
