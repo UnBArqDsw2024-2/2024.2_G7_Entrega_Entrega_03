@@ -1,29 +1,3 @@
-<!-- # Factory Method
-
-## Introdução
-
-<!-- Inclua os seguintes elementos:
-
-- **Objetivo**: Descrever o propósito deste documento.
-- **Contexto**: Breve explicação sobre o projeto e sua importância.
-- **Escopo**: Delimitação do conteúdo abordado neste documento. -->
-
-<!-- O Factory Method é um padrão de projeto criacional que oferece uma abordagem flexível para criação de objetos, delegando a instanciação às subclasses. No projeto, este padrão foi aplicado para gerenciar a criação de componentes de interface, especificamente em formulários de entrada, listas de resultados de pesquisa e seções de produto, permitindo uma manutenção simplificada do código. -->
-
-<!-- ## Metodologia -->
-
-<!-- Explique como as decisões foram tomadas, as ferramentas utilizadas, e justifique escolhas arquiteturais.
-
-- **Processo de Trabalho**: Descrição do método utilizado pela equipe (ex.: Scrum, Kanban).
-- **Ferramentas Utilizadas**: Ferramentas empregadas na criação deste artefato (ex.: LucidChart, GitHub).
-- **Justificativa**: Razões para as escolhas metodológicas e tecnológicas. -->
-
-<!-- O padrão Factory Method foi implementado em três principais áreas do aplicativo: -->
-
-<!-- Componentes de Input: Desenvolveu-se uma fábrica de inputs que gera diferentes tipos de campos (texto, senha, email) baseados em propriedades recebidas. A factory abstrai a complexidade de criação e permite adicionar novos tipos de input sem modificar o código existente. -->
-<!-- Lista de Resultados de Pesquisa: Implementou-se uma adaptação do Factory Method para renderizar diferentes tipos de itens em uma FlatList (restaurantes, produtos, promoções). A fábrica determina qual componente deve ser renderizado baseado no tipo do item recebido, mantendo o código organizado e extensível. -->
-<!-- Seções de Produtos: Desenvolveu-se uma fábrica de seções para a criação de diferentes áreas na tela inicial do aplicativo considerando a dinamicidade do aplicativo e possibilitando a criação de seções para atender momentos determinados como feriados e datas comemorativas. --> -->
-
 # Template Method
 
 ## Introdução
