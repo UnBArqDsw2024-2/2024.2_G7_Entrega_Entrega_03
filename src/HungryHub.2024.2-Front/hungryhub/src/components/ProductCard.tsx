@@ -5,10 +5,11 @@ import { Product } from '../interfaces/product.interface';
 interface ProductCardProps {
     product: Product;
     onPress: () => void;
+    decorator?: (baseComponent: JSX.Element) => JSX.Element;
 }
 
-export default function ProductCard({ product, onPress }: ProductCardProps) {
-    return (
+export default function ProductCard({ product, onPress, decorator }: ProductCardProps) {
+    const baseComponent = (
         <Pressable onPress={onPress} style={styles.card}>
             <Image
                 source={{ uri: product.image }}
@@ -21,7 +22,19 @@ export default function ProductCard({ product, onPress }: ProductCardProps) {
             </View>
         </Pressable>
     );
+
+    return decorator ? decorator(baseComponent) : baseComponent;
 }
+
+const withDiscount = (discount: number) => (component: JSX.Element) => (
+    <View>
+        {component}
+        <View style={styles.discountBadge}>
+            <Text style={styles.discountText}>{discount}% OFF</Text>
+        </View>
+    </View>
+);
+
 
 const styles = StyleSheet.create({
     card: {
@@ -53,5 +66,18 @@ const styles = StyleSheet.create({
         color: '#EB001B',
         fontWeight: 'bold',
         marginTop: 5,
+    },
+    discountBadge: {
+        position: 'absolute',
+        top: 5,
+        right: 5,
+        backgroundColor: '#EB001B',
+        padding: 5,
+        borderRadius: 5,
+    },
+    discountText: {
+        color: 'white',
+        fontSize: 12,
+        fontWeight: 'bold',
     },
 });
