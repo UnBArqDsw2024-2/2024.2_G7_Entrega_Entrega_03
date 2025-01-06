@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import Header from '../../../../components/Profile/Header';
 import ProfileButton from '../../../../components/Profile/ProfileButton';
+import { router } from 'expo-router';
 
 const Help = () => {
   const handleNavigation = (route: string) => {
@@ -16,7 +17,7 @@ const Help = () => {
     <SafeAreaView style={styles.safe}>
       <Header 
         title="Ajuda" 
-        onBack={() => console.log('Navigate back')} 
+        onBack={() => router.back()} 
       />
       <ScrollView style={styles.container}>
         <ProfileButton

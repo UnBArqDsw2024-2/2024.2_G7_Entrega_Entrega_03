@@ -9,6 +9,7 @@ import {
 import Header from '../../../../components/Profile/Header';
 import FormInput from '../../../../components/Profile/FormInput';
 import ProfileButton from '../../../../components/Profile/ProfileButton';
+import { router } from 'expo-router';
 
 const AccountDetails = () => {
   const [formData, setFormData] = useState({
@@ -30,7 +31,7 @@ const AccountDetails = () => {
     <SafeAreaView style={styles.safe}>
       <Header 
         title="Dados da conta" 
-        onBack={() => console.log('Navigate back')} 
+        onBack={() => router.back()} 
       />
       <ScrollView style={styles.container}>
         <FormInput

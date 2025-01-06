@@ -1,22 +1,24 @@
 import React from 'react';
-import { 
-  ScrollView, 
-  StyleSheet, 
+import {
+  ScrollView,
+  StyleSheet,
   SafeAreaView,
 } from 'react-native';
 import Header from '../../../../components/Profile/Header';
 import ProfileButton from '../../../../components/Profile/ProfileButton';
+import { router } from 'expo-router';
 
 const Settings = () => {
   const handleNavigation = (route: string) => {
     console.log(`Navigate to ${route}`);
+    router.push(`/(auth)/(tabs)/profile/${route}`);
   };
 
   return (
     <SafeAreaView style={styles.safe}>
-      <Header 
-        title="Configurações" 
-        onBack={() => console.log('Navigate back')} 
+      <Header
+        title="Configurações"
+        onBack={() => router.back()}
       />
       <ScrollView style={styles.container}>
         <ProfileButton
@@ -24,7 +26,7 @@ const Settings = () => {
           icon="bell"
           onPress={() => handleNavigation('notifications')}
         />
-        
+
         <ProfileButton
           label="Tema"
           icon="sun-o"
