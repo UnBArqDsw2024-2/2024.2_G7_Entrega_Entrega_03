@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { AddressInterface } from "../../../../../interfaces/address.interface";
 import {View, StyleSheet,Text, TextInput, Pressable } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import AddressInput from "../../../../../components/addressInput";
 import FormInput from "../../../../../components/FormInput";
 import LinkButton from "../../../../../components/LinkButton";
 import { router } from "expo-router";
 import Header from "../../../../../components/Profile/Header";
+import { addressService } from "../../../../../api/services/address.service";
 
 export default function EditAddress()
 {   
@@ -34,6 +34,20 @@ export default function EditAddress()
         router.back();
     }
     
+    // cosnt handleUpdateAddress = async () => { 
+    //     const addressData = {
+    //         cep,
+    //         rua,
+    //         cidade,
+    //         estado
+    //     }
+    //     try {
+    //         await addressService.updateAddress(addressData, addressId);
+    //         router.back();
+        // } catch (e) {
+        //     console.error(e);
+        // }
+        
     return(
         <View style={styles.safe}>
             <Header title= "Editar Endereço" onBack={back}/>
@@ -69,7 +83,9 @@ export default function EditAddress()
 
                     />
 
-                    <LinkButton title="Salvar"/>
+                    <LinkButton title="Salvar" onPress={() => {
+                        console.log("Salvar")   
+                    }}/>
                 </View>
             </View>
         </View>
