@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Image, Pressable } from "react-native";
-import { router, useLocalSearchParams } from "expo-router";
+import { Link, router, useLocalSearchParams } from "expo-router";
 import { AntDesign, Feather } from '@expo/vector-icons';
 import LinkButton from "../../../components/LinkButton";
 import { useFavorites } from "../../patterns/FavoriteObserver";
@@ -41,7 +41,15 @@ export default function ProductScreen() {
     //     }
     // };
 
-    if (!product) return null;
+    if (!product) return (
+        <View style={styles.container}>
+            <View style={styles.header}>
+                <Pressable onPress={() => router.back()} style={styles.iconButton}>
+                    <Feather name="arrow-left" size={24} color="#161616" />
+                </Pressable>
+            </View>
+        </View>
+    );
 
     const productIsFavorite = isFavorite(product.id);
 
@@ -99,6 +107,9 @@ export default function ProductScreen() {
                         R$ {(product.price * quantity).toFixed(2)}
                     </Text>
                 </View>
+                <View style={styles.buttonContainer}>
+                    <LinkButton title="Adicionar ao carrinho" />
+                </View>
             </View>
         </View>
     );
@@ -121,7 +132,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: '100%',
-        height: 250,
+        height: 300,
         resizeMode: 'cover',
     },
     content: {
@@ -143,6 +154,8 @@ const styles = StyleSheet.create({
         color: '#EB001B',
     },
     description: {
+        fontSize: 16,
+        flex: 1,
         color: '#666',
         marginBottom: 24,
     },
@@ -170,4 +183,10 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
     },
+    buttonContainer: {
+        width: '100%',
+        paddingHorizontal: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
 });
