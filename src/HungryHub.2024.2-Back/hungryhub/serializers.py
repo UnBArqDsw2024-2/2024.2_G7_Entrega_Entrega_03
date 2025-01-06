@@ -184,21 +184,20 @@ class LojaSerializer(ModelSerializer):
 class ProdutoSerializer(ModelSerializer):
     class Meta:
         model = Produto
-        fields = ['id', 'name', 'description', 'price', 'category']
+        fields = ['id', 'name', 'description', 'price', 'category', 'store']
+        read_only_fields = ['id', 'store']
         extra_kwargs = {
             'name': {'required': True},
             'description': {'required': True},
             'price': {'required': True},
             'category': {'required': True},
+            'store': {'required': True},
         }
-    
-    def validate(self, data):
-        # if self.instance is None:
-        #     if Produto.objects.filter(name=data['name']).exists():
-        #         raise ValidationError({'name': 'Já existe um produto com este nome.'})
-        return data
-    
+       
     def create(self, validated_data):
+        store = self.context['request'].store
+        validated_data['store'] = store
+        
         produto = Produto(**validated_data)
         produto.save()
         return produto

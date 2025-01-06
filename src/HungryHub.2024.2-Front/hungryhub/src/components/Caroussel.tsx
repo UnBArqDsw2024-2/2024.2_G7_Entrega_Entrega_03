@@ -21,7 +21,7 @@ export default function Caroussel({ title, items }: CarousselProps) {
                 >
                     {items.map((item, index) => (
                         <View style={styles.item}>
-                            <Link style={styles.link} href="">
+                            <Link style={styles.link} href={`/(auth)/product/${item.id}`}>
                                 <Image style={styles.image} source={{ uri: "https://abrale.org.br/wp-content/uploads/2022/07/shutterstock_288575585.jpg" }} />
                             </Link>
                             <View style={styles.textContainer}>

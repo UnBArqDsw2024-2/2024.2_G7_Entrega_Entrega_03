@@ -4,6 +4,9 @@ import { Store } from "../../../interfaces/store.interface";
 import { storeService } from "../../../api/services/store.service";
 import { useLocalSearchParams } from "expo-router/build/hooks";
 import Caroussel from "../../../components/Caroussel";
+import { Product } from "../../../interfaces/product.interface";
+import { productService } from "../../../api/services/product.service";
+import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
 
 const CategoryLookup = (category: string | undefined): string => {
   switch (category) {
@@ -25,6 +28,7 @@ const CategoryLookup = (category: string | undefined): string => {
 export default function StoreDetails() {
   const { storeId } = useLocalSearchParams<{ storeId: string }>();
   const [store, setStore] = React.useState<Store | null>(null);
+  const [products, setProducts] = React.useState<Product[]>([]);
 
   useEffect(() => {
     console.log(storeId);
@@ -37,7 +41,17 @@ export default function StoreDetails() {
         console.error(err);
       }
     }
+    const getProducts = async () => {
+      try {
+        const response = await productService.getProductsByStore(storeId);
+        console.log(response);
+        setProducts(response);
+      } catch (err) {
+        console.error(err);
+      }
+    }
     getStore();
+    getProducts();
   }, []);
   
   return (
@@ -55,10 +69,7 @@ export default function StoreDetails() {
         </View>
       </View>
       <View style={styles.contents}>
-        <Caroussel />
-        <Caroussel />
-        <Caroussel />
-        <Caroussel />
+        <Caroussel title="Produtos" items={products} />
       </View>
     </View>
   )
