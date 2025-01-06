@@ -8,6 +8,8 @@
 - **Contexto**: Breve explicação sobre o projeto e sua importância.
 - **Escopo**: Delimitação do conteúdo abordado neste documento. -->
 
+O Factory Method é um padrão de projeto criacional que oferece uma abordagem flexível para criação de objetos, delegando a instanciação às subclasses. No projeto, este padrão foi aplicado para gerenciar a criação de componentes de interface, especificamente em formulários de entrada, listas de resultados de pesquisa e seções de produto, permitindo uma manutenção simplificada do código.
+
 ## Metodologia
 
 <!-- Explique como as decisões foram tomadas, as ferramentas utilizadas, e justifique escolhas arquiteturais.
@@ -15,6 +17,12 @@
 - **Processo de Trabalho**: Descrição do método utilizado pela equipe (ex.: Scrum, Kanban).
 - **Ferramentas Utilizadas**: Ferramentas empregadas na criação deste artefato (ex.: LucidChart, GitHub).
 - **Justificativa**: Razões para as escolhas metodológicas e tecnológicas. -->
+
+O padrão Factory Method foi implementado em três principais áreas do aplicativo:
+
+Componentes de Input: Desenvolveu-se uma fábrica de inputs que gera diferentes tipos de campos (texto, senha, email) baseados em propriedades recebidas. A factory abstrai a complexidade de criação e permite adicionar novos tipos de input sem modificar o código existente.
+Lista de Resultados de Pesquisa: Implementou-se uma adaptação do Factory Method para renderizar diferentes tipos de itens em uma FlatList (restaurantes, produtos, promoções). A fábrica determina qual componente deve ser renderizado baseado no tipo do item recebido, mantendo o código organizado e extensível.
+Seções de Produtos: Desenvolveu-se uma fábrica de seções para a criação de diferentes áreas na tela inicial do aplicativo considerando a dinamicidade do aplicativo e possibilitando a criação de seções para atender momentos determinados como feriados e datas comemorativas.
 
 ## Implementações no Código Fonte
 
@@ -96,13 +104,12 @@ Autores: [Kallyne Macedo Passos](https://github.com/kalipassos)
 
 </center>
 
-### Justificativa Técnica
 
-<!-- - Justificativas das decisões tomadas, incluindo análise de prós e contras. -->
+<!-- ### Justificativa Técnica
+- Justificativas das decisões tomadas, incluindo análise de prós e contras. -->
 
-## Rastreabilidade
 
-<!-- Adicione uma seção para mapear decisões a requisitos ou justificativas técnicas.
+<!-- ## Rastreabilidade Adicione uma seção para mapear decisões a requisitos ou justificativas técnicas.
 
 | Decisão Relacionada | Justificativa | Elo | Data |
 | -- | -- | -- | -- |
@@ -119,7 +126,8 @@ Autores: [Kallyne Macedo Passos](https://github.com/kalipassos)
 
 | Versão | Data da alteração | Comentário | Autor(es) | Revisor(es) | Data de revisão |
 |--------|-----------|-----------|-----------|-------------|-------------|
-| 1.0 | 17/12/2024 | Criação do documento | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |  |  |
-| 1.1 | 17/12/2024 | Adição do exemplo de InputFactory | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |  |  |
-| 1.2 | 02/01/2025 | Adicionando referências | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |  |  |
-| 1.2 | 05/01/2025 | Adição do exemplo da lista de pesquisa | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Raquel Ferreira Andrade](https://github.com/raquel-andrade) |  |  |
+| 1.0 | 17/12/2024 | Criação do documento | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) | [Kallyne Macedo Passos](https://github.com/kalipassos) | 05/01/2025 |
+| 1.1 | 17/12/2024 | Adição do exemplo de InputFactory | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) | [Kallyne Macedo Passos](https://github.com/kalipassos) | 05/01/2025 |
+| 1.2 | 02/01/2025 | Adicionando referências | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) | [Kallyne Macedo Passos](https://github.com/kalipassos) | 05/01/2025 |
+| 1.2 | 05/01/2025 | Adição do exemplo da lista de pesquisa | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Raquel Ferreira Andrade](https://github.com/raquel-andrade) |[Kallyne Macedo Passos](https://github.com/kalipassos)  | 05/01/2025 |
+| 1.2 | 05/01/2025 | Adição da introdução, metodologia e seção para produtos | [Kallyne Macedo Passos](https://github.com/kalipassos) |  |  |
