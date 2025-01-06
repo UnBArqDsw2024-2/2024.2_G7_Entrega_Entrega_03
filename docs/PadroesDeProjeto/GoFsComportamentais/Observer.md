@@ -16,11 +16,10 @@
 - **Ferramentas Utilizadas**: Ferramentas empregadas na criação deste artefato (ex.: LucidChart, GitHub).
 - **Justificativa**: Razões para as escolhas metodológicas e tecnológicas. -->
 
-## Exemplo de Implementação no Projeto
-
-<!-- Descreva como o padrão foi implementado no projeto, incluindo código e diagramas. -->
 
 ## Implementações no Código Fonte
+
+<!-- Descreva como o padrão foi implementado no projeto, incluindo código e diagramas. -->
 
 ### useContext do AuthProvider
 
@@ -35,6 +34,25 @@ O padrão **Observer** é implementado implicitamente aqui pelo uso do React Con
 
 </details>
 <!-- TODO: Adicionar exemplos da tela de Login e Register quando integrado -->
+
+### Signals do Django
+
+O padrão **Observer** é implementado explicitamente aqui através do uso de `signals` do Django. Quando um novo `Cliente` é criado, o sinal `post_save` é emitido e o método `add_user_to_group` é chamado. Esse método adiciona o novo `Cliente` ao grupo `Clientes`, garantindo que o cliente tenha as permissões corretas.
+
+<details>
+<summary><b>Implementação no código</b></summary>
+
+**Implementação no [signals.py](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/blob/main/src/HungryHub.2024.2-Back/hungryhub/signals.py)**
+
+![add_user_to_group](assets/signals.png)
+
+</details>
+
+<center>
+
+Autores: [Lucas Martins Gabriel](https://github.com/martinsglucas)
+
+</center>
 
 ### Justificativa Técnica
 
