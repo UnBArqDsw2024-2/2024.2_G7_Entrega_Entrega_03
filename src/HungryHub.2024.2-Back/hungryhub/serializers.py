@@ -3,7 +3,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework.serializers import ModelSerializer, CharField, ValidationError
 from django.contrib.auth.models import User
-from hungryhub.models import Cliente, Usuario
+from hungryhub.models import Cliente, Produto, Usuario
 from django.contrib.auth import authenticate
 
 
@@ -106,5 +106,33 @@ class ClienteSerializer(ModelSerializer):
             setattr(instance, attr, value)
         if password:
             instance.set_password(password)
+        instance.save()
+        return instance
+    
+class ProdutoSerializer(ModelSerializer):
+    class Meta:
+        model = Produto
+        fields = ['id', 'name', 'description', 'price', 'category']
+        extra_kwargs = {
+            'name': {'required': True},
+            'description': {'required': True},
+            'price': {'required': True},
+            'category': {'required': True},
+        }
+    
+    def validate(self, data):
+        # if self.instance is None:
+        #     if Produto.objects.filter(name=data['name']).exists():
+        #         raise ValidationError({'name': 'Já existe um produto com este nome.'})
+        return data
+    
+    def create(self, validated_data):
+        produto = Produto(**validated_data)
+        produto.save()
+        return produto
+    
+    def update(self, instance, validated_data):
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
         instance.save()
         return instance
