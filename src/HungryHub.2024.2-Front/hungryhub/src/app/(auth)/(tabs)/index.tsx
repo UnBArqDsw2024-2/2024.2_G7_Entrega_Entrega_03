@@ -7,6 +7,12 @@ import { userService } from "../../../api/services/user.service";
 import { Product } from '../../../interfaces/product.interface';
 import ProductSection from '../../../components/ProductSection';
 import Header from '../../../components/Header';
+import {
+  HomeSection,
+  RecommendationSectionFactory,
+  PromotionSectionFactory,
+  FrequentOrdersSectionFactory
+} from '../../../components/ProductSectionFactory';
 
 
 /*   const goToProductDetails = async () => {
@@ -17,37 +23,22 @@ import Header from '../../../components/Header';
  
 */
 
-interface HomeSection {
-  title: string;
-  products: Product[];
-}
-
-const mockProduct: Product = {
-  id: '1',
-  name: 'Pizza',
-  description: 'Pizza com refrigerante',
-  price: 40.90,
-  rating: 4.7,
-  isFavorite: false,
-  image: 'https://images.pexels.com/photos/1653877/pexels-photo-1653877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-  sales: 1600
-};
-
 export default function Home() {
-
-  const [recommendations, setRecommendations] = useState<Product[]>([]);
-  const [promotions, setPromotions] = useState<Product[]>([]);
-  const [frequentOrders, setFrequentOrders] = useState<Product[]>([]);
+  const [sections, setSections] = useState<HomeSection[]>([]);
 
   useEffect(() => {
     loadData();
   }, []);
 
   const loadData = async () => {
-    // ligado ao mock 
-    setRecommendations([mockProduct, mockProduct, mockProduct]);
-    setPromotions([mockProduct, mockProduct]);
-    setFrequentOrders([mockProduct, mockProduct, mockProduct, mockProduct, mockProduct, mockProduct]);
+    const factories = [
+      new RecommendationSectionFactory(),
+      new PromotionSectionFactory(),
+      new FrequentOrdersSectionFactory()
+    ];
+
+    const loadedSections = factories.map(factory => factory.createSection());
+    setSections(loadedSections);
 
   };
 
@@ -60,12 +51,6 @@ export default function Home() {
       }
     });
   };
-
-  const sections: HomeSection[] = [
-    { title: 'Recomendações', products: recommendations },
-    { title: 'Promoções', products: promotions },
-    { title: 'Seus pedidos frequentes', products: frequentOrders }
-  ];
 
   return (
     <View style={styles.container}>
