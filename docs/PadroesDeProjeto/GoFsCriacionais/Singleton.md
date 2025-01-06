@@ -6,17 +6,11 @@ O padrão criacional **Singleton** busca garantir que uma classe tenha apenas um
 
 ## Metodologia
 
-<!-- Explique como as decisões foram tomadas, as ferramentas utilizadas, e justifique escolhas arquiteturais.
-
-- **Processo de Trabalho**: Descrição do método utilizado pela equipe (ex.: Scrum, Kanban).
-- **Ferramentas Utilizadas**: Ferramentas empregadas na criação deste artefato (ex.: LucidChart, GitHub).
-- **Justificativa**: Razões para as escolhas metodológicas e tecnológicas. -->
+- **Processo de Trabalho**: A equipe utilizou uma abordagem modular, implementando o contexto de autenticação como um Singleton para garantir consistência em todo o aplicativo.
+- **Ferramentas Utilizadas**: O projeto foi desenvolvido em `React Native`, com ferramentas de gerenciamento de estado nativas e bibliotecas como `expo-router` para navegação.
+- **Justificativa**: O uso de `AuthContext` como Singleton elimina a necessidade de múltiplas instâncias, garantindo que o estado do usuário seja gerenciado centralmente e acessível a partir de qualquer parte da aplicação.
 
 ## Implementações no Código Fonte
-
-<!-- Descreva como o padrão foi implementado no projeto, incluindo código e diagramas. -->
-
-
 
 ### Componente de Input para Formulário
 
@@ -40,6 +34,31 @@ O padrão **Singleton** é aplicado de forma implícita ao `AuthContext`, porque
 <center>
 
 Autores: [Guilherme Westphal](https://github.com/west7)
+
+</center>
+
+### Singleton para acessar o estado do usuário no aplicativo
+
+**Tecnologia:** `React Native`
+
+O padrão **Singleton** é aplicado ao contexto de autenticação da aplicação, garantindo que o estado do usuário seja acessado de forma consistente. Aqui, o hook useAuth é utilizado para consumir o contexto AuthContext, que é gerenciado como uma única instância pela aplicação.
+
+<details>
+<summary><b>Implementação em Código</b></summary>
+
+**Hook** [useAuth.ts](../../../src/HungryHub.2024.2-Front/hungryhub/src/context/AuthProvider.tsx)
+
+![useAuth](assets/Singleton%20-%20Profile%20Componente.png)
+
+**Uso em** [Profile.tsx](../../../src/HungryHub.2024.2-Front/hungryhub/src/app/(auth)/(tabs)/profile/profile.tsx)
+
+![Profile](assets/Singleton%20-%20Profile.png)
+
+</details>
+
+<center>
+
+Autores: [Kauan Eiras](https://github.com/kauaneiras)
 
 </center>
 
@@ -68,3 +87,4 @@ Autores: [Guilherme Westphal](https://github.com/west7)
 | ------ | ----------------- | -------------------- | ---------------------------------------------- | ----------- | --------------- |
 | 1.0    | 27/12/2024        | Criação do documento | [Guilherme Westphall](https://github.com/west7) | [Kallyne Macedo Passos](https://github.com/kalipassos)  | 05/01/2025 |
 | 1.1 | 27/12/2024 | Adição do exemplo do AuthProvider | [Guilherme Westphall](https://github.com/west7) |[Kallyne Macedo Passos](https://github.com/kalipassos)  | 05/01/2025 |
+| 1.2 | 06/01/2024 | Adição do exemplo do AuthContext | [Kauan Eiras](https://github.com/kauaneiras) |[Guilherme Westphall](https://github.com/west7) | 06/01/2025 |
