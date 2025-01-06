@@ -5,52 +5,41 @@ import { AntDesign, Feather } from '@expo/vector-icons';
 import LinkButton from "../../../components/LinkButton";
 import { useFavorites } from "../../patterns/FavoriteObserver";
 import { Product } from "../../../interfaces/product.interface";
-
-
-const mockProduct: Product = {
-    id: '1',
-    name: 'Pizza',
-    description: 'Pizza com refrigerante',
-    price: 40.90,
-    rating: 4.7,
-    isFavorite: false,
-    image: 'https://images.pexels.com/photos/1653877/pexels-photo-1653877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    sales: 1600
-};
+import { productService } from "../../../api/services/product.service";
+import Toast from "react-native-toast-message";
 
 export default function ProductScreen() {
-    const params = useLocalSearchParams();
-    //const { id } = useLocalSearchParams();
-    //const [product, setProduct] = useState<Product | null>(null);
-    const [product, setProduct] = useState<Product>(mockProduct);
+    const { id } = useLocalSearchParams<{ id: string }>();
+    const [product, setProduct] = useState<Product | null>(null);
     const [quantity, setQuantity] = useState(1);
     //const { addToCart } = useCart();
     const { toggleFavorite, isFavorite } = useFavorites();
 
 
-    /*useEffect(() => {
-    //mock da chamada api
-    const fetchProduct = async () => {
-        try {
-            const response = await fetch(`/api/products/${id}`);
-            const data = await response.json();
-            setProduct(data);
-        } catch (error) {
-            console.error('Erro ao buscar o produto', error);
-        } 
-    };
+    useEffect(() => {
+        const fetchProduct = async () => {
+            try {
+                const response = await productService.getProductById(id);
+                setProduct(response);
+            } catch (err) {
+                console.error('Erro ao buscar o produto', err);
+                Toast.show({
+                    type: 'error',
+                    text1: 'Erro ao buscar o produto',
+                    text2: 'Produto não encontrado',
+                })
+            } 
+        };
 
-    fetchProduct();
-}, [id]); 
+        fetchProduct();
+    }, [id]); 
 
-    const handleAddToCart = () => {
-        if (product) {
-            addToCart(product.id, quantity);
-            //router.back();
-        }
-    };
-
-    */
+    // const handleAddToCart = () => {
+    //     if (product) {
+    //         addToCart(product.id, quantity);
+    //         //router.back();
+    //     }
+    // };
 
     if (!product) return null;
 
@@ -75,7 +64,7 @@ export default function ProductScreen() {
             </View>
 
             <Image
-                source={{ uri: product.image }}
+                source={{ uri: 'https://images.pexels.com/photos/1653877/pexels-photo-1653877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' }}
                 style={styles.image}
             />
 
@@ -83,9 +72,9 @@ export default function ProductScreen() {
                 <Text style={styles.title}>{product.name}</Text>
 
                 <View style={styles.ratingContainer}>
-                    <Text style={styles.rating}>★ {product.rating}</Text>
+                    <Text style={styles.rating}>★ 4,7</Text> {/* mock */}
                     <Text>•</Text>
-                    <Text>{product.sales}+ Vendas</Text>
+                    <Text>1600+ Vendas</Text> {/* mock */}
                 </View>
 
                 <Text style={styles.description}>{product.description}</Text>

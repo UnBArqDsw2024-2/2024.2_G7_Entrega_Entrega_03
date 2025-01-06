@@ -14,15 +14,6 @@ import {
   FrequentOrdersSectionFactory
 } from '../../../components/ProductSectionFactory';
 
-
-/*   const goToProductDetails = async () => {
-    router.push({
-      pathname: "/product/1",
-    });
-  }
- 
-*/
-
 export default function Home() {
   const [sections, setSections] = useState<HomeSection[]>([]);
 
@@ -42,13 +33,9 @@ export default function Home() {
 
   };
 
-  const handleProductPress = (product: Product) => {
+  const goToProductDetails = (product: Product) => {
     router.push({
       pathname: `/product/${product.id}`,
-      // ligado ao mock 
-      params: {
-        productData: JSON.stringify(product)
-      }
     });
   };
 
@@ -61,7 +48,7 @@ export default function Home() {
             key={index}
             title={section.title}
             products={section.products}
-            onProductPress={handleProductPress}
+            onProductPress={goToProductDetails}
           />
         ))}
       </ScrollView>

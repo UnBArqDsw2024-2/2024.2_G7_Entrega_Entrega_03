@@ -7,13 +7,10 @@ export default function AuthLayout() {
                 name="(tabs)"
                 options={{ headerShown: false }}
             />
+            
             <Stack.Screen
-                name="playground"
-                options={{
-                    headerShown: true,
-                    headerTitle: "Playground",
-                    presentation: "modal"
-                }}
+                name="product/[id]"
+                options={{ headerShown: false }}
             />
         </Stack>
     )

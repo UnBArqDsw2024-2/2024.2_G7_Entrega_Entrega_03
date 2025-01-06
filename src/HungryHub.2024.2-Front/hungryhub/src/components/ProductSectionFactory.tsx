@@ -1,12 +1,11 @@
-import { Product } from '../interfaces/product.interface';
+import { Product, ProductComplete } from '../interfaces/product.interface';
 
-const mockProduct: Product = {
+const mockProduct: ProductComplete = {
     id: '1',
     name: 'Pizza',
     description: 'Pizza com refrigerante',
     price: 40.90,
     rating: 4.7,
-    isFavorite: false,
     image: 'https://images.pexels.com/photos/1653877/pexels-photo-1653877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     sales: 1600
 };
@@ -19,7 +18,7 @@ export interface HomeSection {
 abstract class SectionFactory {
     abstract createSection(): HomeSection;
 
-    protected createProduct(id: string, modifications: Partial<Product> = {}): Product {
+    protected createProduct(id: string, modifications: Partial<ProductComplete> = {}): Product {
         return {
             ...mockProduct,
             id,
@@ -33,9 +32,9 @@ export class RecommendationSectionFactory extends SectionFactory {
         return {
             title: 'Recomendações',
             products: [
-                this.createProduct('rec1', { rating: 4.9 }),
-                this.createProduct('rec2', { rating: 4.8 }),
-                this.createProduct('rec3', { rating: 4.7 })
+                this.createProduct('1', { rating: 4.9 }),
+                this.createProduct('2', { rating: 4.8 }),
+                this.createProduct('3', { rating: 4.7 })
             ]
         };
     }
@@ -46,8 +45,8 @@ export class PromotionSectionFactory extends SectionFactory {
         return {
             title: 'Promoções',
             products: [
-                this.createProduct('promo1', { price: mockProduct.price * 0.8 }),
-                this.createProduct('promo2', { price: mockProduct.price * 0.9 })
+                this.createProduct('4', { price: mockProduct.price * 0.8 }),
+                this.createProduct('5', { price: mockProduct.price * 0.9 })
             ]
         };
     }
@@ -58,9 +57,9 @@ export class FrequentOrdersSectionFactory extends SectionFactory {
         return {
             title: 'Seus pedidos frequentes',
             products: [
-                this.createProduct('freq1', { sales: 2000 }),
-                this.createProduct('freq2', { sales: 1800 }),
-                this.createProduct('freq3', { sales: 1700 })
+                this.createProduct('6', { sales: 2000 }),
+                this.createProduct('7', { sales: 1800 }),
+                this.createProduct('8', { sales: 1700 })
             ]
         };
     }
