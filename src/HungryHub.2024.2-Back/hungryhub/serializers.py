@@ -24,11 +24,23 @@ class UsuarioSerializer(ModelSerializer):
             if Usuario.objects.filter(email=data['email']).exists():
                 raise ValidationError({'email': 'Já existe um usuário com este email.'})
             
-            # Verifica se o nome é composto apenas por letras e seguindo as regras da lingua portuguesa
+        # Verifica se o email está na forma padrão user@email.com(.br)
+            email_regex = r"^[a-z0-9._%+-]+@[a-z0-9.-]+\.com(\.br)?$"
+            if not re.fullmatch(email_regex, data['email']):
+                raise ValidationError("Este email não é válido.")
+
+        # Verifica se a senha atual é diferente da senha antiga
+            if data['password'] == self.password:
+                raise ValidationError("A senha atual não deve ser igual à sua senha anterior.")
+        
+        # Verifica se a senha foi deixada em branco
+            if data['password'].strip() == "":
+                raise ValidationError("A senha não deve ser deixada em branco.")
+            
+        # Verifica se o nome é composto apenas por letras e seguindo as regras da lingua portuguesa
             name_regex = r"^([A-ZÁÉÍÓÚÃÕÂÊÔ][a-záéíóúãõâêôç]+)(\s(de\s|da\s|do\s|das\s|dos\s)?([A-ZÁÉÍÓÚÃÕÂÊÔ][a-záéíóúãõâêôç]+))*$"
             if not re.fullmatch(name_regex, data['first_name']):
                raise ValidationError("Este nome não é válido.")
-            
         return data
 
     def create(self, validated_data):
