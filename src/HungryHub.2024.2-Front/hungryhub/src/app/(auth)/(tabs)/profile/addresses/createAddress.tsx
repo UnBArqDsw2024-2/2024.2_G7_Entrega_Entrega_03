@@ -9,11 +9,70 @@ import Header from "../../../../../components/Profile/Header";
 import { addressService } from "../../../../../api/services/address.service";
 import Toast from "react-native-toast-message";
 
+// Regex para validar o CEP, deve conter 8 dígitos
+const cepRegex = /^[0-9]{8}$/;
+
+// Regex para validar o estado, deve conter 2 letras
+const estadoRegex = /^[A-Z]{2}$/;
+
+// Regex para validar a cidade, deve conter apenas letras e no máximo 50 caracteres
+const cidadeRegex = /^[a-zA-Z\s]{1,50}$/;
+
+// Regex para validar a rua, deve conter letras e números, além de no máxiomo 50 caracteres
+const ruaRegex = /^[a-zA-Z0-9\s]{1,50}$/;
+
 export default function createAddress() {   
     const [cep, setCep] = useState("");
     const [rua, setRua] = useState("");
     const [cidade, setCidade] = useState("");
     const [estado, setEstado] = useState("");
+
+    const [formErrors, setFormErrors] = useState({
+        cep: "",
+        rua: "",
+        cidade: "",
+        estado: "",
+    });
+
+    const [formValid, setFormValid] = useState(false);
+
+    useEffect(() => {
+        if (cep && !cepRegex.test(cep)) {
+            setFormErrors({ ...formErrors, cep: "CEP inválido. Deve conter exatamente 8 dígitos" });
+        } else {
+            setFormErrors({ ...formErrors, cep: "" });
+        }
+    }, [cep]);
+
+    useEffect(() => {
+        if (rua && !ruaRegex.test(rua)) {
+            setFormErrors({ ...formErrors, rua: "Rua inválida. Deve conter entre 1 e 50 caracteres sendo apenas números e/ou dígitos" });
+        } else {
+            setFormErrors({ ...formErrors, rua: "" });
+        }
+    }, [rua]);
+
+    useEffect(() => {
+        if (cidade && !cidadeRegex.test(cidade)) {
+            setFormErrors({ ...formErrors, cidade: "Cidade inválida. Deve conter entre 1 e 50 caracteres sendo apenas números e/ou dígitos" });
+        } else {
+            setFormErrors({ ...formErrors, cidade: "" });
+        }
+    }, [cidade]);
+
+    useEffect(() => {
+        if (estado && !estadoRegex.test(estado)) {
+            setFormErrors({ ...formErrors, estado: "Estado inválido. Deve conter apenas duas letras maiúsculas" });
+        } else {
+            setFormErrors({ ...formErrors, estado: "" });
+        }
+    }, [estado]);
+
+    // Verifica se não há erros
+    useEffect(() => {
+        const valid = Object.values(formErrors).every((error) => error === "");
+        setFormValid(valid);
+    }, [formErrors]);
     
     const back = () => {
         router.replace({
@@ -21,7 +80,7 @@ export default function createAddress() {
         })
     }
     
-    const handleSubmit = async () => { 
+    const handleSubmit = async () => {
         try {
             const addressData : AddressBody = {
                 cep,
@@ -45,9 +104,8 @@ export default function createAddress() {
                 text2: "Verifique os campos e tente novamente"
             })
         }
+               
     }
-
-    // TODO: validação dos campos
         
     return(
         <View style={styles.safe}>
@@ -59,6 +117,7 @@ export default function createAddress() {
                         onChangeText={setCep}
                         placeholder="CEP"
                         value = {cep}
+                        error = {formErrors.cep}
                     />
                 
                     <FormInput
@@ -66,6 +125,7 @@ export default function createAddress() {
                         onChangeText={setCidade}
                         placeholder="Cidade"
                         value = {cidade}
+                        error = {formErrors.cidade}
                     />
                 
                     <FormInput
@@ -73,7 +133,7 @@ export default function createAddress() {
                         onChangeText={setEstado}
                         placeholder="Estado"
                         value = {estado}
-
+                        error = {formErrors.estado}
                     />
         
                     <FormInput
@@ -81,10 +141,10 @@ export default function createAddress() {
                         onChangeText={setRua}
                         placeholder="Rua"
                         value = {rua}
-
+                        error ={formErrors.rua}
                     />
 
-                    <LinkButton title="Salvar" onPress={handleSubmit}/>
+                    <LinkButton title="Salvar" onPress={handleSubmit} disabled={!formValid}/>
                 </View>
             </View>
         </View>
