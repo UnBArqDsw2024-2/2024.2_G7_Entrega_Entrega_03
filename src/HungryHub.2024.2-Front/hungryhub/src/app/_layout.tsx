@@ -4,6 +4,7 @@ import AuthProvider, { useAuth } from "../context/AuthProvider";
 import LoadingScreen from "../components/LoadingScreen";
 import Toast from "react-native-toast-message";
 import toastConfig from "../utils/toastConfig";
+import { FavoriteProvider } from "./patterns/FavoriteObserver";
 
 export default function RootLayout() {
 
@@ -31,10 +32,14 @@ export default function RootLayout() {
 
     return (
         <>
-            <AuthProvider>
-                <Layout />
-            </AuthProvider>
-            <Toast config={toastConfig}/>
+
+            <FavoriteProvider>
+                <AuthProvider>
+                    <Layout />
+                </AuthProvider>
+                <Toast config={toastConfig} />
+            </FavoriteProvider>
+
         </>
     );
 }
