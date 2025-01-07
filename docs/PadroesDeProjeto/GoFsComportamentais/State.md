@@ -56,4 +56,4 @@ O componente `TouchableOpacity` implementa o padrão State ao ajustar sua estili
 
 | Versão | Data da alteração | Comentário              | Autor(es)                                    | Revisor(es) | Data de revisão |
 |--------|-------------------|------------------------|---------------------------------------------|-------------|-----------------|
-| 1.0    | 06/01/2025        | Criação do documento   | [Kauan Eiras](https://github.com/kauaneiras) |             |                 |
+| 1.0    | 06/01/2025        | Criação do documento   | [Kauan Eiras](https://github.com/kauaneiras) |     [Bruno Araújo](https://github.com/cva)         |      06/01/2025 |

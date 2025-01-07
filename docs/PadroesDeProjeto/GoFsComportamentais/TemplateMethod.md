@@ -80,5 +80,5 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo S
 
 | Versão | Data da alteração | Comentário | Autor(es) | Revisor(es) | Data de revisão |
 |--------|-----------|-----------|-----------|-------------|-------------|
-| 1.0 | 06/01/2025 | Criação do documento | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo Sobrinho de Aguiar](https://github.com/Leonardo0o0) |  |  |
-| 1.1 | 06/01/2025 | Adição da implementação do PressableItem, introdução, metodologia e justificativas | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo Sobrinho de Aguiar](https://github.com/Leonardo0o0) |  |  |
+| 1.0 | 06/01/2025 | Criação do documento | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo Sobrinho de Aguiar](https://github.com/Leonardo0o0) | [Bruno Araújo](https://github.com/cva)  | 06/01/2025  |
+| 1.1 | 06/01/2025 | Adição da implementação do PressableItem, introdução, metodologia e justificativas | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo Sobrinho de Aguiar](https://github.com/Leonardo0o0) | [Bruno Araújo](https://github.com/cva)  |  06/01/2025|

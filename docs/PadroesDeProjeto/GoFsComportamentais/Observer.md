@@ -148,5 +148,5 @@ O padrão **Observer** é aplicado na funcionalidade de edição e criação de 
 | 1.0    | 27/12/2024        | Criação do documento | [Guilherme Westphall](https://github.com/west7) |  [Kallyne Macedo Passos](https://github.com/kalipassos)           |    05/01/2025             |
 | 1.1    | 05/01/2025        | Adição do uso nos signals | [Lucas Martins Gabriel](https://github.com/martinsglucas) |[Kallyne Macedo Passos](https://github.com/kalipassos) |     05/01/2025         |                
 | 1.2    | 05/01/2025        | Adição do uso nos favoritos | [Kallyne Macedo Passos](https://github.com/kalipassos) |              |                 | 
-| 1.3    | 06/01/2025        | Adição de introdução e metodologia | [Lucas Martins Gabriel](https://github.com/martinsglucas) |              |                 |
+| 1.3    | 06/01/2025        | Adição de introdução e metodologia | [Lucas Martins Gabriel](https://github.com/martinsglucas) |     [Bruno Araújo](https://github.com/cva)          |        06/01/2025         |
 | 1.4    | 06/01/2025        | Adiciona Observer no useState de erros |  [Guilherme Silva Dutra](https://github.com/GuiDutra21), [Júlio Roberto da Silva Neto](https://github.com/JulioR2022)    |   |  | 
