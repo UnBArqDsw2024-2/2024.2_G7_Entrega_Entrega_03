@@ -118,7 +118,7 @@ Encapsulamento de chamadas de API do serviço de produto em um único arquivo, f
 
 <center>
 
-Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Kallyne Macedo Passos](https://github.com/kalipassos)
+Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Kallyne Macedo Passos](https://github.com/kalipassos) e [Raquel Ferreira Andrade](https://github.com/raquel-andrade)
 
 </center>
 
