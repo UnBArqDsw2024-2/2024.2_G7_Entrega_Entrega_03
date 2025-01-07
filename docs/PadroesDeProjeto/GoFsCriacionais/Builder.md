@@ -37,6 +37,18 @@ Autores: [Kauan Eiras](https://github.com/kauaneiras)
 
 </center>
 
+## Justificativa Técnica
+
+- **Prós**:
+    - O padrão Builder permite construção gradual e flexível do cabeçalho do aplicativo com diferentes combinações de elementos.
+    - Facilita criação de variações do header, mantendo código limpo.
+    - Melhora legibilidade ao dividir configuração em etapas claras.
+
+- **Contras**:
+  -  Pode ser excessivo para headers simples.
+  -  Adiciona complexidade de código inicial.
+  -  Requer mais arquivos/estrutura que uma implementação direta.
+
 ## Referências
 
 1. Gamma, Erich, et al. *Design Patterns: Elements of Reusable Object-Oriented Software*. Addison-Wesley, 1994.
@@ -50,4 +62,5 @@ Autores: [Kauan Eiras](https://github.com/kauaneiras)
 
 | Versão | Data da Alteração | Comentário                                      | Autor(es)                                      | Revisor(es)         | Data de Revisão |
 |--------|-------------------|------------------------------------------------|-----------------------------------------------|---------------------|-----------------|
-| 1.0    | 06/01/2025        | Criação do Documento                           | [Kauan Eiras](https://github.com/kauaneiras) | [Guilherme Westphal](https://github.com/west7) | 06/01/2025 |
+| 1.0    | 06/01/2025        | Criação do Documento                           | [Kauan Eiras](https://github.com/kauaneiras) | [Guilherme Westphall](https://github.com/west7) | 06/01/2025 |
+| 1.1    | 06/01/2025        | Justificativa técnica                           | [Kallyne Macedo Passos](https://github.com/kalipassos) | [Guilherme Westphall](https://github.com/west7) | 06/01/2025 |

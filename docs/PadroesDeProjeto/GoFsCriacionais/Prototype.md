@@ -36,7 +36,19 @@ Autores: [Kauan Eiras](https://github.com/kauaneiras)
 
 </center>
 
+## Justificativa Técnica
 
+- **Prós**: 
+    - O padrão Prototype apresenta eficiência na criação de novos perfis por clonagem, com estrutura similar mas dados diferentes.
+    - Redução de código duplicado na estrutura do header.
+    - Facilita manutenção centralizada da estrutura base.
+    - Performance melhorada evitando recriação completa.
+    - Consistência visual entre diferentes perfis.
+
+- **Contras**:
+
+    - Pode adicionar complexidade para perfis simples.
+    - Pode dificultar rastreamento de mudanças entre clones.
 
 ## Referências
 
@@ -50,4 +62,4 @@ Autores: [Kauan Eiras](https://github.com/kauaneiras)
 
 | Versão | Data da Alteração | Comentário                                      | Autor(es)                                      | Revisor(es)         | Data de Revisão |
 |--------|-------------------|------------------------------------------------|-----------------------------------------------|---------------------|-----------------|
-| 1.0    | 06/01/2025        | Criação do Documento                           | [Kauan Eiras](https://github.com/kauaneiras) | [Guilherme Westphal](https://github.com/west7) | 06/01/2025 |
+| 1.0    | 06/01/2025        | Criação do Documento                           | [Kauan Eiras](https://github.com/kauaneiras) | [Guilherme Westphall](https://github.com/west7)| 06/01/2025 |

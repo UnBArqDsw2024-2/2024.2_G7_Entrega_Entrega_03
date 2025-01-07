@@ -18,6 +18,10 @@ O **Factory Method** é um padrão de projeto criacional que oferece uma abordag
 - **Ferramentas Utilizadas**: Ferramentas empregadas na criação deste artefato (ex.: LucidChart, GitHub).
 - **Justificativa**: Razões para as escolhas metodológicas e tecnológicas. -->
 
+- **Processo de Trabalho**: Foi utilizada uma abordagem modular, com foco na reutilização de componentes. 
+- **Ferramentas Utilizadas**: Foi utilizado React Native para a implementação, explorando o sistema de estilos nativo e a modularização com TypeScript para definir interfaces.
+- **Justificativa**: A escolha do Factory Method se baseia na necessidade de criar diferentes tipos de componentes (como inputs, seções e usuários) dinamicamente com a flexibilidade para adicionar novos tipos sem modificar código existente e com a centralizalização da criação destes componentes em um único lugarç
+
 O padrão Factory Method foi implementado em quatro principais áreas do aplicativo:
 
 - Componentes de Input: Desenvolveu-se uma fábrica de inputs que gera diferentes tipos de campos (texto, senha, email) baseados em propriedades recebidas. A factory abstrai a complexidade de criação e permite adicionar novos tipos de input sem modificar o código existente.
@@ -185,8 +189,7 @@ Autores: [Lucas Martins Gabriel](https://github.com/martinsglucas)
 | 1.0 | 17/12/2024 | Criação do documento | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) | [Kallyne Macedo Passos](https://github.com/kalipassos) | 05/01/2025 |
 | 1.1 | 17/12/2024 | Adição do exemplo de InputFactory | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) | [Kallyne Macedo Passos](https://github.com/kalipassos) | 05/01/2025 |
 | 1.2 | 02/01/2025 | Adicionando referências | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) | [Kallyne Macedo Passos](https://github.com/kalipassos) | 05/01/2025 |
-| 1.2 | 05/01/2025 | Adição do exemplo da lista de pesquisa | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Raquel Ferreira Andrade](https://github.com/raquel-andrade) |[Kallyne Macedo Passos](https://github.com/kalipassos)  | 05/01/2025 |
-| 1.2 | 05/01/2025 | Adição da introdução, metodologia e seção para produtos | [Kallyne Macedo Passos](https://github.com/kalipassos) | [Gabryel Nicolas S de Sousa](https://github.com/gabryelns) | 06/01/2025 |
-| 1.3 | 06/01/2025 | Adição do exemplo de Factory Method no Django | [Lucas Martins Gabriel](https://github.com/martinsglucas) | [Wolfgang Friedrich Stein](https://github.com/Wolffstein)| |
-| 1.3 | 06/01/2025 | Adição do exemplo de Factory Method no Django | [Lucas Martins Gabriel](https://github.com/martinsglucas) | | |
-| 1.4 | 06/01/2025 | Adiciona Componente para o Card do Endereço | [Júlio Roberto da Silva Neto](https://github.com/JulioR2022), [Guilherme Silva Dutra](https://github.com/GuiDutra21) | [Wolfgang Friedrich Stein](https://github.com/Wolffstein) | |
+| 1.3 | 05/01/2025 | Adição do exemplo da lista de pesquisa | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Raquel Ferreira Andrade](https://github.com/raquel-andrade) |[Kallyne Macedo Passos](https://github.com/kalipassos)  | 05/01/2025 |
+| 1.4 | 05/01/2025 | Adição da introdução, metodologia e seção para produtos | [Kallyne Macedo Passos](https://github.com/kalipassos) | [Gabryel Nicolas S de Sousa](https://github.com/gabryelns) | 06/01/2025 |
+| 1.5 | 06/01/2025 | Adição do exemplo de Factory Method no Django | [Lucas Martins Gabriel](https://github.com/martinsglucas) | [Wolfgang Friedrich Stein](https://github.com/Wolffstein)| 06/01/2025
+| 1.6 | 06/01/2025 | Adiciona Componente para o Card do Endereço | [Júlio Roberto da Silva Neto](https://github.com/JulioR2022), [Guilherme Silva Dutra](https://github.com/GuiDutra21) | [Wolfgang Friedrich Stein](https://github.com/Wolffstein) | 06/01/2025 |
