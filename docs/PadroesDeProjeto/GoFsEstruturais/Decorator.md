@@ -4,11 +4,11 @@
 
 O padrão **Decorator** é uma solução estrutural que permite adicionar funcionalidades extras a um objeto de forma dinâmica, evitando modificações em sua estrutura original. Essa abordagem é ideal em projetos que requerem extensibilidade e modularidade, pois facilita a evolução do código sem comprometer a base já existente. 
 
-No projeto, o padrão **Decorator** foi aplicado para enriquecer a experiência do usuário em componentes visuais. Elementos como badges de desconto ou indicadores de novidade foram adicionados dinamicamente a cards e botões, garantindo flexibilidade e uma interface intuitiva. Essa técnica assegura que novos comportamentos possam ser incorporados sem a necessidade de alterar diretamente os componentes fundamentais.
+No projeto, o padrão **Decorator** foi aplicado para enriquecer a experiência do usuário em componentes visuais. Elementos como badges de desconto ou indicadores de novidade foram adicionados dinamicamente a cards e botões, garantindo flexibilidade e uma interface intuitiva. Essa técnica garante que novos comportamentos possam ser incorporados sem a necessidade de alterar diretamente os componentes fundamentais.
 
 ## Metodologia
 
-- **Abordagem Modular**: O padrão **Decorator** foi utilizado para encapsular funcionalidades adicionais, promovendo a separação de responsabilidades e reduzindo o acoplamento entre os componentes.
+- **Processo de Trabalho**: A equipe trabalhou uma abordagem modular para implementar o padrão **Decorator**, que foi utilizado para encapsular funcionalidades adicionais, promovendo a separação de responsabilidades e reduzindo o acoplamento entre os componentes.
 - **Ferramentas Utilizadas**: A implementação foi realizada com **React Native** e **TypeScript**, explorando a composição de componentes para criar wrappers que adicionam novos comportamentos visualmente ricos.
 - **Justificativa**: A escolha do padrão **Decorator** possibilitou a criação de componentes mais flexíveis e reutilizáveis, permitindo que funcionalidades como a exibição de descontos ou estados dinâmicos fossem adicionadas sem alterar a base de código original. Isso resultou em um código mais organizado, escalável e fácil manutenção.
 
@@ -56,6 +56,21 @@ Autor: [Kauan Eiras](https://github.com/kauaneiras)
 
 </center>
 
+## Justificativa Técnica
+
+- **Prós**:
+    - A utilização do padrão Decorator neste contexto  permite combinar múltiplas decorações visuais dinamicamente, o que é interessante na realidade do aplicativo para indicar descontos, observações e novidades simultaneamente.
+    - Permite adicionar funcionalidades visuais (badges, indicadores) sem modificar os componentes base.
+   - Mantém o código modular e facilita testes unitários.
+   - Possibilita ativar/desativar decorações baseado em regras de negócio.
+
+- **Contras**:
+    - Pode aumentar a complexidade de renderização em componentes aninhados.
+    - Risco de performance com muitos decorators encadeados.
+    - Possível complexidade adicional na gestão de props e estados.
+    - Em casos mais simples, pode ser substituído por composição base de componentes React.
+
+
 ## Referências
 
 1. HEWAWASAM, Lakindu. Using GoF design patterns with React. Blog Bits and Pieces, 4 maio 2023. Disponível em: https://blog.bitsrc.io/using-gof-design-patterns-with-react-c334f3ea3147. Acesso em: 17 dez. 2024.
@@ -67,5 +82,6 @@ Autor: [Kauan Eiras](https://github.com/kauaneiras)
 | Versão | Data da alteração | Comentário | Autor(es) | Revisor(es) | Data de revisão |
 |--------|-----------|-----------|-----------|-------------|-------------|
 | 1.0 | 05/01/2025 | Criação do documento |  [Kallyne Macedo Passos](https://github.com/kalipassos) | [Kauan Eiras](https://github.com/kauaneiras) | 06/01/2025 |
-| 1.1 | 06/01/2025 | Adição de exemplo de implementação no projeto | [Kauan Eiras](https://github.com/kauaneiras) |
-| 1.2 | 06/01/2025 | Adição de introdução e metodologia | [Bruno Araújo](https://github.com/brunocva) |
+| 1.1 | 06/01/2025 | Adição de exemplo de implementação no projeto | [Kauan Eiras](https://github.com/kauaneiras) | [Kallyne Macedo Passos](https://github.com/kalipassos) | 06/01/2025
+| 1.2 | 06/01/2025 | Adição de introdução e metodologia | [Bruno Araújo](https://github.com/brunocva) |[Kallyne Macedo Passos](https://github.com/kalipassos)| 06/01/2025 | 
+| 1.3 | 06/01/2025 | Adição de justificativa técnica | [Kallyne Macedo Passos](https://github.com/kalipassos) | [Kauan Eiras](https://github.com/kauaneiras) | 06/01/2025 | 

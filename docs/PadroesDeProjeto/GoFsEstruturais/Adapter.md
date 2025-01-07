@@ -33,8 +33,18 @@ Autor: [Kauan Eiras](https://github.com/kauaneiras)
 
 ## Justificativa Técnica
 
-- A utilização do padrão Adapter neste contexto permite maior reutilização e personalização de componentes, reduzindo a necessidade de reimplementação.
-- O componente `Switch` é adaptado para funcionar com diferentes estados e estilos, garantindo consistência visual e comportamental no aplicativo.
+- **Prós**:
+    -  A utilização do padrão Adapter neste contexto permite maior reutilização e personalização de componentes, reduzindo a necessidade de reimplementação.
+    - O componente `Switch` é adaptado para funcionar com diferentes estados e estilos, garantindo consistência visual e comportamental no aplicativo.
+    - Permite integração entre diferentes interfaces de componentes sem modificar código original.
+    - Facilita manutenção ao centralizar adaptações em um único lugar.
+    - Reduz acoplamento entre componentes customizados e nativos.
+    - Simplifica atualizações de bibliotecas externas.
+
+- **Contras**:
+    - Adiciona uma camada extra de complexidade.
+    - Pode impactar a performance do aplicativo se mal implementado.
+    - Pode dificultar debug por adicionar uma camada intermediária nos processos.
 
 ## Referências
 
@@ -48,4 +58,5 @@ Autor: [Kauan Eiras](https://github.com/kauaneiras)
 | Versão | Data da alteração | Comentário                     | Autor(es)                                      | Revisor(es) | Data de revisão |
 |--------|-------------------|-------------------------------|-----------------------------------------------|-------------|-----------------|
 | 1.0 | 17/12/2024 | Criação do documento | [Guilherme Westphall](https://github.com/west7) | [Kauan Eiras](https://github.com/kauaneiras) | 06/01/2025 |
-| 1.1    | 06/01/2025        | Adicionado exemplo no código  | [Kauan Eiras](https://github.com/kauaneiras) | | |
+| 1.1    | 06/01/2025        | Adicionado exemplo no código  | [Kauan Eiras](https://github.com/kauaneiras) | [Kallyne Macedo Passos](https://github.com/kalipassos) | 06/01/2025 |
+| 1.2 | 06/01/2025 | Adição da justificativa técnica | [Kallyne Macedo Passos](https://github.com/kalipassos) |[Kauan Eiras](https://github.com/kauaneiras) | 06/01/2025 |
