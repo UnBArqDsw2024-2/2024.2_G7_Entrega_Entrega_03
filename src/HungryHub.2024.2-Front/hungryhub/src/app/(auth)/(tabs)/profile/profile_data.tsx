@@ -13,6 +13,7 @@ import FormInput from "../../../../components/Profile/FormInput";
 import ProfileButton from "../../../../components/Profile/ProfileButton";
 import { useAuth } from "../../../../context/AuthProvider";
 import { userService } from "../../../../api/services/user.service";
+import { router } from 'expo-router';
 
 const AccountDetails = () => {
   const { user } = useAuth(); // Obtém o usuário do contexto
@@ -90,7 +91,10 @@ const AccountDetails = () => {
 
   return (
     <SafeAreaView style={styles.safe}>
-      <Header title="Dados da conta" onBack={() => console.log("Voltar")} />
+      <Header 
+        title="Dados da conta" 
+        onBack={() => router.back()} 
+      />
       <ScrollView style={styles.container}>
         <FormInput
           label="Nome"

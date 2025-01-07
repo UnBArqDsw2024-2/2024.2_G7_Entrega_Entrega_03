@@ -4,9 +4,8 @@ import {
   StyleSheet, 
   SafeAreaView,
 } from 'react-native';
-import Header from '../../../../components/Profile/Header';
-import NotificationToggle from '../../../../components/Profile/NotificationToggle';
-import { router } from 'expo-router';
+import Header from '../../components/Profile/Header';
+import NotificationToggle from '../../components/Profile/NotificationToggle';
 
 const Notifications = () => {
   const [notifications, setNotifications] = useState({
@@ -26,7 +25,7 @@ const Notifications = () => {
     <SafeAreaView style={styles.safe}>
       <Header 
         title="Notificações" 
-        onBack={() => router.back()} 
+        onBack={() => console.log('Navigate back')} 
       />
       <ScrollView style={styles.container}>
         <NotificationToggle
