@@ -10,10 +10,6 @@ O padrão estrutural **Composite** permite tratar objetos individuais e composi�
 - **Ferramentas Utilizadas**: O desenvolvimento foi realizado com `React Native`, utilizando `StyleSheet` para estilização e `TouchableOpacity` e `Icon` para funcionalidade.
 - **Justificativa**: O padrão Composite foi empregado para garantir consistência e reusabilidade, além de facilitar a manutenção e a extensão do componente.
 
-## Exemplo de Implementação no Projeto
-
-O componente `Header` é um exemplo claro do padrão Composite, pois combina diversos subcomponentes (`TouchableOpacity`, `Icon`, `Text`) em uma estrutura hierárquica, permitindo que eles sejam tratados como uma única entidade.
-
 ## Implementações no Código Fonte
 
 ### Componente Header
@@ -28,6 +24,9 @@ O componente `Header` utiliza uma composição de múltiplos elementos para cria
 ![Header Component](./assets/Composite%20-%20Header.png)
 
 </details>
+
+Autor: [Kauan Eiras](https://github.com/kauaneiras)
+
 
 ### Justificativa Técnica
 
