@@ -18,14 +18,19 @@ export const apiClient = axios.create({
 });
 
 apiClient.interceptors.request.use(
-  (config) => {
-    const token = AsyncStorage.getItem("accessToken");
+  async (config) => {
 
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+    try {
+      const token = await AsyncStorage.getItem("access");
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+      return config;
+    } catch (error) {
+      console.error("Erro ao obter token:", error);
+      return Promise.reject(error);
+
     }
-
-    return config;
   },
   (error) => {
     return Promise.reject(error);

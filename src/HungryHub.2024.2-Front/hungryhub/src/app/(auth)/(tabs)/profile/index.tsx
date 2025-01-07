@@ -1,16 +1,26 @@
 import React from 'react';
-import { ScrollView, StyleSheet, SafeAreaView } from 'react-native';
+import { ScrollView, StyleSheet, SafeAreaView, ActivityIndicator } from 'react-native';
 import ProfileButton from '../../../../components/Profile/ProfileButton';
 import ProfileHeader from '../../../../components/Profile/ProfileHeader';
 import { router } from 'expo-router';
+import { useAuth } from "../../../../context/AuthProvider";
 import { userService } from '../../../../api/services/user.service';
 import Toast from 'react-native-toast-message';
 
 const Profile = () => {
+  const { user } = useAuth(); // Obtém o usuário do contexto
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    // Simula carregamento, mas os dados já estão no contexto
+    if (user) {
+      setLoading(false);
+    }
+  }, [user]);
+
   const handleNavigation = (route: string) => {
-    console.log(`Navigate to ${route}`);
     router.push({
-      pathname: `/(auth)/(tabs)/profile/${route}`,
+      pathname: `/(auth)/(tabs)/profile${route}`,
     });
   };
 
@@ -30,11 +40,17 @@ const Profile = () => {
     }
   }
 
+  if (loading) {
+    return <ActivityIndicator size="large" color="#0000ff" />;
+  }
+
   return (
     <SafeAreaView style={styles.safe}>
       <ScrollView style={styles.container}>
-        <ProfileHeader name="Fulano de Tal" />
-        
+        <ProfileHeader
+          name={user?.first_name || "Usuário Desconhecido"}
+          avatarUrl={"https://via.placeholder.com/150"}
+        />
         <ProfileButton
           label="Dados da conta"
           icon="user"
@@ -83,4 +99,3 @@ const styles = StyleSheet.create({
 });
 
 export default Profile;
-
