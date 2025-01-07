@@ -4,6 +4,8 @@ import ProfileButton from '../../../../components/Profile/ProfileButton';
 import ProfileHeader from '../../../../components/Profile/ProfileHeader';
 import { router } from 'expo-router';
 import { useAuth } from "../../../../context/AuthProvider";
+import { userService } from '../../../../api/services/user.service';
+import Toast from 'react-native-toast-message';
 
 const Profile = () => {
   const { user } = useAuth(); // Obtém o usuário do contexto
@@ -21,6 +23,22 @@ const Profile = () => {
       pathname: `/(auth)/(tabs)/profile${route}`,
     });
   };
+
+  const logout = async () => {
+    try {
+      await userService.logoutUser();
+      router.push({
+        pathname: "/login",
+      })        
+    } catch (err) {
+      console.error("Erro ao deslogar usuário:", err);
+      Toast.show({
+        type: 'error',
+        text1: 'Erro ao deslogar',
+        text2: 'Tente novamente',
+      })
+    }
+  }
 
   if (loading) {
     return <ActivityIndicator size="large" color="#0000ff" />;
@@ -61,7 +79,7 @@ const Profile = () => {
         <ProfileButton
           label="Sair da conta"
           icon="sign-out"
-          onPress={() => console.log('Logout')}
+          onPress={logout}
           isLogout
         />
       </ScrollView>
