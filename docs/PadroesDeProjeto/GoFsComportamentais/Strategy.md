@@ -74,4 +74,4 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Bruno Cunh
 | Versão | Data da alteração | Comentário | Autor(es) | Revisor(es) | Data de revisão |
 |--------|-----------|-----------|-----------|-------------|-------------|
 | 1.0 | 05/01/2025 | Criação do documento e adição do exemplo da pesquisa | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Raquel Ferreira Andrade](https://github.com/raquel-andrade) |  |  |
-| 1.1 | 06/01/2025 | Adição da introdução, metodologia e justificativa técnica | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |
+| 1.1 | 06/01/2025 | Adição da introdução, metodologia e justificativa técnica | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) | [Bruno Araújo](https://github.com/brunocva) | 06/01/2025 |
