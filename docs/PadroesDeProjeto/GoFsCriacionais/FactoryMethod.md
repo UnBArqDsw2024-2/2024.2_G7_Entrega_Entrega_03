@@ -105,6 +105,32 @@ Autores: [Kallyne Macedo Passos](https://github.com/kalipassos)
 
 </center>
 
+### Componente para o Card do Endereço
+
+**Tecnologia:** `React Native`
+
+Neste componente, foi implementado uma adaptação do padrão Factory Method para a criação dinâmica de diferentes cards exibidos na tela dos endereços do usuário. Cada card é instanciado de forma independente e é responsável por representar visualmente um endereço específico do usuário, encapsulando seus dados (como rua, cidade, estado e CEP) e permitindo uma interação personalizada. Essa abordagem garante flexibilidade e reutilização, além de desacoplar a lógica de criação dos cards da lógica principal do componente.
+
+<details>
+
+<summary><b>Implementação em Código</b></summary>
+
+**Componente [AddressCard.tsx](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/blob/main/src/HungryHub.2024.2-Front/hungryhub/src/components/Profile/AddressCard.tsx)**
+
+![address-card](./assets/address-card.png)
+
+**Utilizado no [index.tsx](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/blob/main/src/HungryHub.2024.2-Front/hungryhub/src/app/(auth)/(tabs)/profile/addresses/index.tsx)**
+
+![address-card-component](./assets/address-card-component.png)
+
+</details>
+
+<center>
+
+**Autores**: [Júlio Roberto da Silva Neto](https://github.com/JulioR2022), [Guilherme Silva Dutra](https://github.com/GuiDutra21)
+
+</center>
+
 ### Exemplo de Factory Method no Django
 
 **Tecnologia:** `Django`
@@ -162,3 +188,5 @@ Autores: [Lucas Martins Gabriel](https://github.com/martinsglucas)
 | 1.2 | 05/01/2025 | Adição do exemplo da lista de pesquisa | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Raquel Ferreira Andrade](https://github.com/raquel-andrade) |[Kallyne Macedo Passos](https://github.com/kalipassos)  | 05/01/2025 |
 | 1.2 | 05/01/2025 | Adição da introdução, metodologia e seção para produtos | [Kallyne Macedo Passos](https://github.com/kalipassos) | [Gabryel Nicolas S de Sousa](https://github.com/gabryelns) | 06/01/2025 |
 | 1.3 | 06/01/2025 | Adição do exemplo de Factory Method no Django | [Lucas Martins Gabriel](https://github.com/martinsglucas) | [Wolfgang Friedrich Stein](https://github.com/Wolffstein)| |
+| 1.3 | 06/01/2025 | Adição do exemplo de Factory Method no Django | [Lucas Martins Gabriel](https://github.com/martinsglucas) | | |
+| 1.4 | 06/01/2025 | Adiciona Componente para o Card do Endereço | [Júlio Roberto da Silva Neto](https://github.com/JulioR2022), [Guilherme Silva Dutra](https://github.com/GuiDutra21) | | |
