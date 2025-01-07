@@ -102,6 +102,31 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo S
 
 </center>
 
+### Encapsulamento de chamadas de API do `product.service`
+
+**Tecnologia:** `React Native`
+
+Encapsulamento de chamadas de API do serviço de produto em um único arquivo, facilitando a manutenção e a reutilização do código, por meio de um arquivo de fachada (**Facade**) que contém os métodos de chamada da API. O serviço de produto é responsável por fazer as chamadas de operações CRUD (Create, Read, Update, Delete) do produto para a API.
+
+<details>
+<summary><b>Implementação em Código</b></summary>
+
+**Serviço [product.service.tsx](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/blob/main/src/HungryHub.2024.2-Front/hungryhub/src/api/services/product.service.tsx)**:
+
+![product.service.tsx](assets/productService.png)
+
+**Utilização na tela de detalhes do produto [[productId].tsx](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/blob/main/src/HungryHub.2024.2-Front/hungryhub/src/app/(auth)/product/%5Bid%5D.tsx)**:
+
+![[storeId].tsx](assets/product-service-implementacao.png)
+
+</details>
+
+<center>
+
+Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Kallyne Macedo Passos](https://github.com/kalipassos)
+
+</center>
+
 
 ## Justificativa Técnica
 
@@ -125,4 +150,6 @@ A implementação do padrão Facade, utilizando tecnologias como React Native e 
 | 1.3 | 04/01/2025 | Adição da implementação do serviço de loja | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo Sobrinho de Aguiar](https://github.com/Leonardo0o0), [Raquel Ferreira Andrade](https://github.com/raquel-andrade) |  |  |
 | 1.4 | 06/01/2025 | Adição da introdução | [Gabryel Nicolas S de Sousa](https://github.com/gabryelns) |  |  |
 | 1.5 | 06/01/2025 | Adição da metodologia e justificativas técnicas | [Bruno Araújo](https://github.com/brunocva) |  |  |
+| 1.6 | 06/01/2025 | Adição da implementação do serviço de produtos | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Kallyne Macedo Passos](https://github.com/kalipassos) |  |  |
+
 
