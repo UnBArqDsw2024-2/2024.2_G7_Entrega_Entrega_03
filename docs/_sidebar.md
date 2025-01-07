@@ -14,5 +14,8 @@
       - [Strategy](/PadroesDeProjeto/GoFsComportamentais/Strategy.md)
       - [Observer](/PadroesDeProjeto/GoFsComportamentais/Observer.md)
       - [Template Method](/PadroesDeProjeto/GoFsComportamentais/TemplateMethod.md)
+      - [Iterator](/PadroesDeProjeto/GoFsComportamentais/Iterator.md)
+      - [Command](/PadroesDeProjeto/GoFsComportamentais/Command.md)
+      - [State](/PadroesDeProjeto/GoFsComportamentais/State.md)
     - [3.4. Participações - Padrões de Projeto](/PadroesDeProjeto/3.4.ParticipacoesPadroes.md)
     - [3.5. Iniciativas Extras - Padrões de Projeto](/PadroesDeProjeto/Extra/3.5.IniciativasExtras.md)
