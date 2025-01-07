@@ -122,6 +122,30 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Kallyne Ma
 
 </center>
 
+### Encapsulamento de chamadas de API do `addres.service`
+
+**Tecnologia:** `React Native`
+
+Encapsulamento de chamadas de API do serviço de endereços em um único arquivo, facilitando a manutenção e a reutilização do código, por meio de um arquivo de fachada (**Facade**) que contém os métodos de chamada da API. O serviço de endereço é responsável por fazer as chamadas de operações CRUD (Create, Read, Update, Delete) do usuário e autenticação para a API.
+
+<details>
+
+<summary><b>Implementação em Código</b></summary>
+
+**Serviço [AddressService](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/blob/17-US06/src/HungryHub.2024.2-Front/hungryhub/src/api/services/address.service.tsx)**
+
+![AddressService](./assets/addressService.png)
+
+**Utilização na tela de endereços [index.tsx](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/blob/17-US06/src/HungryHub.2024.2-Front/hungryhub/src/app/(auth)/(tabs)/profile/addresses/index.tsx)**
+
+![usandoAddressService](./assets/usandoAddressService.png)
+
+</details>
+<center>
+
+**Autores**:  [Guilherme Silva Dutra](https://github.com/GuiDutra21), [Júlio Roberto da Silva Neto](https://github.com/JulioR2022)
+
+</center>
 
 ## Justificativa Técnica
 
@@ -146,5 +170,4 @@ A implementação do padrão Facade, utilizando tecnologias como React Native e 
 | 1.4 | 06/01/2025 | Adição da introdução | [Gabryel Nicolas S de Sousa](https://github.com/gabryelns) |  |  |
 | 1.5 | 06/01/2025 | Adição da metodologia e justificativas técnicas | [Bruno Araújo](https://github.com/brunocva) |  |  |
 | 1.6 | 06/01/2025 | Adição da implementação do serviço de produtos | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Kallyne Macedo Passos](https://github.com/kalipassos) |  |  |
-
-
+| 1.7 | 06/01/2025 | Adiciona Encapsulamento de chamadas de API do `addres.service` | [Guilherme Silva Dutra](https://github.com/GuiDutra21), [Júlio Roberto da Silva Neto](https://github.com/JulioR2022) |  |  |
