@@ -6,11 +6,22 @@ O padrão **Facade** é usado para simplificar o acesso a sistemas complexos. El
 
 ## Metodologia
 
-<!-- Explique como as decisões foram tomadas, as ferramentas utilizadas, e justifique escolhas arquiteturais.
+# Facade
 
-- **Processo de Trabalho**: Descrição do método utilizado pela equipe (ex.: Scrum, Kanban).
-- **Ferramentas Utilizadas**: Ferramentas empregadas na criação deste artefato (ex.: LucidChart, GitHub).
-- **Justificativa**: Razões para as escolhas metodológicas e tecnológicas. -->
+## Introdução
+
+O padrão **Facade** é usado para simplificar o acesso a sistemas complexos. Ele cria uma interface única e mais fácil de usar, escondendo os detalhes internos e tornando a comunicação com diferentes partes do sistema mais organizada. Esse padrão é útil para reduzir a complexidade, facilitar a manutenção e melhorar a clareza do código.
+
+## Metodologia
+
+A metodologia adotada priorizou a organização e eficiência, utilizando abordagens ágeis e ferramentas modernas para garantir entregas incrementais e colaborativas.
+
+
+- **Abordagem Modular**: O padrão **Facade** foi aplicado para encapsular operações complexas em uma interface simplificada, garantindo uma comunicação mais clara e acessível entre os componentes do sistema.
+- **Ferramentas Utilizadas**: Foram empregadas ferramentas como **React Native** e **TypeScript**, que facilitaram a criação de serviços centralizados para chamadas de API e encapsulamento de lógicas complexas. O controle de versão foi realizado com **GitHub**, promovendo rastreabilidade e organização.
+- **Justificativa**: A escolha do padrão **Facade** permitiu uma melhor organização do código e a redução de complexidade nas interações entre componentes. Isso resultou em maior escalabilidade e facilidade de manutenção, aspectos fundamentais para a evolução do projeto.
+
+
 
 ## Implementações no Código Fonte
 
@@ -92,15 +103,8 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo S
 
 ### Justificativa Técnica
 
-<!-- - Justificativas das decisões tomadas, incluindo análise de prós e contras. -->
+A implementação do padrão Facade, utilizando tecnologias como React Native e TypeScript, visou a simplificação das interações entre diferentes partes do sistema, permitindo maior modularidade e separação de responsabilidades. O encapsulamento das chamadas de API em serviços específicos reduziu o acoplamento e facilitou a manutenção do código, além de garantir maior organização e escalabilidade para o projeto.
 
-## Rastreabilidade
-
-<!-- Adicione uma seção para mapear decisões a requisitos ou justificativas técnicas.
-
-| Decisão Relacionada               | Justificativa                                 | Elo     | Data       |
-| --------------------------------- | --------------------------------------------- | ------- | ---------- |
-| Escolha de arquitetura em camadas | Modularidade e separação de responsabilidades | [R01]() | 07/12/2024 | --> 
 
 ## Referências
 
@@ -117,3 +121,4 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo S
 | 1.2 | 02/01/2025 | Adição da implementação do serviço de usuário | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Lucas Martins Gabriel](https://github.com/martinsglucas), [Guilherme Westphall de Queiroz](https://github.com/west7) | [Gabryel Nicolas S de Sousa](https://github.com/gabryelns) | 06/01/2025 |
 | 1.3 | 04/01/2025 | Adição da implementação do serviço de loja | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo Sobrinho de Aguiar](https://github.com/Leonardo0o0), [Raquel Ferreira Andrade](https://github.com/raquel-andrade) |  |  |
 | 1.4 | 06/01/2025 | Adição da introdução | [Gabryel Nicolas S de Sousa](https://github.com/gabryelns) |  |  |
+| 1.5 | 06/01/2025 | Adição da metodologia e justificativas técnicas | [Bruno Araújo](https://github.com/brunocva) |  |  |
