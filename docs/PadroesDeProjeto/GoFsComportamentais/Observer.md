@@ -107,6 +107,25 @@ Autor: [Kallyne Macedo Passos](https://github.com/kalipassos)
 
 </center>
 
+### Observer no useState de erros
+
+O padrão **Observer** é aplicado na funcionalidade de edição e criação de endereços, permitindo que os componentes acompanhem e reajam dinamicamente ao estado dos dados inseridos pelo usuário (como "válido" ou "inválido"). Essa implementação garante que alterações nos campos de entrada sejam imediatamente refletidas em validações ou atualizações visuais, promovendo uma experiência mais responsiva e consistente para o usuário
+
+<details>
+
+<summary><b>Implementação no código</b></summary>
+
+**[createAddress](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/blob/17-US06/src/HungryHub.2024.2-Front/hungryhub/src/app/(auth)/(tabs)/profile/addresses/createAddress.tsx)**
+
+![useStateAddress](./assets/useStateAddress.png)
+
+</details>
+
+<center>
+
+**Autores**:  [Guilherme Silva Dutra](https://github.com/GuiDutra21), [Júlio Roberto da Silva Neto](https://github.com/JulioR2022)
+
+</center>
 
 <!-- ## Rastreabilidade -->
 
@@ -130,3 +149,4 @@ Autor: [Kallyne Macedo Passos](https://github.com/kalipassos)
 | 1.1    | 05/01/2025        | Adição do uso nos signals | [Lucas Martins Gabriel](https://github.com/martinsglucas) |[Kallyne Macedo Passos](https://github.com/kalipassos) |     05/01/2025         |                
 | 1.2    | 05/01/2025        | Adição do uso nos favoritos | [Kallyne Macedo Passos](https://github.com/kalipassos) |              |                 | 
 | 1.3    | 06/01/2025        | Adição de introdução e metodologia | [Lucas Martins Gabriel](https://github.com/martinsglucas) |              |                 |
+| 1.4    | 06/01/2025        | Adiciona Observer no useState de erros |  [Guilherme Silva Dutra](https://github.com/GuiDutra21), [Júlio Roberto da Silva Neto](https://github.com/JulioR2022)    |   |  | 
