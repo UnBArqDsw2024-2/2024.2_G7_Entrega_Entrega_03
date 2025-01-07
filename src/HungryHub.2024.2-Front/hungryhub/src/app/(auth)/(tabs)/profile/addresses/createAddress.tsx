@@ -50,11 +50,11 @@ export default function createAddress() {
         } else {
             setFormErrors({ ...formErrors, rua: "" });
         }
-    }, [rua]);
+    }, [rua]);  
 
     useEffect(() => {
         if (cidade && !cidadeRegex.test(cidade)) {
-            setFormErrors({ ...formErrors, cidade: "Cidade inválida. Deve conter entre 1 e 50 caracteres sendo apenas números e/ou dígitos" });
+            setFormErrors({ ...formErrors, cidade: "Cidade inválida. Deve conter entre 1 e 50 caracteres" });
         } else {
             setFormErrors({ ...formErrors, cidade: "" });
         }
