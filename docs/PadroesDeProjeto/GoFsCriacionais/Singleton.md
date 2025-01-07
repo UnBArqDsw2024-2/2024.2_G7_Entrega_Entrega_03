@@ -19,7 +19,7 @@ No contexto das nossas tecnologias, o padrão **Singleton** é implementado para
 
 ## Implementações no Código Fonte
 
-### Componente de Input para Formulário
+### AuthContext para Contexto de Usuário
 
 **Tecnologia:** `React Native`
 
