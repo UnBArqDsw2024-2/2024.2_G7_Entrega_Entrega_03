@@ -73,5 +73,5 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Bruno Cunh
 
 | Versão | Data da alteração | Comentário | Autor(es) | Revisor(es) | Data de revisão |
 |--------|-----------|-----------|-----------|-------------|-------------|
-| 1.0 | 05/01/2025 | Criação do documento e adição do exemplo da pesquisa | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Raquel Ferreira Andrade](https://github.com/raquel-andrade) | [Bruno Araújo](https://github.com/cva)  | 06/01/2025 |
-| 1.1 | 06/01/2025 | Adição da introdução, metodologia e justificativa técnica | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) | [Bruno Araújo](https://github.com/brunocva) | 06/01/2025 |
+| 1.0 | 05/01/2025 | Criação do documento e adição do exemplo da pesquisa | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Raquel Ferreira Andrade](https://github.com/raquel-andrade) | [Gabryel Nicolas Soares de Sousa](https://github.com/gabryelns)  | 06/01/2025 |
+| 1.1 | 06/01/2025 | Adição da introdução, metodologia e justificativa técnica | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Gabryel Nicolas Soares de Sousa](https://github.com/gabryelns) | [Bruno Araújo](https://github.com/brunocva) | 06/01/2025 |
