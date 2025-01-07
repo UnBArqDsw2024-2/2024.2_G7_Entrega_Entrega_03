@@ -69,5 +69,5 @@ Os responsáveis por preencher a tabela são os membros do time, que devem garan
 
 | Versão | Data da alteração | Comentário | Autor(es) | Revisor(es) | Data de revisão |
 |--------|-----------|-----------|-----------|-------------|-------------|
-| 1.0 | 06/01/2025 | Criação do documento, introdução, metodologia e adiciona tabela | [Raquel Ferreira Andrade](https://github.com/raquel-andrade) |  |  |
+| 1.0 | 06/01/2025 | Criação do documento, introdução, metodologia e adiciona tabela | [Raquel Ferreira Andrade](https://github.com/raquel-andrade) | 06/01/2025 | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) |
 
