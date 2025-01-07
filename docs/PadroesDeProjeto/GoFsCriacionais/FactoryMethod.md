@@ -105,6 +105,32 @@ Autores: [Kallyne Macedo Passos](https://github.com/kalipassos)
 
 </center>
 
+### Componente para o Card do Endereço
+
+**Tecnologia:** `React Native`
+
+Neste componente, foi implementado uma adaptação do padrão Factory Method para a criação dinâmica de diferentes cards exibidos na tela dos endereços do usuário. Cada card é instanciado de forma independente e é responsável por representar visualmente um endereço específico do usuário, encapsulando seus dados (como rua, cidade, estado e CEP) e permitindo uma interação personalizada. Essa abordagem garante flexibilidade e reutilização, além de desacoplar a lógica de criação dos cards da lógica principal do componente.
+
+<details>
+
+<summary><b>Implementação em Código</b></summary>
+
+**Componente [AddressCard.tsx](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/blob/main/src/HungryHub.2024.2-Front/hungryhub/src/components/Profile/AddressCard.tsx)**
+
+![address-card](./assets/address-card.png)
+
+**Utilizado no [index.tsx](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/blob/main/src/HungryHub.2024.2-Front/hungryhub/src/app/(auth)/(tabs)/profile/addresses/index.tsx)**
+
+![address-card-component](./assets/address-card-component.png)
+
+</details>
+
+<center>
+
+**Autores**: [Júlio Roberto da Silva Neto](https://github.com/JulioR2022), [Guilherme Silva Dutra](https://github.com/GuiDutra21)
+
+</center>
+
 ### Exemplo de Factory Method no Django
 
 **Tecnologia:** `Django`
