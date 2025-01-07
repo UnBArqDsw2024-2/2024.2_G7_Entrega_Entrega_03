@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import Cliente, Produto, Usuario, Loja
+from .models import Cliente, Produto, Usuario, Loja, Address
 from django.contrib.auth.models import Group, Permission
 
 group, created = Group.objects.get_or_create(name='Clientes')
@@ -52,3 +52,4 @@ admin.site.register(Usuario, UsuarioAdmin)
 admin.site.register(Cliente)
 admin.site.register(Produto, ProdutoAdmin)
 admin.site.register(Loja)
+admin.site.register(Address)

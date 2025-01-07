@@ -1,30 +1,92 @@
-import React, { useState } from 'react';
-import { 
-  ScrollView, 
-  StyleSheet, 
-  TouchableOpacity, 
+import React, { useState, useEffect } from "react";
+import {
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
   Text,
   SafeAreaView,
-} from 'react-native';
-import Header from '../../../../components/Profile/Header';
-import FormInput from '../../../../components/Profile/FormInput';
-import ProfileButton from '../../../../components/Profile/ProfileButton';
+  Alert,
+  TextInput,
+} from "react-native";
+import Header from "../../../../components/Profile/Header";
+import FormInput from "../../../../components/Profile/FormInput";
+import ProfileButton from "../../../../components/Profile/ProfileButton";
+import { useAuth } from "../../../../context/AuthProvider";
+import { userService } from "../../../../api/services/user.service";
 import { router } from 'expo-router';
 
 const AccountDetails = () => {
+  const { user } = useAuth(); // Obtém o usuário do contexto
   const [formData, setFormData] = useState({
-    name: 'Fulano de Tal',
-    cpf: '000.000.000.00',
-    email: 'You@mail.com',
-    phone: 'You@mail.com',
+    first_name: "",
+    cpf: "",
+    email: "",
+    phone: "",
   });
+  const [newPassword, setNewPassword] = useState(""); // Campo para nova senha
+  const [loading, setLoading] = useState(false);
 
-  const handleSave = () => {
-    console.log('Save changes', formData);
+  // Sincroniza o formulário com os dados do contexto
+  useEffect(() => {
+    if (user) {
+      setFormData({
+        first_name: user.first_name || "",
+        cpf: user.cpf || "",
+        email: user.email || "",
+        phone: user.phone || "",
+      });
+    }
+  }, [user]);
+
+  // Salvar alterações
+  const handleSave = async () => {
+    try {
+      setLoading(true);
+      if (user) {
+        const updatedFields = Object.entries(formData).reduce((acc, [key, value]) => {
+          if (value !== (user as any)[key]) {
+            acc[key] = value;
+          }
+          return acc;
+        }, {} as Record<string, string>);
+
+        if (Object.keys(updatedFields).length === 0) {
+          Alert.alert("Nada a atualizar", "Nenhum dado foi alterado.");
+          return;
+        }
+
+        const updatedUser = await userService.updateUserDetails(user.id, updatedFields);
+
+        console.log("Usuário atualizado com sucesso:", updatedUser);
+        Alert.alert("Sucesso", "Dados atualizados com sucesso!");
+      }
+    } catch (error) {
+      console.error("Erro ao salvar alterações:", error);
+      Alert.alert("Erro", "Não foi possível salvar as alterações.");
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleChangePassword = () => {
-    console.log('Change password');
+  const handleChangePassword = async () => {
+    if (!newPassword.trim()) {
+      Alert.alert("Erro", "A senha não pode estar vazia.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      if (user) {
+        await userService.updateUserPassword(user.id, newPassword);
+        Alert.alert("Sucesso", "Senha alterada com sucesso!");
+        setNewPassword("");
+      }
+    } catch (error) {
+      console.error("Erro ao alterar senha:", error);
+      Alert.alert("Erro", "Não foi possível alterar a senha.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -36,26 +98,31 @@ const AccountDetails = () => {
       <ScrollView style={styles.container}>
         <FormInput
           label="Nome"
-          value={formData.name}
-          onChangeText={(text) => setFormData({ ...formData, name: text })}
+          value={formData.first_name}
+          onChangeText={(text) => setFormData({ ...formData, first_name: text })}
         />
-        
+
         <FormInput
           label="CPF"
           value={formData.cpf}
           onChangeText={(text) => setFormData({ ...formData, cpf: text })}
         />
 
-        <ProfileButton
-          label="Trocar senha"
-          icon="lock"
-          onPress={() => handleChangePassword()}
-        />
-
         <FormInput
           label="Email"
           value={formData.email}
           onChangeText={(text) => setFormData({ ...formData, email: text })}
+        />
+        <FormInput
+          label="Nova Senha"
+          placeholder="Digite a nova senha"
+          value={newPassword}
+          onChangeText={(text) => setNewPassword(text)}
+        />
+        <ProfileButton
+            label="Trocar senha"
+            icon="lock"
+            onPress={handleChangePassword}
         />
 
         <FormInput
@@ -64,11 +131,14 @@ const AccountDetails = () => {
           onChangeText={(text) => setFormData({ ...formData, phone: text })}
         />
 
-        <TouchableOpacity 
-          style={styles.saveButton}
+        <TouchableOpacity
+          style={[styles.saveButton]}
           onPress={handleSave}
+          disabled={loading}
         >
-          <Text style={styles.saveButtonText}>Salvar modificações</Text>
+          <Text style={styles.saveButtonText}>
+            {loading ? "Salvando..." : "Salvar modificações"}
+          </Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>

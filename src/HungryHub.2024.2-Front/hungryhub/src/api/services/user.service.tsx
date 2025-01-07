@@ -56,7 +56,7 @@ export const userService = {
             throw error;
         }
     },
-    getUserDetails: async () => {
+    getUserDetails: async (): Promise<User> => {
       try {
         const response = await apiClient.get("user/details/");
         return response.data;
@@ -64,5 +64,27 @@ export const userService = {
         console.error("Erro ao buscar detalhes do usuário:", error);
         throw error;
       }
-    }
+    },
+    updateUserDetails: async (userId: string, updatedData: Partial<UserBody>): Promise<UserBody> => {
+        try {
+          const response = await apiClient.put<UserBody>(`clientes/${userId}/`, updatedData);
+          return response.data;
+        } catch (error) {
+          console.error("Erro ao atualizar dados do usuário:", error);
+          throw error;
+        }
+    },
+    updateUserPassword: async (userId: string, password: string): Promise<void> => {
+        console.log("Atualizando senha...");
+        console.log(userId, password);
+
+        try {
+            const response = await apiClient.put(`clientes/${userId}/`, { password });
+            return response.data;
+        } catch (error) {
+            console.error("Erro ao atualizar senha:", error);
+            throw error;
+        }
+    },
+           
 }

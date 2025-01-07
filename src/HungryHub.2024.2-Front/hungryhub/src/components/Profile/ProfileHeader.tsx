@@ -1,86 +1,54 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import { Icon } from 'react-native-elements';
 
 type ProfileHeaderProps = {
   name: string;
+  avatarUrl?: string;
 };
 
-const ProfileHeader: React.FC<ProfileHeaderProps> = ({ name }) => {
+const ProfileHeader: React.FC<ProfileHeaderProps> = ({ name, avatarUrl }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Perfil</Text>
-        <View style={styles.icons}>
-          <Icon
-            name="shopping-cart"
-            type="font-awesome"
-            size={20}
-            color="#000"
-            containerStyle={styles.icon}
-          />
-          <Icon
-            name="bell"
-            type="font-awesome"
-            size={20}
-            color="#000"
-          />
-        </View>
+    {avatarUrl ? (
+      <Image source={{ uri: avatarUrl }} style={styles.avatar} />
+    ) : (
+      <View style={styles.avatarFallback}>
+        <Icon name="user" type="font-awesome" size={40} color="#CCCCCC" />
       </View>
-      <View style={styles.profile}>
-        <View style={styles.avatar}>
-          <Icon
-            name="user"
-            type="font-awesome"
-            size={40}
-            color="#CCCCCC"
-          />
-        </View>
-        <Text style={styles.name}>{name}</Text>
-      </View>
-    </View>
-  );
+    )}
+    <Text style={styles.name}>{name}</Text>
+  </View>
+);
 };
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 32,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 24,
-    paddingHorizontal: 4,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-  icons: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  icon: {
-    marginRight: 16,
-  },
-  profile: {
-    alignItems: 'center',
+    alignItems: "center",
+    marginBottom: 20,
+    marginTop: 20,
   },
   avatar: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: '#EEEEEE',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 8,
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    marginBottom: 10,
+  },
+  avatarFallback: {
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    marginBottom: 10,
+    backgroundColor: "#EFEFEF",
+    alignItems: "center",
+    justifyContent: "center",
   },
   name: {
-    fontSize: 20,
-    fontWeight: '700',
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#000",
   },
 });
 
-export default ProfileHeader;
 
+export default ProfileHeader;
