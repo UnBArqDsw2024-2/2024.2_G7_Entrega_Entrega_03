@@ -161,4 +161,4 @@ Autores: [Lucas Martins Gabriel](https://github.com/martinsglucas)
 | 1.2 | 02/01/2025 | Adicionando referências | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) | [Kallyne Macedo Passos](https://github.com/kalipassos) | 05/01/2025 |
 | 1.2 | 05/01/2025 | Adição do exemplo da lista de pesquisa | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Raquel Ferreira Andrade](https://github.com/raquel-andrade) |[Kallyne Macedo Passos](https://github.com/kalipassos)  | 05/01/2025 |
 | 1.2 | 05/01/2025 | Adição da introdução, metodologia e seção para produtos | [Kallyne Macedo Passos](https://github.com/kalipassos) | [Gabryel Nicolas S de Sousa](https://github.com/gabryelns) | 06/01/2025 |
-| 1.3 | 06/01/2025 | Adição do exemplo de Factory Method no Django | [Lucas Martins Gabriel](https://github.com/martinsglucas) | | |
+| 1.3 | 06/01/2025 | Adição do exemplo de Factory Method no Django | [Lucas Martins Gabriel](https://github.com/martinsglucas) | [Wolfgang Friedrich Stein](https://github.com/Wolffstein)| |
