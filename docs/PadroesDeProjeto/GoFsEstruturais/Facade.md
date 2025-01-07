@@ -2,9 +2,17 @@
 
 ## Introdução
 
-O padrão **Facade** é usado para simplificar o acesso a sistemas complexos. Ele cria uma interface única e mais fácil de usar, escondendo os detalhes internos e tornando a comunicação com diferentes partes do sistema mais organizada. Esse padrão é útil para reduzir a complexidade, facilitar a manutenção e melhorar a clareza do código.
+O padrão **Facade** é usado para simplificar o acesso a sistemas complexos. Ele cria uma interface única e mais fácil de usar, escondendo os detalhes internos e tornando a comunicação com diferentes partes do sistema mais organizada. Esse padrão é útil para reduzir a complexidade, facilitar a manutenção e melhorar a clareza do código. (REFACTORING GURU, 2025).
+
+![Facade](./assets/facade.png)
+
+**Imagem:** Exemplo de estrutura do padrão Facade (REFACTORING GURU, 2025).
+
+No contexto das nossas tecnologias, o padrão **Facade** é implementado para fornecer uma interface simplificada que abstrai a complexidade de um conjunto de classes ou subsistemas. Em React Native, o padrão pode ser aplicado para organizar a lógica de interação com APIs, bancos de dados ou serviços externos, expondo apenas os métodos essenciais para os componentes da aplicação. Por exemplo, um módulo de gerenciamento de dados pode oferecer uma fachada que unifica operações de leitura e escrita em diferentes fontes de dados, simplificando o desenvolvimento e reduzindo o acoplamento entre os componentes e a lógica subjacente. Essa abordagem é especialmente útil para melhorar a clareza e a manutenibilidade do código em projetos complexos.
 
 ## Metodologia
+
+No projeto, o padrão Facade foi usado principalmente para esconder as complexidades das chamadas da API do `Django REST Framework`. A fachada foi implementada em serviços que encapsulam as chamadas de API em um único arquivo, facilitando a manutenção e a reutilização do código. A fachada é responsável por fazer as chamadas de operações CRUD (Create, Read, Update, Delete) para a API, ocultando os detalhes internos e expondo apenas os métodos essenciais para os componentes da aplicação. Isso permite que os componentes se comuniquem com a API de forma mais organizada e simplificada, melhorando a clareza e a manutenibilidade do código.
 
 <!-- Explique como as decisões foram tomadas, as ferramentas utilizadas, e justifique escolhas arquiteturais.
 
@@ -16,14 +24,11 @@ O padrão **Facade** é usado para simplificar o acesso a sistemas complexos. El
 
 <!-- Descreva como o padrão foi implementado no projeto, incluindo código e diagramas. -->
 
-
-
 ### Função `handleLogin` na tela de Login
 
 **Tecnologia:** `React Native`
 
 A função `handleLogin` atua como uma fachada para o processo de login. Ela encapsula a complexidade da lógica de autenticação, incluindo a construção do objeto UserLogin, a chamada da função `loginUser`, o tratamento de erros e a navegação do usuário em uma única função. Os detalhes internos são escondidos do restante do componente.
-
 
 <details>
 <summary><b>Implementação em Código</b></summary>
@@ -90,24 +95,14 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo S
 
 </center>
 
-### Justificativa Técnica
-
-<!-- - Justificativas das decisões tomadas, incluindo análise de prós e contras. -->
-
-## Rastreabilidade
-
-<!-- Adicione uma seção para mapear decisões a requisitos ou justificativas técnicas.
-
-| Decisão Relacionada               | Justificativa                                 | Elo     | Data       |
-| --------------------------------- | --------------------------------------------- | ------- | ---------- |
-| Escolha de arquitetura em camadas | Modularidade e separação de responsabilidades | [R01]() | 07/12/2024 | --> 
 
 ## Referências
 
 1. HEWAWASAM, Lakindu. Using GoF design patterns with React. Blog Bits and Pieces, 4 maio 2023. Disponível em: https://blog.bitsrc.io/using-gof-design-patterns-with-react-c334f3ea3147. Acesso em: 02 jan. 2025.
 2. Dev Junior Alves. Como aplicar Design Patterns no React com hooks?!. Youtube, 23 maio 2024. Disponível em: https://www.youtube.com/watch?v=kK-4Cpt5_o4. Acesso em: 02 jan. 2025.
 3. AWAN, Talha. GOF Design Patterns in React JS. TecHighness. 21 maio 2022. Disponível em: https://www.techighness.com/post/gof-design-patterns-react-js/. Acesso em: 02 jan. 2025.
-
+4. REFATORING GURU. Facade. Disponível em: https://refactoring.guru/design-patterns/facade. Acesso em: 6 jan. 2025.
+   
 ## Histórico de Versões
 
 | Versão | Data da alteração | Comentário                   | Autor(es)                                       | Revisor(es) | Data de revisão |
@@ -117,3 +112,4 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo S
 | 1.2 | 02/01/2025 | Adição da implementação do serviço de usuário | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Lucas Martins Gabriel](https://github.com/martinsglucas), [Guilherme Westphall de Queiroz](https://github.com/west7) | [Gabryel Nicolas S de Sousa](https://github.com/gabryelns) | 06/01/2025 |
 | 1.3 | 04/01/2025 | Adição da implementação do serviço de loja | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo Sobrinho de Aguiar](https://github.com/Leonardo0o0), [Raquel Ferreira Andrade](https://github.com/raquel-andrade) |  |  |
 | 1.4 | 06/01/2025 | Adição da introdução | [Gabryel Nicolas S de Sousa](https://github.com/gabryelns) |  |  |
+| 1.5 | 06/01/2025 | Melhoria na Introdução e Metodoologia | [Guiherme Westphall](https://github.com/west7) |  |  |
