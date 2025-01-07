@@ -8,7 +8,7 @@
 - **Contexto**: Breve explicação sobre o projeto e sua importância.
 - **Escopo**: Delimitação do conteúdo abordado neste documento. -->
 
-O Factory Method é um padrão de projeto criacional que oferece uma abordagem flexível para criação de objetos, delegando a instanciação às subclasses. No projeto, este padrão foi aplicado para gerenciar a criação de componentes de interface e entidades no backend. No React Native, foi utilizado para a criação de componentes de formulário, listas de resultados de pesquisa e seções de produto, permitindo uma manutenção simplificada do código. Já no Django, o padrão foi aplicado para gerenciar a criação de usuários e superusuários, promovendo uma separação clara de responsabilidades.
+O **Factory Method** é um padrão de projeto criacional que oferece uma abordagem flexível para criação de objetos, delegando a instanciação às subclasses. No projeto, este padrão foi aplicado para gerenciar a criação de componentes de interface e entidades no backend. No React Native, foi utilizado para a criação de componentes de formulário, listas de resultados de pesquisa e seções de produto, permitindo uma manutenção simplificada do código. Já no Django, o padrão foi aplicado para gerenciar a criação de usuários e superusuários, promovendo uma separação clara de responsabilidades.
 
 ## Metodologia
 
@@ -126,8 +126,17 @@ Autores: [Lucas Martins Gabriel](https://github.com/martinsglucas)
 
 </center>
 
-<!-- ### Justificativa Técnica
-- Justificativas das decisões tomadas, incluindo análise de prós e contras. -->
+### Justificativa Técnica
+
+- **Prós**:
+    - O padrão Factory Method permite padronizar a criação de componentes complexos. Por exemplo, você pode ter uma factory para criar diferentes tipos de seções contendo tipos diferentes de produto de forma a manter a consistência e o formato independente do conteúdo.  
+    - Manutenção simples, pois a lógica de criação de um componente pode ser alterada sem afetar outros pontos no código.
+    - Capacidade de extensão, tornando possível adicionar uma nova classe concreta sem modificar o código existente.
+
+- **Contras**:
+    - Adiciona complexidade ao projeto e tem uma curva de aprendizado alta para desenvolvedores que não conhecem o padrão.  
+    - Precisa de mais código inicial do que o comum para configurar a estrutura do padrão.
+    - Pode gerar soluções mais complicadas do que o necessário, considerando que, através do React, é possível obter resultados através de props e da composição de componentes sem a necessidade de uma factory.
 
 
 <!-- ## Rastreabilidade Adicione uma seção para mapear decisões a requisitos ou justificativas técnicas.
