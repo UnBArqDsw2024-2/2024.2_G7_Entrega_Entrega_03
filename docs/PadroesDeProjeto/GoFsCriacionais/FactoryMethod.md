@@ -8,7 +8,7 @@
 - **Contexto**: Breve explicação sobre o projeto e sua importância.
 - **Escopo**: Delimitação do conteúdo abordado neste documento. -->
 
-O Factory Method é um padrão de projeto criacional que oferece uma abordagem flexível para criação de objetos, delegando a instanciação às subclasses. No projeto, este padrão foi aplicado para gerenciar a criação de componentes de interface, especificamente em formulários de entrada, listas de resultados de pesquisa e seções de produto, permitindo uma manutenção simplificada do código.
+O Factory Method é um padrão de projeto criacional que oferece uma abordagem flexível para criação de objetos, delegando a instanciação às subclasses. No projeto, este padrão foi aplicado para gerenciar a criação de componentes de interface e entidades no backend. No React Native, foi utilizado para a criação de componentes de formulário, listas de resultados de pesquisa e seções de produto, permitindo uma manutenção simplificada do código. Já no Django, o padrão foi aplicado para gerenciar a criação de usuários e superusuários, promovendo uma separação clara de responsabilidades.
 
 ## Metodologia
 
@@ -18,11 +18,12 @@ O Factory Method é um padrão de projeto criacional que oferece uma abordagem f
 - **Ferramentas Utilizadas**: Ferramentas empregadas na criação deste artefato (ex.: LucidChart, GitHub).
 - **Justificativa**: Razões para as escolhas metodológicas e tecnológicas. -->
 
-O padrão Factory Method foi implementado em três principais áreas do aplicativo:
+O padrão Factory Method foi implementado em quatro principais áreas do aplicativo:
 
-Componentes de Input: Desenvolveu-se uma fábrica de inputs que gera diferentes tipos de campos (texto, senha, email) baseados em propriedades recebidas. A factory abstrai a complexidade de criação e permite adicionar novos tipos de input sem modificar o código existente.
-Lista de Resultados de Pesquisa: Implementou-se uma adaptação do Factory Method para renderizar diferentes tipos de itens em uma FlatList (restaurantes, produtos, promoções). A fábrica determina qual componente deve ser renderizado baseado no tipo do item recebido, mantendo o código organizado e extensível.
-Seções de Produtos: Desenvolveu-se uma fábrica de seções para a criação de diferentes áreas na tela inicial do aplicativo considerando a dinamicidade do aplicativo e possibilitando a criação de seções para atender momentos determinados como feriados e datas comemorativas.
+- Componentes de Input: Desenvolveu-se uma fábrica de inputs que gera diferentes tipos de campos (texto, senha, email) baseados em propriedades recebidas. A factory abstrai a complexidade de criação e permite adicionar novos tipos de input sem modificar o código existente.
+- Lista de Resultados de Pesquisa: Implementou-se uma adaptação do Factory Method para renderizar diferentes tipos de itens em uma FlatList (restaurantes, produtos, promoções). A fábrica determina qual componente deve ser renderizado baseado no tipo do item recebido, mantendo o código organizado e extensível.
+- Seções de Produtos: Desenvolveu-se uma fábrica de seções para a criação de diferentes áreas na tela inicial do aplicativo considerando a dinamicidade do aplicativo e possibilitando a criação de seções para atender momentos determinados como feriados e datas comemorativas.
+- Gerenciamento de Usuários: Foi implementada uma fábrica para a criação de diferentes tipos de usuários (usuários comuns e superusuários). A classe `UsuarioManager` centraliza a lógica de criação, permitindo uma distinção clara entre os tipos de usuários e garantindo maior flexibilidades.
 
 ## Implementações no Código Fonte
 
@@ -104,6 +105,26 @@ Autores: [Kallyne Macedo Passos](https://github.com/kalipassos)
 
 </center>
 
+### Exemplo de Factory Method no Django
+
+**Tecnologia:** `Django`
+
+Nesse exemplo, temos a implementação do padrão Factory Method no Django, onde o método `create_user` é responsável por criar um usuário comum e o método `create_superuser` é responsável por criar um superusuário. A fábrica `UsuarioManager` é responsável por criar os usuários de acordo com o tipo passado como parâmetro.
+
+<details>
+<summary><b>Implementação em Código</b></summary>
+
+**[UsuarioManager.py](https://github.com/UnBArqDsw2024-2/2024.2_G7_Entrega_Entrega_03/blob/main/src/HungryHub.2024.2-Back/hungryhub/models.py#L6)**:
+
+![factory-usuario](./assets/FactoryMethod%20-%20UsuarioManager.png)
+
+</details>
+
+<center>
+
+Autores: [Lucas Martins Gabriel](https://github.com/martinsglucas)
+
+</center>
 
 <!-- ### Justificativa Técnica
 - Justificativas das decisões tomadas, incluindo análise de prós e contras. -->
@@ -131,3 +152,4 @@ Autores: [Kallyne Macedo Passos](https://github.com/kalipassos)
 | 1.2 | 02/01/2025 | Adicionando referências | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo) | [Kallyne Macedo Passos](https://github.com/kalipassos) | 05/01/2025 |
 | 1.2 | 05/01/2025 | Adição do exemplo da lista de pesquisa | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Raquel Ferreira Andrade](https://github.com/raquel-andrade) |[Kallyne Macedo Passos](https://github.com/kalipassos)  | 05/01/2025 |
 | 1.2 | 05/01/2025 | Adição da introdução, metodologia e seção para produtos | [Kallyne Macedo Passos](https://github.com/kalipassos) | [Gabryel Nicolas S de Sousa](https://github.com/gabryelns) | 06/01/2025 |
+| 1.3 | 06/01/2025 | Adição do exemplo de Factory Method no Django | [Lucas Martins Gabriel](https://github.com/martinsglucas) | | |
