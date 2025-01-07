@@ -19,13 +19,7 @@ A metodologia adotada priorizou a organização e eficiência, utilizando aborda
 - **Ferramentas Utilizadas**: Foram empregadas ferramentas como **React Native** e **TypeScript**, que facilitaram a criação de serviços centralizados para chamadas de API e encapsulamento de lógicas complexas. O controle de versão foi realizado com **GitHub**, promovendo rastreabilidade e organização.
 - **Justificativa**: A escolha do padrão **Facade** permitiu uma melhor organização do código e a redução de complexidade nas interações entre componentes. Isso resultou em maior escalabilidade e facilidade de manutenção, aspectos fundamentais para a evolução do projeto.
 
-## Exemplo de Implementação no Projeto
-
 No projeto, o padrão Facade foi usado principalmente para esconder as complexidades das chamadas da API do `Django REST Framework`. A fachada foi implementada em serviços que encapsulam as chamadas de API em um único arquivo, facilitando a manutenção e a reutilização do código. A fachada é responsável por fazer as chamadas de operações CRUD (Create, Read, Update, Delete) para a API, ocultando os detalhes internos e expondo apenas os métodos essenciais para os componentes da aplicação. Isso permite que os componentes se comuniquem com a API de forma mais organizada e simplificada, melhorando a clareza e a manutenibilidade do código.
-
-<!-- Explique como as decisões foram tomadas, as ferramentas utilizadas, e justifique escolhas arquiteturais.
->>>>>>> 13d4db7707a38abaa117e2fa3b48ba24b7498641
-
 
 ## Implementações no Código Fonte
 
