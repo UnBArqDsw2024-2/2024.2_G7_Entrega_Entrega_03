@@ -2,11 +2,7 @@
 
 ## Introdução
 
-<!-- Inclua os seguintes elementos:
-
-- **Objetivo**: Descrever o propósito deste documento.
-- **Contexto**: Breve explicação sobre o projeto e sua importância.
-- **Escopo**: Delimitação do conteúdo abordado neste documento. -->
+O padrão **Facade** é usado para simplificar o acesso a sistemas complexos. Ele cria uma interface única e mais fácil de usar, escondendo os detalhes internos e tornando a comunicação com diferentes partes do sistema mais organizada. Esse padrão é útil para reduzir a complexidade, facilitar a manutenção e melhorar a clareza do código.
 
 ## Metodologia
 
@@ -116,7 +112,8 @@ Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo S
 
 | Versão | Data da alteração | Comentário                   | Autor(es)                                       | Revisor(es) | Data de revisão |
 | ------ | ----------------- | ---------------------------- | ----------------------------------------------- | ----------- | --------------- |
-| 1.0    | 27/12/2024        | Criação do documento         | [Guilherme Westphall](https://github.com/west7) |             |                 |
-| 1.1    | 27/12/2024        | Adição da função handleLogin | [Guilherme Westphall](https://github.com/west7) |             |                 |# Facade
-| 1.2 | 02/01/2025 | Adição da implementação do serviço de usuário | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Lucas Martins Gabriel](https://github.com/martinsglucas), [Guilherme Westphall de Queiroz](https://github.com/west7) |  |  |
+| 1.0    | 27/12/2024        | Criação do documento         | [Guilherme Westphall](https://github.com/west7) |  [Gabryel Nicolas S de Sousa](https://github.com/gabryelns) | 06/01/2025 |
+| 1.1    | 27/12/2024        | Adição da função handleLogin | [Guilherme Westphall](https://github.com/west7) |     [Gabryel Nicolas S de Sousa](https://github.com/gabryelns) | 06/01/2025 |# Facade
+| 1.2 | 02/01/2025 | Adição da implementação do serviço de usuário | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Lucas Martins Gabriel](https://github.com/martinsglucas), [Guilherme Westphall de Queiroz](https://github.com/west7) | [Gabryel Nicolas S de Sousa](https://github.com/gabryelns) | 06/01/2025 |
 | 1.3 | 04/01/2025 | Adição da implementação do serviço de loja | [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo Sobrinho de Aguiar](https://github.com/Leonardo0o0), [Raquel Ferreira Andrade](https://github.com/raquel-andrade) |  |  |
+| 1.4 | 06/01/2025 | Adição da introdução | [Gabryel Nicolas S de Sousa](https://github.com/gabryelns) |  |  |
