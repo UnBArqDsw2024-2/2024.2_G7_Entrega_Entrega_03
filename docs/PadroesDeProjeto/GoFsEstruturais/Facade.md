@@ -92,7 +92,8 @@ Encapsulamento de chamadas de API do serviço de loja em um único arquivo, faci
 
 <center>
 
-Autores: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Leonardo Sobrinho de Aguiar](https://github.com/Leonardo0o0), [Raquel Ferreira Andrade](https://github.com/raquel-andrade)
+
+Autores: [Bruno Cunha Vasconcelos de Araújo](https://github.com/brunocva),[Felipe Amorim de Araújo](https://github.com/lipeaaraujo), [Lucas Martins Gabriel](https://github.com/martinsglucas), [Guilherme Westphall de Queiroz](https://github.com/west7),[Wolfgang Friedrich Stein](https://github.com/Wolffstein)
 
 </center>
 
