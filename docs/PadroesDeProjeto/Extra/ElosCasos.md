@@ -32,7 +32,7 @@ Além disso, iremos adicionar a rastreabilidade das branches e pull requests com
 
 | Caso de uso | Issue de Desenvolvimento | História de Usuário | Branch | Pull Request |
 |-------------|--------------------------|---------------------|--------|--------------|
-| *[UCXX]() - Nome do Caso de Uso* | *[Issue #XX]() - Título da issue* | *[USXX]() - Nome da História* | *[Nome da branch]()* | *[PR #XX]() - Título do pull request* |
+| *[UCXX]() - Nome do Caso de Uso* | *[Issue #XX]() - Título da issue* | *[USXX]()* | *[Nome da branch]()* | *[PR #XX]() - Título do pull request* |
 
 **Autores**: [Felipe Amorim de Araújo](https://github.com/lipeaaraujo)
 
@@ -40,7 +40,7 @@ Além disso, iremos adicionar a rastreabilidade das branches e pull requests com
 
 Os responsáveis por preencher a tabela são os membros do time, que devem garantir que os elos entre casos de uso e as tarefas de desenvolvimento sejam criados e mantidos atualizados. Esse processo será feito durante o desenvolvimento do projeto e as futuras entregas.
 
-## Elos entre Desenvolvimento e Histórias de Usuário
+## Elos entre Desenvolvimento e Casos de Uso
 
 | Caso de uso | Issue de Desenvolvimento | História de Usuário | Branch | Pull Request |
 |-------------|--------------------------|---------------------|--------|--------------|
