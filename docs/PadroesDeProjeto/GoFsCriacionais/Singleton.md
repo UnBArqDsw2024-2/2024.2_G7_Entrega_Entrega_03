@@ -69,9 +69,23 @@ Autores: [Kauan Eiras](https://github.com/kauaneiras)
 
 </center>
 
+### Justificativa Técnica 
 
 
-<!-- ### Justificativa Técnica - Justificativas das decisões tomadas, incluindo análise de prós e contras. -->
+- **Prós**:
+
+   - O uso do padrão Singleton garante instância única para gerenciamento de estado global.
+   - Centraliza lógica de autenticação, evitando duplicações.
+   - Facilita compartilhamento de recursos entre componentes.
+   - Economiza recursos evitando múltiplas instâncias.
+
+- **Contras**:
+
+    - Dificulta testes por estado global.
+    - Pode criar acoplamento forte entre componentes.
+    - Complica rastreamento de mudanças de estado.
+
+<!-- - Justificativas das decisões tomadas, incluindo análise de prós e contras. -->
 
 
 

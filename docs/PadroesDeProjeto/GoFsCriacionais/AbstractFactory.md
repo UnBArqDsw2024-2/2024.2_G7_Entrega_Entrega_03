@@ -61,6 +61,6 @@ Autores: [Kauan Eiras](https://github.com/kauaneiras)
 
 ## **Histórico de Versões**
 
-| Versão | Data             | Comentário           | Autor(es)                 | Revisor(es)             |
-|--------|------------------|----------------------|---------------------------|-------------------------|
-| 1.0    | 06/01/2025       | Criação do documento | [Kauan Eiras](https://github.com/kauaneiras) | [Kallyne Passos](https://github.com/kalipassos) |
+| Versão | Data             | Comentário           | Autor(es)                 | Revisor(es)             | Data da revisão |
+|--------|------------------|----------------------|---------------------------|-------------------------|-------------|
+| 1.0    | 06/01/2025       | Criação do documento | [Kauan Eiras](https://github.com/kauaneiras) | [Kallyne Passos](https://github.com/kalipassos) | 06/01/2025 |
